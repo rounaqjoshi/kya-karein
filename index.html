@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kya karein?</title>
+<style>
+  :root{
+    --bg:#f6f5f1; --card:#ffffff; --ink:#1c1c1e; --muted:#6b6b70; --line:#e6e3dc;
+    --red:#c8102e;        /* sports / Man U nod */
+    --purple:#6d4ca8;     /* concerts */
+    --rose:#d6336c;       /* couples */
+    --orange:#e8590c;     /* pop-ups */
+    --food:#c92a2a;       /* food */
+    --indigo:#3b5bdb;     /* personal */
+    --amber:#b8860b;      /* warnings */
+    --green:#2b8a3e; --shadow:0 1px 3px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:22px 18px 60px}
+
+  /* Header */
+  header.top{background:linear-gradient(135deg,#1c1c1e,#2c2c30);color:#fff;border-radius:18px;
+    padding:26px 28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  header.top:before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;
+    background:radial-gradient(circle,rgba(200,16,46,.35),transparent 70%);}
+  header.top h1{margin:0;font-size:26px;letter-spacing:-.4px}
+  header.top .week{font-size:18px;margin-top:4px;color:#ffd9df;font-weight:600}
+  header.top .meta{margin-top:10px;font-size:12.5px;color:#c9c9cf;display:flex;gap:16px;flex-wrap:wrap}
+  header.top .meta b{color:#fff}
+
+  /* Layout */
+  .grid{display:grid;grid-template-columns:1fr 330px;gap:22px;margin-top:22px;align-items:start}
+  @media(max-width:880px){.grid{grid-template-columns:1fr}}
+
+  /* Sidebar */
+  aside{position:sticky;top:14px;display:flex;flex-direction:column;gap:16px}
+  @media(max-width:880px){aside{position:static}}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+  .box h3{margin:0;padding:13px 16px;font-size:14px;letter-spacing:.3px;text-transform:uppercase}
+  .warn h3{background:#fff4d6;color:#7a5c00;border-bottom:1px solid #f0e2b0}
+  .warn ul{list-style:none;margin:0;padding:8px 14px 14px}
+  .warn li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px}
+  .warn li:last-child{border-bottom:none}
+  .warn .d{font-weight:700;color:var(--amber);display:block;font-size:12px;text-transform:uppercase;letter-spacing:.3px}
+  .pick h3{background:#eef1ff;color:#2f3da8;border-bottom:1px solid #dde3ff}
+  .pick ol{margin:0;padding:10px 14px 14px 30px;font-size:13.5px}
+  .pick li{margin:6px 0}
+  .legend{font-size:12px;color:var(--muted);padding:12px 16px}
+  .legend span{display:inline-flex;align-items:center;gap:5px;margin:3px 10px 3px 0}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+  /* Sections */
+  section.blk{margin-bottom:26px}
+  .blk > h2{display:flex;align-items:center;gap:10px;font-size:19px;margin:0 0 12px;
+    padding-bottom:8px;border-bottom:2px solid var(--line)}
+  .blk > h2 .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff;font-size:16px;flex:none}
+  .blk.sport h2 .ic{background:var(--red)} .blk.music h2 .ic{background:var(--purple)}
+  .blk.couple h2 .ic{background:var(--rose)} .blk.pop h2 .ic{background:var(--orange)}
+  .blk.food h2 .ic{background:var(--food)} .blk.me h2 .ic{background:var(--indigo)}
+  .blk.cal h2 .ic{background:#0c8599}
+  .sub{font-size:12.5px;color:var(--muted);margin:-6px 0 12px}
+
+  /* Cards */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  @media(max-width:620px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px;border-left:4px solid var(--line)}
+  .card.s{border-left-color:var(--red)} .card.m{border-left-color:var(--purple)}
+  .card.c{border-left-color:var(--rose)} .card.p{border-left-color:var(--orange)}
+  .card.f{border-left-color:var(--food)} .card.i{border-left-color:var(--indigo)}
+  .card .when{font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--muted)}
+  .card .title{font-size:15.5px;font-weight:700;line-height:1.25}
+  .card .loc{font-size:12.5px;color:var(--muted)}
+  .card .loc b{color:var(--ink);font-weight:600}
+  .card .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:4px;flex-wrap:wrap}
+  .price{font-size:12px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .free{background:#e6f4ea;color:var(--green)} .bud{background:#fff7e0;color:#9a6b00}
+  .mid{background:#fff0e6;color:#b5530a} .spl{background:#fde7ea;color:#b01030}
+  .btn{font-size:12px;font-weight:700;text-decoration:none;padding:6px 12px;border-radius:9px;
+    background:var(--ink);color:#fff;white-space:nowrap}
+  .btn:hover{opacity:.88}
+  .tag{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+    padding:2px 7px;border-radius:5px;background:#f0eee8;color:var(--muted);margin-right:4px}
+  .tag.hot{background:#ffe3e3;color:#c92a2a}
+
+  /* Summer timeline */
+  .timeline{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px 16px 10px}
+  .axis{position:relative;height:22px;margin:0 0 6px;border-bottom:1px solid var(--line)}
+  .axis .mk{position:absolute;top:0;transform:translateX(-50%);font-size:10.5px;color:var(--muted)}
+  .axis .mk:before{content:"";position:absolute;left:50%;top:16px;width:1px;height:6px;background:var(--line)}
+  .nowband{position:absolute;top:0;bottom:-220px;background:rgba(200,16,46,.07);border-left:1px dashed var(--red);border-right:1px dashed var(--red);z-index:0}
+  .nowlbl{position:absolute;top:-2px;font-size:9.5px;font-weight:800;color:var(--red);transform:translateX(-50%)}
+  .tlrow{position:relative;height:30px;margin:7px 0;z-index:1}
+  .tlrow .lab{position:absolute;left:0;top:5px;font-size:11.5px;color:var(--muted);z-index:2}
+  .bar{position:absolute;height:20px;top:3px;border-radius:6px;color:#fff;font-size:10.5px;font-weight:700;
+    display:flex;align-items:center;padding:0 7px;white-space:nowrap;overflow:hidden;box-shadow:var(--shadow)}
+
+  footer{margin-top:30px;font-size:11.5px;color:var(--muted);text-align:center;line-height:1.7;border-top:1px solid var(--line);padding-top:16px}
+  .nothing{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>🗓️ Kya karein?</h1>
+    <div class="week">Mon Jun 8 → Sun Jun 14, 2026</div>
+    <div class="meta">
+      <span>📍 GTA: Toronto · Etobicoke · Mississauga · Oakville · Brampton</span>
+      <span>🔄 Refreshed <b>Sat, Jun 6</b></span>
+      <span>⏭️ Auto-updates <b>every Sunday eve</b> for the week ahead</span>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- ===================== MAIN ===================== -->
+    <main>
+
+      <!-- SPORTS -->
+      <section class="blk sport">
+        <h2><span class="ic">⚽</span> Sports</h2>
+        <p class="sub">The World Cup lands in Toronto this week — plus a stacked Blue Jays homestand (Phillies, then the Yankees).</p>
+        <div class="cards">
+
+          <div class="card s">
+            <span class="when">Fri Jun 12 · 3:00 PM</span>
+            <span class="title">FIFA World Cup 2026 — Canada’s Opener <span class="tag hot">Historic</span></span>
+            <span class="loc">Canada vs UEFA Play-off A winner · <b>BMO Field</b>, 170 Princes’ Blvd (Exhibition Place)</span>
+            <div class="row"><span class="price spl">$$$ resale/premium only</span><a class="btn" href="https://torontofwc26.ca/game" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+          <div class="card s">
+            <span class="when">Mon Jun 8 · 7:07 PM</span>
+            <span class="title">Blue Jays vs Phillies</span>
+            <span class="loc">Roy Halladay retro jersey giveaway · <b>Rogers Centre</b>, 1 Blue Jays Way</span>
+            <div class="row"><span class="price bud">$ from ~$20</span><a class="btn" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+          <div class="card s">
+            <span class="when">Tue Jun 9 · 7:07 PM</span>
+            <span class="title">Blue Jays vs Phillies — Loonie Dogs Night</span>
+            <span class="loc">$1 hot dogs 🌭 · <b>Rogers Centre</b>, 1 Blue Jays Way</span>
+            <div class="row"><span class="price bud">$ from ~$20</span><a class="btn" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+          <div class="card s">
+            <span class="when">Wed Jun 10 · ~7:07 PM</span>
+            <span class="title">Blue Jays vs Phillies</span>
+            <span class="loc">Series finale · <b>Rogers Centre</b>, 1 Blue Jays Way</span>
+            <div class="row"><span class="price bud">$ from ~$20</span><a class="btn" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+          <div class="card s">
+            <span class="when">Fri Jun 12 – Sun Jun 14</span>
+            <span class="title">Blue Jays vs NY Yankees <span class="tag hot">Big series</span></span>
+            <span class="loc">Sat 3:07 PM · Sun 1:37 PM (Jr. Jays Sundays) · <b>Rogers Centre</b> — note: Fri overlaps World Cup day = heavy downtown traffic</span>
+            <div class="row"><span class="price mid">$$ Yankees premium</span><a class="btn" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONCERTS -->
+      <section class="blk music">
+        <h2><span class="ic">🎵</span> Concerts</h2>
+        <p class="sub">NXNE takes over the city (300+ artists, 30 venues) with free shows at Sankofa Square — cheapest way to discover live music all week.</p>
+        <div class="cards">
+
+          <div class="card m">
+            <span class="when">Jun 10 – 14 · all week</span>
+            <span class="title">NXNE Festival <span class="tag">Free + paid</span></span>
+            <span class="loc">300+ acts across 30 venues · <b>Free afternoon shows + free hot dogs at Sankofa (Yonge-Dundas) Square</b></span>
+            <div class="row"><span class="price free">Free / wristband for venues</span><a class="btn" href="https://www.nxne.com/" target="_blank" rel="noopener">Lineup</a></div>
+          </div>
+
+          <div class="card m">
+            <span class="when">Sat Jun 13 · 8:30 PM</span>
+            <span class="title">Rosalía — LUX Tour 2026 <span class="tag hot">Major</span></span>
+            <span class="loc"><b>Scotiabank Arena</b>, 40 Bay St</span>
+            <div class="row"><span class="price spl">$$$ ~$90–300+</span><a class="btn" href="https://www.scotiabankarena.com/events/category/concerts" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+          <div class="card m">
+            <span class="when">Tue–Wed Jun 9–10</span>
+            <span class="title">Jane Remover</span>
+            <span class="loc">Two nights · <b>Danforth Music Hall</b>, 147 Danforth Ave</span>
+            <div class="row"><span class="price mid">$$ ~$40</span><a class="btn" href="https://www.thedanforth.com/shows" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+          <div class="card m">
+            <span class="when">Sat Jun 13 · eve</span>
+            <span class="title">HONNE — 10-Year Anniversary Tour</span>
+            <span class="loc"><b>Danforth Music Hall</b>, 147 Danforth Ave</span>
+            <div class="row"><span class="price mid">$$ ~$45–60</span><a class="btn" href="https://www.thedanforth.com/shows" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+          <div class="card m">
+            <span class="when">Sun Jun 14</span>
+            <span class="title">Wiz Khalifa</span>
+            <span class="loc"><b>RBC Amphitheatre</b> (ex-Budweiser Stage), Ontario Place — <i>confirm date on site</i></span>
+            <div class="row"><span class="price mid">$$ ~$40+</span><a class="btn" href="https://www.livenation.com/venue/KovZpZAEkkIA/budweiser-stage-events" target="_blank" rel="noopener">Tickets</a></div>
+          </div>
+
+          <div class="card m">
+            <span class="when">Pick a night this week</span>
+            <span class="title">Sofar Sounds — secret gig 🤫</span>
+            <span class="loc">3 intimate acts, venue revealed the day before · location TBA in the GTA</span>
+            <div class="row"><span class="price bud">$ ~$30–40</span><a class="btn" href="https://www.sofarsounds.com/cities/toronto" target="_blank" rel="noopener">See dates</a></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- COUPLE -->
+      <section class="blk couple">
+        <h2><span class="ic">💕</span> Couple Activities</h2>
+        <p class="sub">A free-to-fancy mix — street festival, waterfront arts, a drive-in, or a sunset walk close to home in Etobicoke.</p>
+        <div class="cards">
+
+          <div class="card c">
+            <span class="when">Fri–Sun Jun 12–14</span>
+            <span class="title">Taste of Little Italy 🍝</span>
+            <span class="loc">200+ vendors, patios, live music, rides · <b>College St</b> (Bathurst→Shaw)</span>
+            <div class="row"><span class="price free">Free entry · pay per bite</span><a class="btn" href="https://www.verytoronto.com/events/taste-of-little-italy-2026" target="_blank" rel="noopener">Details</a></div>
+          </div>
+
+          <div class="card c">
+            <span class="when">Sat–Sun Jun 13–14</span>
+            <span class="title">Luminato at Harbourfront</span>
+            <span class="loc">Two outdoor stages, circus, dance &amp; public art · <b>Harbourfront Centre</b>, 235 Queens Quay W</span>
+            <div class="row"><span class="price free">Free + some ticketed</span><a class="btn" href="https://www.luminatofestival.com/" target="_blank" rel="noopener">Program</a></div>
+          </div>
+
+          <div class="card c">
+            <span class="when">Opens Thu Jun 11</span>
+            <span class="title">FIFA Fan Festival</span>
+            <span class="loc">Big-screen matches, 30+ global food stalls, live acts · <b>Fort York + The Bentway</b></span>
+            <div class="row"><span class="price mid">GA claimed · premium $100+</span><a class="btn" href="https://torontofwc26.ca/FIFAFanFestival" target="_blank" rel="noopener">Info</a></div>
+          </div>
+
+          <div class="card c">
+            <span class="when">Any clear night</span>
+            <span class="title">CityView Drive-In 🎬</span>
+            <span class="loc">New + retro films with the skyline behind the screen · <b>Polson Pier</b>, Port Lands</span>
+            <div class="row"><span class="price mid">$$ per car</span><a class="btn" href="https://www.cityviewdrivein.com/" target="_blank" rel="noopener">Showtimes</a></div>
+          </div>
+
+          <div class="card c">
+            <span class="when">Stay-local · Etobicoke</span>
+            <span class="title">Humber Bay sunset walk + bites</span>
+            <span class="loc">Martin Goodman Trail, Humber Bay Arch Bridge, lakeside patios — minutes from home</span>
+            <div class="row"><span class="price free">Free</span><a class="btn" href="https://www.google.com/maps/search/Humber+Bay+Park+East+Toronto" target="_blank" rel="noopener">Map</a></div>
+          </div>
+
+          <div class="card c">
+            <span class="when">Order-in night</span>
+            <span class="title">Cook-together class (or just couch it)</span>
+            <span class="loc">Pasta / dumpling / sushi classes around the GTA — or a quiet night in</span>
+            <div class="row"><span class="price mid">$$ class · Free at home</span><a class="btn" href="https://www.classpop.com/magazine/date-ideas-in-toronto" target="_blank" rel="noopener">Ideas</a></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- POP-UP / NEW -->
+      <section class="blk pop">
+        <h2><span class="ic">✨</span> New &amp; Pop-Up</h2>
+        <p class="sub">What’s landing in the city right now.</p>
+        <div class="cards">
+
+          <div class="card p">
+            <span class="when">Jun 10 – 14 · afternoons</span>
+            <span class="title">NXNE Free Block Party</span>
+            <span class="loc">Emerging artists + free hot dogs · <b>Sankofa (Yonge-Dundas) Square</b></span>
+            <div class="row"><span class="price free">Free</span><a class="btn" href="https://www.nxne.com/" target="_blank" rel="noopener">Schedule</a></div>
+          </div>
+
+          <div class="card p">
+            <span class="when">Opens Thu Jun 11</span>
+            <span class="title">FIFA Fan Festival kickoff</span>
+            <span class="loc">Runs to Jul 19 · <b>Fort York + The Bentway</b></span>
+            <div class="row"><span class="price free">Free GA (when available)</span><a class="btn" href="https://torontofwc26.ca/FIFAFanFestival" target="_blank" rel="noopener">Info</a></div>
+          </div>
+
+          <div class="card p">
+            <span class="when">All month · citywide</span>
+            <span class="title">Luminato — theme “PLAY”</span>
+            <span class="loc">50+ free &amp; ticketed events at 25+ locations · to Jun 28</span>
+            <div class="row"><span class="price free">Many free</span><a class="btn" href="https://www.luminatofestival.com/" target="_blank" rel="noopener">What’s on</a></div>
+          </div>
+
+          <div class="card p">
+            <span class="when">Coming Tue Jun 16</span>
+            <span class="title">Toronto Night Market &amp; Small-Biz Fest</span>
+            <span class="loc">Vendors, makers, food &amp; entertainment · <b>Nathan Phillips Square</b></span>
+            <div class="row"><span class="price free">Free entry</span><a class="btn" href="https://www.eventbrite.com/e/toronto-night-market-small-business-festival-2026-tickets-1988985324648" target="_blank" rel="noopener">Details</a></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FOOD -->
+      <section class="blk food">
+        <h2><span class="ic">🍽️</span> Food &amp; Tasting</h2>
+        <p class="sub">Street-food festival this weekend; tasting menus on standby whenever you want to splurge (you said price isn’t the filter — so here’s the full range, clearly labelled).</p>
+        <div class="cards">
+
+          <div class="card f">
+            <span class="when">Fri–Sun Jun 12–14</span>
+            <span class="title">Taste of Little Italy</span>
+            <span class="loc">Italian classics, fusion, wine &amp; cocktails on extended patios · <b>College St</b></span>
+            <div class="row"><span class="price free">Free entry</span><a class="btn" href="https://www.verytoronto.com/events/taste-of-little-italy-2026" target="_blank" rel="noopener">Menu map</a></div>
+          </div>
+
+          <div class="card f">
+            <span class="when">From Thu Jun 11</span>
+            <span class="title">Fan Festival — World on a Plate</span>
+            <span class="loc">30+ vendors, flavours from every World Cup nation · <b>Fort York</b></span>
+            <div class="row"><span class="price bud">$ pay per stall</span><a class="btn" href="https://torontofwc26.ca/FIFAFanFestival" target="_blank" rel="noopener">Info</a></div>
+          </div>
+
+          <div class="card f">
+            <span class="when">Book anytime · date splurge</span>
+            <span class="title">Tasting menus — the top end</span>
+            <span class="loc">Sushi Masaki Saito (2★), Alo (1★), Restaurant 20 Victoria (1★), Don Alfonso 1890 (1★) · Yorkville &amp; downtown</span>
+            <div class="row"><span class="price spl">$$$ ~$150–500 pp</span><a class="btn" href="https://tastingmenu.ca/guides/best-tasting-menu-toronto" target="_blank" rel="noopener">Guide</a></div>
+          </div>
+
+          <div class="card f">
+            <span class="when">Book anytime · easier on the wallet</span>
+            <span class="title">Affordable tasting menus</span>
+            <span class="loc">Curated multi-course spots under the Michelin tier across the GTA</span>
+            <div class="row"><span class="price mid">$$ ~$55–90 pp</span><a class="btn" href="https://www.opentable.ca/lists/best-affordable-tasting-menus-toronto" target="_blank" rel="noopener">Browse</a></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SUMMER CALENDAR -->
+      <section class="blk cal">
+        <h2><span class="ic">📅</span> This Summer — Ongoing</h2>
+        <p class="sub">The long-runners. Not repeated every week — here’s the at-a-glance timeline (the red band is this week).</p>
+        <div class="timeline">
+          <div class="axis">
+            <div class="nowband" style="left:16.3%;width:12.3%"></div>
+            <div class="nowlbl" style="left:22.4%">THIS WEEK</div>
+            <span class="mk" style="left:0%">Jun 1</span>
+            <span class="mk" style="left:16.3%">Jun 8</span>
+            <span class="mk" style="left:30.6%">Jun 15</span>
+            <span class="mk" style="left:44.9%">Jun 22</span>
+            <span class="mk" style="left:59.2%">Jun 29</span>
+            <span class="mk" style="left:73.5%">Jul 6</span>
+            <span class="mk" style="left:87.8%">Jul 13</span>
+            <span class="mk" style="left:100%">Jul 20</span>
+          </div>
+
+          <div class="tlrow"><div class="bar" style="left:4%;width:51%;background:#0c8599">Luminato (Jun 3–28)</div></div>
+          <div class="tlrow"><div class="bar" style="left:20.4%;width:77.6%;background:#c8102e">FIFA Fan Festival · Fort York (Jun 11–Jul 19)</div></div>
+          <div class="tlrow"><div class="bar" style="left:22.4%;width:40.8%;background:#1c1c1e">World Cup @ BMO Field (Jun 12–Jul 2)</div></div>
+          <div class="tlrow"><div class="bar" style="left:18.4%;width:9%;background:#6d4ca8">NXNE (Jun 10–14)</div></div>
+          <div class="tlrow"><div class="bar" style="left:36.7%;width:18.4%;background:#e8590c">TD Jazz Fest (Jun 19–28)</div></div>
+          <div class="tlrow"><div class="bar" style="left:65.3%;width:34.7%;background:#c92a2a">Summerlicious (Jul 3–20)</div></div>
+        </div>
+        <p class="sub" style="margin-top:12px">
+          Also running all summer: <b>CityView Drive-In</b> (Port Lands), the new <b>Rogers Stadium</b> at Downsview (Luke Combs, Foo Fighters, AC/DC),
+          and the <b>Budweiser/RBC waterfront</b> series. Reserve flags for fall: <b>Word on the Street</b> (Sept) and <b>TIFA</b> (Oct/Nov) — your big author-visibility windows.
+        </p>
+      </section>
+
+      <!-- PERSONAL -->
+      <section class="blk me">
+        <h2><span class="ic">✍️</span> For Ronnie — Book &amp; Channel</h2>
+        <p class="sub">Visibility, contacts, and craft for <i>Rodenia</i> and Stories by Ronnie. Honest read: Toronto’s literary calendar clusters in <b>spring &amp; fall</b> — June is quiet, so this week leans toward recurring creator meetups.</p>
+        <div class="cards">
+
+          <div class="card i">
+            <span class="when">Recurring · most weeks</span>
+            <span class="title">Toronto YouTubers Meetup</span>
+            <span class="loc">Networking across YouTube/IG/TikTok — your exact lane · check next session date</span>
+            <div class="row"><span class="price free">Usually free</span><a class="btn" href="https://www.meetup.com/torontoyoutubers/" target="_blank" rel="noopener">Join</a></div>
+          </div>
+
+          <div class="card i">
+            <span class="when">Recurring · this week?</span>
+            <span class="title">Social Media Creators &amp; Influencer Meetup</span>
+            <span class="loc">Creator-to-creator conversations, GTA · check Meetup for a Jun 8–14 date</span>
+            <div class="row"><span class="price free">Usually free</span><a class="btn" href="https://www.meetup.com/toronto-social-media-creators-influencer-meetups/" target="_blank" rel="noopener">Check</a></div>
+          </div>
+
+          <div class="card i">
+            <span class="when">On the radar · book</span>
+            <span class="title">Toronto Indie Author Con 2026</span>
+            <span class="loc">Publishing &amp; craft panels + author networking — directly useful for <i>Rodenia</i></span>
+            <div class="row"><span class="price mid">$$ ticketed</span><a class="btn" href="https://torontoindieauthorcon.com/event/toronto-indie-author-con-2026/" target="_blank" rel="noopener">Details</a></div>
+          </div>
+
+          <div class="card i">
+            <span class="when">Plan ahead · fall</span>
+            <span class="title">TIFA — Toronto Int’l Festival of Authors</span>
+            <span class="loc">The big one for agents/publishers/visibility · Oct–Nov · worth blocking now</span>
+            <div class="row"><span class="price bud">$ many free events</span><a class="btn" href="https://festivalofauthors.ca/" target="_blank" rel="noopener">Site</a></div>
+          </div>
+
+        </div>
+        <p class="sub" style="margin-top:10px">Out-of-town FYI: CICCA <b>Creator Connect</b> retreat, Jun 13–14, Île d’Orléans (QC). Skip unless you want a road trip. The <b>FOLD</b> (which you loved) is a spring/Brampton fixture — next edition 2027.</p>
+      </section>
+
+    </main>
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside>
+
+      <div class="box pick">
+        <h3>⭐ Top 3 This Week</h3>
+        <ol>
+          <li><b>Fri Jun 12</b> — World Cup comes to Toronto (Canada @ BMO Field).</li>
+          <li><b>Jun 12–14</b> — Taste of Little Italy, free, easy date night.</li>
+          <li><b>Sat Jun 13</b> — Rosalía at Scotiabank Arena (or free NXNE all week).</li>
+        </ol>
+      </div>
+
+      <div class="box warn">
+        <h3>⚠️ Heads-Up &amp; Closures</h3>
+        <ul>
+          <li><span class="d">Fri Jun 12 · 11am–8pm</span> World Cup road closures around <b>Exhibition / Fort York</b>: Lakeshore Blvd W (Bathurst→BC Rd), Strachan Ave (King→Lakeshore), Liberty St local-only. Downtown will be slow — transit-first, no parking near BMO.</li>
+          <li><span class="d">Sat Jun 14</span> <b>TTC Line 2</b> closed Jane↔Keele (Runnymede &amp; High Park stations shut) for signal work — shuttle buses run.</li>
+          <li><span class="d">Fri Jun 12 3pm → Mon 3am</span> <b>College St</b> (Bathurst→Shaw) closed for Taste of Little Italy.</li>
+          <li><span class="d">Weekend Jun 13–14</span> <b>GO Lakeshore West</b> often has weekend track work (Aldershot–Mimico) — relevant to you in Etobicoke. Confirm before you travel.</li>
+          <li><span class="d">All week</span> Heavier downtown traffic once the World Cup begins (Jun 12+). Build in buffer time.</li>
+        </ul>
+        <div style="padding:0 14px 12px;font-size:11.5px">
+          Live check: <a href="https://www.ttc.ca/service-advisories/subway-service" target="_blank" rel="noopener">TTC</a> ·
+          <a href="https://www.gotransit.com/en/service-updates" target="_blank" rel="noopener">GO</a> ·
+          <a href="https://www.toronto.ca/services-payments/streets-parking-transportation/road-restrictions-closures/road-restrictions/" target="_blank" rel="noopener">City roads</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3 style="background:#f0eee8;color:#555">Price Legend</h3>
+        <div class="legend">
+          <span><span class="dot" style="background:var(--green)"></span> Free</span>
+          <span><span class="dot" style="background:#9a6b00"></span> $ Budget</span>
+          <span><span class="dot" style="background:#b5530a"></span> $$ Mid</span>
+          <span><span class="dot" style="background:#b01030"></span> $$$ Splurge</span>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <footer>
+    Built from public listings as of <b>Sat, Jun 6, 2026</b>. Smaller-venue line-ups, exact times &amp; prices can shift — tap a card’s link to confirm before you go.<br>
+    Sources: MLB.com · torontofwc26.ca · BMO Field · Scotiabank Arena · Danforth Music Hall · NXNE · Sofar Sounds · Luminato · Very Toronto · TTC · GO Transit · City of Toronto · tastingmenu.ca · Eventbrite.<br>
+    🔄 This dashboard refreshes automatically every Sunday evening for the upcoming Monday–Sunday.
+  </footer>
+
+</div>
+</body>
+</html>
