@@ -6,93 +6,126 @@
 <title>Kya karein?</title>
 <style>
   :root{
-    --bg:#f6f5f1; --card:#ffffff; --ink:#1c1c1e; --muted:#6b6b70; --line:#e6e3dc;
-    --red:#c8102e; --purple:#6d4ca8; --rose:#d6336c; --orange:#e8590c;
-    --food:#c92a2a; --indigo:#3b5bdb; --amber:#b8860b; --screen:#7048e8;
-    --green:#2b8a3e; --shadow:0 1px 3px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+    --bg:#f5f4ef; --card:#ffffff; --ink:#1c1c1e; --muted:#6b6b70; --line:#e6e3dc;
+    --shadow:0 1px 3px rgba(0,0,0,.06),0 8px 22px rgba(0,0,0,.05);
+    --k-couple:#e64980; --k-screen:#7048e8; --k-food:#e8590c; --k-pop:#0ca678;
+    --k-sport:#2f9e44; --k-concert:#1c7ed6; --k-conf:#e8a00c; --k-comedy:#ae3ec9; --k-ronnie:#5c6470;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.5;-webkit-font-smoothing:antialiased}
-  a{color:inherit}
-  .wrap{max-width:1180px;margin:0 auto;padding:22px 18px 60px}
+    line-height:1.45;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding:22px 18px 60px}
 
-  header.top{background:linear-gradient(135deg,#1c1c1e,#2c2c30);color:#fff;border-radius:18px;
-    padding:26px 28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-  header.top:before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;
-    background:radial-gradient(circle,rgba(200,16,46,.35),transparent 70%);}
-  header.top h1{margin:0;font-size:26px;letter-spacing:-.4px}
-  header.top .week{font-size:18px;margin-top:4px;color:#ffd9df;font-weight:600}
-  header.top .meta{margin-top:10px;font-size:12.5px;color:#c9c9cf;display:flex;gap:16px;flex-wrap:wrap}
+  header.top{background:linear-gradient(135deg,#17171a,#2b2b31);color:#fff;border-radius:18px;
+    padding:24px 28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  header.top:before{content:"";position:absolute;right:-50px;top:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(230,73,128,.33),transparent 70%)}
+  header.top:after{content:"";position:absolute;right:120px;bottom:-90px;width:220px;height:220px;
+    background:radial-gradient(circle,rgba(28,126,214,.28),transparent 70%)}
+  header.top h1{margin:0;font-size:27px;letter-spacing:-.4px;position:relative}
+  header.top .week{font-size:18px;margin-top:3px;color:#ffd9e2;font-weight:700;position:relative}
+  header.top .meta{margin-top:11px;font-size:12.5px;color:#cdcdd3;display:flex;gap:8px 18px;flex-wrap:wrap;position:relative}
   header.top .meta b{color:#fff}
 
-  .grid{display:grid;grid-template-columns:1fr 330px;gap:22px;margin-top:22px;align-items:start}
-  @media(max-width:880px){.grid{grid-template-columns:1fr}}
+  .legend{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 4px}
+  .legend .lg{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;
+    background:var(--card);border:1px solid var(--line);border-radius:20px;padding:5px 11px;color:#444}
+  .legend .lg i{width:10px;height:10px;border-radius:50%;display:inline-block}
 
-  aside{position:sticky;top:14px;display:flex;flex-direction:column;gap:16px}
-  @media(max-width:880px){aside{position:static}}
-  .box{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-  .box h3{margin:0;padding:13px 16px;font-size:14px;letter-spacing:.3px;text-transform:uppercase}
-  .warn h3{background:#fff4d6;color:#7a5c00;border-bottom:1px solid #f0e2b0}
-  .warn ul{list-style:none;margin:0;padding:8px 14px 14px}
-  .warn li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px}
-  .warn li:last-child{border-bottom:none}
-  .warn .d{font-weight:700;color:var(--amber);display:block;font-size:12px;text-transform:uppercase;letter-spacing:.3px}
-  .pick h3{background:#eef1ff;color:#2f3da8;border-bottom:1px solid #dde3ff}
-  .pick ol{margin:0;padding:10px 14px 14px 30px;font-size:13.5px}
-  .pick li{margin:6px 0}
-  .legend{font-size:12px;color:var(--muted);padding:12px 16px}
-  .legend span{display:inline-flex;align-items:center;gap:5px;margin:3px 10px 3px 0}
-  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+  .sech{display:flex;align-items:baseline;gap:10px;margin:30px 0 12px;flex-wrap:wrap}
+  .sech h2{font-size:20px;margin:0;letter-spacing:-.2px}
+  .sech .note{font-size:12.5px;color:var(--muted)}
+  .swipe{font-size:11px;color:var(--muted);display:none}
+  .tip{font-size:11.5px;color:#8a6d00;background:#fff4d6;border:1px solid #f0e2b0;border-radius:8px;padding:3px 9px;font-weight:600}
 
-  section.blk{margin-bottom:26px}
-  .blk > h2{display:flex;align-items:center;gap:10px;font-size:19px;margin:0 0 12px;
-    padding-bottom:8px;border-bottom:2px solid var(--line)}
-  .blk > h2 .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:#fff;font-size:16px;flex:none}
-  .blk.sport h2 .ic{background:var(--red)} .blk.music h2 .ic{background:var(--purple)}
-  .blk.couple h2 .ic{background:var(--rose)} .blk.pop h2 .ic{background:var(--orange)}
-  .blk.food h2 .ic{background:var(--food)} .blk.me h2 .ic{background:var(--indigo)}
-  .blk.cal h2 .ic{background:#0c8599} .blk.screen h2 .ic{background:var(--screen)}
-  .sub{font-size:12.5px;color:var(--muted);margin:-6px 0 12px}
+  /* 7-day calendar */
+  .cal7{display:grid;grid-template-columns:repeat(7,1fr);gap:9px;align-items:start}
+  .day{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;min-height:140px;overflow:hidden}
+  .day .dh{padding:8px 10px;border-bottom:1px solid var(--line);text-align:center;background:#fbfaf7}
+  .day .dh .dw{font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+  .day .dh .dd{font-size:13px;font-weight:800;color:var(--ink)}
+  .day.today{border-color:#e64980;box-shadow:0 0 0 2px rgba(230,73,128,.18),var(--shadow)}
+  .day.today .dh{background:#fff0f4} .day.today .dh .dw{color:#e64980}
+  .day .body{padding:8px;display:flex;flex-direction:column;gap:7px;flex:1}
 
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-  @media(max-width:620px){.cards{grid-template-columns:1fr}}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 15px;
-    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:7px;border-left:4px solid var(--line)}
-  .card.s{border-left-color:var(--red)} .card.m{border-left-color:var(--purple)}
-  .card.c{border-left-color:var(--rose)} .card.p{border-left-color:var(--orange)}
-  .card.f{border-left-color:var(--food)} .card.i{border-left-color:var(--indigo)}
-  .card.sc{border-left-color:var(--screen)}
-  .card .when{font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--muted)}
-  .card .title{font-size:15.5px;font-weight:700;line-height:1.25}
-  .card .loc{font-size:12.5px;color:var(--muted)}
-  .card .loc b{color:var(--ink);font-weight:600}
-  .card .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:4px;flex-wrap:wrap}
-  .price{font-size:12px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
-  .free{background:#e6f4ea;color:var(--green)} .bud{background:#fff7e0;color:#9a6b00}
-  .mid{background:#fff0e6;color:#b5530a} .spl{background:#fde7ea;color:#b01030}
-  .btn{font-size:12px;font-weight:700;text-decoration:none;padding:6px 12px;border-radius:9px;
-    background:var(--ink);color:#fff;white-space:nowrap}
+  /* expandable event card */
+  details.ev{border:1px solid var(--line);border-left:3px solid var(--cc,#ccc);border-radius:9px;background:#fcfcfb}
+  details.ev[open]{background:#fff;box-shadow:var(--shadow)}
+  details.ev > summary{list-style:none;cursor:pointer;padding:7px 22px 7px 9px;position:relative;border-radius:9px}
+  details.ev > summary::-webkit-details-marker{display:none}
+  details.ev > summary:hover{background:#fff}
+  details.ev > summary::after{content:"▾";position:absolute;right:8px;top:8px;font-size:11px;color:var(--cc);transition:transform .2s}
+  details.ev[open] > summary::after{transform:rotate(180deg)}
+  .ev .cat{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--cc)}
+  .ev .t{display:block;font-size:12.5px;font-weight:700;line-height:1.2;margin:1px 0 2px}
+  .ev .m{display:block;font-size:10.5px;color:var(--muted);line-height:1.25}
+  .ev .hot{color:#c8102e;font-weight:800}
+  .lk{display:flex;flex-wrap:wrap;gap:5px;padding:0 9px 9px}
+  .lk a{font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:7px;background:#f2f1ec;
+    color:var(--cc);border:1px solid var(--line);white-space:nowrap}
+  .lk a:hover{background:var(--cc);color:#fff;border-color:var(--cc)}
+  .open{font-size:10.5px;color:#b9b6ad;text-align:center;margin:auto 0;padding:10px 4px;font-style:italic}
+
+  .k-couple{--cc:var(--k-couple)} .k-screen{--cc:var(--k-screen)} .k-food{--cc:var(--k-food)}
+  .k-pop{--cc:var(--k-pop)} .k-sport{--cc:var(--k-sport)} .k-concert{--cc:var(--k-concert)}
+  .k-conf{--cc:var(--k-conf)} .k-comedy{--cc:var(--k-comedy)} .k-ronnie{--cc:var(--k-ronnie)}
+
+  /* standard cards (all-week, ronnie) */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--cc,#ccc);
+    border-radius:13px;padding:12px 13px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:5px}
+  .card .cat{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--cc)}
+  .card .t{font-size:14px;font-weight:700;line-height:1.22}
+  .card .m{font-size:11.5px;color:var(--muted)}
+  .card .m b{color:var(--ink);font-weight:600}
+  .card .r{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:3px;flex-wrap:wrap}
+  .price{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap}
+  .free{background:#e6f4ea;color:#2b8a3e} .bud{background:#fff7e0;color:#9a6b00}
+  .mid{background:#fff0e6;color:#b5530a} .spl{background:#fde7ea;color:#b01030} .sub2{background:#eef0f3;color:#555}
+  .btn{font-size:11px;font-weight:700;padding:5px 11px;border-radius:8px;background:var(--ink);color:#fff;white-space:nowrap}
   .btn:hover{opacity:.88}
-  .tag{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
-    padding:2px 7px;border-radius:5px;background:#f0eee8;color:var(--muted);margin-right:4px}
-  .tag.hot{background:#ffe3e3;color:#c92a2a}
-  .lang{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.4px;padding:2px 6px;border-radius:5px;margin-left:5px}
+  .lang{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.4px;padding:1px 5px;border-radius:4px;margin-left:4px}
   .hin{background:#fff0e6;color:#b5530a} .eng{background:#e7f0ff;color:#2f4fd0}
-  .subhead{grid-column:1/-1;font-size:12.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--screen);margin:6px 0 -4px}
 
-  .timeline{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px 16px 10px}
-  .axis{position:relative;height:22px;margin:0 0 6px;border-bottom:1px solid var(--line)}
-  .axis .mk{position:absolute;top:0;transform:translateX(-50%);font-size:10.5px;color:var(--muted)}
-  .axis .mk:before{content:"";position:absolute;left:50%;top:16px;width:1px;height:6px;background:var(--line)}
-  .nowband{position:absolute;top:0;bottom:-300px;background:rgba(200,16,46,.07);border-left:1px dashed var(--red);border-right:1px dashed var(--red);z-index:0}
-  .nowlbl{position:absolute;top:-2px;font-size:9.5px;font-weight:800;color:var(--red);transform:translateX(-50%)}
-  .tlrow{position:relative;height:30px;margin:7px 0;z-index:1}
-  .bar{position:absolute;height:20px;top:3px;border-radius:6px;color:#fff;font-size:10.5px;font-weight:700;
-    display:flex;align-items:center;padding:0 7px;white-space:nowrap;overflow:hidden;box-shadow:var(--shadow)}
+  /* horizon */
+  .hz{display:flex;flex-direction:column;gap:9px}
+  .hzrow{display:grid;grid-template-columns:74px 1fr;gap:12px;align-items:start;
+    background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);padding:11px 13px}
+  .hzm{font-size:13px;font-weight:900;letter-spacing:.4px;color:#fff;background:#2b2b31;border-radius:9px;
+    text-align:center;padding:9px 4px}
+  .hzrow.tbd .hzm{background:#9a6b00}
+  .hzcards{display:flex;flex-wrap:wrap;gap:8px}
+  .hzc{flex:1 1 220px;min-width:195px;border:1px solid var(--line);border-left:4px solid var(--cc,#ccc);
+    border-radius:10px;padding:8px 10px;background:#fcfcfb}
+  .hzc:hover{background:#fff}
+  .hzc .cat{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--cc)}
+  .hzc .t{display:block;font-size:13px;font-weight:700;line-height:1.2;margin:1px 0}
+  .hzc .m{font-size:10.5px;color:var(--muted)}
+
+  .heads{background:linear-gradient(135deg,#fff8e6,#fff4d6);border:1px solid #f0e2b0;border-radius:16px;
+    box-shadow:var(--shadow);padding:16px 18px;margin-top:14px}
+  .heads h3{margin:0 0 4px;font-size:15px;color:#7a5c00;display:flex;align-items:center;gap:8px}
+  .hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:10px}
+  .hcard{background:rgba(255,255,255,.7);border:1px solid #f0e2b0;border-radius:11px;padding:10px 12px}
+  .hcard .d{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:#b8860b;display:block;margin-bottom:2px}
+  .hcard .x{font-size:12px;color:#5a4a14;line-height:1.35}
+  .hcard .x b{color:#3a2f0c}
+  .heads .live{margin-top:11px;font-size:11.5px;color:#7a5c00}
+  .heads .live a{font-weight:700;text-decoration:underline}
 
   footer{margin-top:30px;font-size:11.5px;color:var(--muted);text-align:center;line-height:1.7;border-top:1px solid var(--line);padding-top:16px}
+
+  @media(max-width:980px){
+    .cal7{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:6px}
+    .day{min-width:172px;scroll-snap-align:start}
+    .swipe{display:inline}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .hgrid{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){ .cards{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -103,428 +136,364 @@
     <div class="week">Mon Jun 22 → Sun Jun 28, 2026</div>
     <div class="meta">
       <span>📍 GTA: Toronto · Etobicoke · Mississauga · Oakville · Brampton</span>
-      <span>🔄 Refreshed <b>Sun, Jun 21</b></span>
-      <span>🌈 Pride Weekend (Jun 26–28) + two World Cup match days — busy downtown</span>
+      <span>🔄 Refreshed <b>Mon, Jun 22</b></span>
+      <span>🌈 Pride weekend + 🏟️ World Cup match days — downtown is busy</span>
     </div>
   </header>
 
-  <div class="grid">
-    <main>
+  <div class="legend">
+    <span class="lg"><i style="background:var(--k-couple)"></i>Couple</span>
+    <span class="lg"><i style="background:var(--k-screen)"></i>On-Screen</span>
+    <span class="lg"><i style="background:var(--k-food)"></i>Food &amp; Tasting</span>
+    <span class="lg"><i style="background:var(--k-pop)"></i>New &amp; Pop-Up</span>
+    <span class="lg"><i style="background:var(--k-sport)"></i>Sports</span>
+    <span class="lg"><i style="background:var(--k-concert)"></i>Concerts</span>
+    <span class="lg"><i style="background:var(--k-conf)"></i>Talks &amp; Conferences</span>
+    <span class="lg"><i style="background:var(--k-comedy)"></i>Comedy</span>
+    <span class="lg"><i style="background:var(--k-ronnie)"></i>For Ronnie</span>
+  </div>
 
-      <!-- SPORTS -->
-      <section class="blk sport">
-        <h2><span class="ic">⚽</span> Sports</h2>
-        <p class="sub">A loaded week: two World Cup matches at BMO, the Jays home for all seven nights, and the Tempo downtown. The car is the wrong move — take transit.</p>
-        <div class="cards">
+  <!-- WEEKLY CALENDAR -->
+  <div class="sech">
+    <h2>📆 This Week</h2>
+    <span class="tip">👆 Tap any card to open its links</span>
+    <span class="swipe">← swipe →</span>
+  </div>
 
-          <div class="card s">
-            <span class="when">Tue Jun 23 · 7:00 PM</span>
-            <span class="title">World Cup: Panama vs Croatia <span class="tag hot">Group L</span></span>
-            <span class="loc"><b>BMO Field</b>, 170 Princes’ Blvd (Exhibition Place) — Match 46</span>
-            <div class="row"><span class="price spl">$$$ resale/premium</span><a class="btn" href="https://torontofwc26.ca/game" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
+  <div class="cal7">
 
-          <div class="card s">
-            <span class="when">Fri Jun 26 · 3:00 PM</span>
-            <span class="title">World Cup: Senegal vs Iraq <span class="tag">Group I</span></span>
-            <span class="loc"><b>BMO Field</b>, Exhibition Place — Match 56; <i>confirm matchup on the official site</i></span>
-            <div class="row"><span class="price spl">$$$ resale/premium</span><a class="btn" href="https://torontofwc26.ca/game" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
-
-          <div class="card s">
-            <span class="when">Mon–Sun Jun 22–28 · 7 games</span>
-            <span class="title">Blue Jays — full homestand ⚾</span>
-            <span class="loc">vs <b>Astros</b> (Jun 22–24) then <b>Rangers</b> (Jun 25–28) · Rogers Centre · Fri Jun 26 = City Connect (Kirk jersey, first 15k); Sun Jun 28 = Jr Jays</span>
-            <div class="row"><span class="price mid">$$ from ~$20</span><a class="btn" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
-
-          <div class="card s">
-            <span class="when">Sat Jun 27 · check time</span>
-            <span class="title">Toronto Tempo — home game 🏀 <span class="tag hot">WNBA</span></span>
-            <span class="loc">The expansion side’s downtown showcase (one of three SBA home dates) · <b>Scotiabank Arena</b>, 40 Bay St · <i>opponent &amp; tip-off — confirm on schedule</i></span>
-            <div class="row"><span class="price mid">$$ ticketed</span><a class="btn" href="https://tempo.wnba.com/schedule" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
-
-          <div class="card s">
-            <span class="when">Match days · Jun 23 &amp; 26</span>
-            <span class="title">FIFA Fan Festival</span>
-            <span class="loc">Big-screen matches + 30 food stalls · <b>Fort York + The Bentway</b> (runs to Jul 19)</span>
-            <div class="row"><span class="price free">Free GA (when avail.)</span><a class="btn" href="https://torontofwc26.ca/FIFAFanFestival" target="_blank" rel="noopener">Info</a></div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- CONCERTS -->
-      <section class="blk music">
-        <h2><span class="ic">🎵</span> Concerts</h2>
-        <p class="sub">A living legend at the waterfront, a stadium night to close the week, and the Jazz Fest’s strong final stretch (free stages in Yorkville every evening).</p>
-        <div class="cards">
-
-          <div class="card m">
-            <span class="when">Thu Jun 25 · doors 6:30 / 8 PM</span>
-            <span class="title">Paul Simon — A Quiet Celebration 🎸 <span class="tag hot">Legend</span></span>
-            <span class="loc"><b>RBC Amphitheatre</b> (ex-Budweiser Stage), 909 Lakeshore Blvd W · rain or shine</span>
-            <div class="row"><span class="price spl">$$$ from ~$52</span><a class="btn" href="https://www.rbcamphitheatre.com/shows" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
-
-          <div class="card m">
-            <span class="when">Sun Jun 28 · 6:30 PM</span>
-            <span class="title">Noah Kahan — The Great Divide Tour</span>
-            <span class="loc"><b>Rogers Stadium</b>, Downsview (Line 1 to Downsview Park)</span>
-            <div class="row"><span class="price spl">$$$ ~$70+</span><a class="btn" href="https://www.rogers-stadium.com/shows" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
-
-          <div class="card m">
-            <span class="when">Daily · 5:30–10 PM</span>
-            <span class="title">TD Jazz Fest — free Yorkville stages 🎷 <span class="tag">Free</span></span>
-            <span class="loc">100+ free sets at <b>OLG Village</b>, Village of Yorkville Park (115 Cumberland St) · runs to Jun 28</span>
-            <div class="row"><span class="price free">Free</span><a class="btn" href="https://torontojazz.com/schedule-2026/" target="_blank" rel="noopener">Program</a></div>
-          </div>
-
-          <div class="card m">
-            <span class="when">Wed Jun 24 · eve</span>
-            <span class="title">Cassandra Wilson — New Moon Daughter 30th</span>
-            <span class="loc">Jazz Fest headliner · <b>Koerner Hall</b>, 273 Bloor St W</span>
-            <div class="row"><span class="price mid">$$ ticketed</span><a class="btn" href="https://torontojazz.com/schedule-2026/" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
-
-          <div class="card m">
-            <span class="when">Sat Jun 27 · eve</span>
-            <span class="title">Hiromi’s Sonicwonder + Ibrahim Maalouf</span>
-            <span class="loc">Jazz Fest double bill · <b>Koerner Hall</b> &amp; <b>Danforth Music Hall</b></span>
-            <div class="row"><span class="price mid">$$ ticketed</span><a class="btn" href="https://torontojazz.com/schedule-2026/" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
-
-          <div class="card m">
-            <span class="when">Thu Jun 25 · eve</span>
-            <span class="title">Kokoroko <span class="tag">Afrobeat</span></span>
-            <span class="loc"><b>The Phoenix</b> · also: DOMi &amp; JD Beck (Jun 22), Mei Semones &amp; Sullivan Fortner (Jun 28)</span>
-            <div class="row"><span class="price mid">$$ ticketed</span><a class="btn" href="https://torontojazz.com/schedule-2026/" target="_blank" rel="noopener">Tickets</a></div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- COUPLE -->
-      <section class="blk couple">
-        <h2><span class="ic">💕</span> Couple Activities</h2>
-        <p class="sub">Pride takes over the core, tacos in Port Credit, or a quiet lakeside walk minutes from home — pick your energy level.</p>
-        <div class="cards">
-
-          <div class="card c">
-            <span class="when">Fri–Sun Jun 26–28</span>
-            <span class="title">Pride Street Fair + Parade 🌈</span>
-            <span class="loc">Stages, market &amp; food on <b>Church St</b>; parade Sun Jun 28 (2 PM, Yonge from Bloor → Nathan Phillips Sq)</span>
-            <div class="row"><span class="price free">Free</span><a class="btn" href="https://www.pridetoronto.com/" target="_blank" rel="noopener">Details</a></div>
-          </div>
-
-          <div class="card c">
-            <span class="when">Sat–Sun Jun 27–28</span>
-            <span class="title">Taco Fest Mississauga 🌮</span>
-            <span class="loc">40 vendors, 200+ tacos, 32 tequilas · <b>Port Credit Memorial Park</b> (lakeside, ~20 min from you)</span>
-            <div class="row"><span class="price bud">$ pay per bite</span><a class="btn" href="https://www.todocanada.ca/festivals-toronto-june/" target="_blank" rel="noopener">Details</a></div>
-          </div>
-
-          <div class="card c">
-            <span class="when">Any clear day</span>
-            <span class="title">Toronto Islands ferry + picnic ⛴️</span>
-            <span class="loc">Skyline views, bikes &amp; beaches · ferry from <b>Jack Layton Terminal</b>, Harbourfront</span>
-            <div class="row"><span class="price bud">$ ferry fare</span><a class="btn" href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/toronto-island-park/" target="_blank" rel="noopener">Info</a></div>
-          </div>
-
-          <div class="card c">
-            <span class="when">Stay-local · Etobicoke</span>
-            <span class="title">Humber Bay sunset walk</span>
-            <span class="loc">Martin Goodman Trail, Arch Bridge, lakeside patios — minutes from home</span>
-            <div class="row"><span class="price free">Free</span><a class="btn" href="https://www.google.com/maps/search/Humber+Bay+Park+East+Toronto" target="_blank" rel="noopener">Map</a></div>
-          </div>
-
-          <div class="card c">
-            <span class="when">Any clear night</span>
-            <span class="title">CityView Drive-In 🎬</span>
-            <span class="loc">Films with the skyline behind the screen · <b>Polson Pier</b>, Port Lands</span>
-            <div class="row"><span class="price mid">$$ per car</span><a class="btn" href="https://www.cityviewdrivein.com/" target="_blank" rel="noopener">Showtimes</a></div>
-          </div>
-
-          <div class="card c">
-            <span class="when">Eve · low-key date</span>
-            <span class="title">Jazz in Yorkville</span>
-            <span class="loc">Free outdoor sets nightly 5:30–10 PM, then dinner in the village · OLG Village</span>
-            <div class="row"><span class="price free">Free</span><a class="btn" href="https://torontojazz.com/schedule-2026/" target="_blank" rel="noopener">What’s on</a></div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- POP-UP / NEW -->
-      <section class="blk pop">
-        <h2><span class="ic">✨</span> New &amp; Pop-Up</h2>
-        <p class="sub">Pride weekend headlines, plus west-end street eats and the last days of Luminato.</p>
-        <div class="cards">
-
-          <div class="card p">
-            <span class="when">Thu–Sun Jun 25–28</span>
-            <span class="title">Pride Toronto — festival weekend</span>
-            <span class="loc">Trans March (Fri Jun 26), Dyke March (Sat Jun 27), Parade (Sun Jun 28) · Church-Wellesley Village</span>
-            <div class="row"><span class="price free">Free</span><a class="btn" href="https://www.pridetoronto.com/" target="_blank" rel="noopener">Schedule</a></div>
-          </div>
-
-          <div class="card p">
-            <span class="when">Sat Jun 27</span>
-            <span class="title">Taste of the Junction 🍴</span>
-            <span class="loc">West-end BIA street food crawl · <b>The Junction</b> (Dundas St W)</span>
-            <div class="row"><span class="price free">Free entry</span><a class="btn" href="https://www.todocanada.ca/festivals-toronto-june/" target="_blank" rel="noopener">Details</a></div>
-          </div>
-
-          <div class="card p">
-            <span class="when">Sat Jun 27</span>
-            <span class="title">Fun Philippines Food &amp; Music Festival 🇵🇭</span>
-            <span class="loc">Adobo, lumpia, halo-halo + live music · <b>385 Pacific Ave</b> (Green P lot)</span>
-            <div class="row"><span class="price free">Free</span><a class="btn" href="https://www.todocanada.ca/festivals-toronto-june/" target="_blank" rel="noopener">Details</a></div>
-          </div>
-
-          <div class="card p">
-            <span class="when">Final week · to Jun 28</span>
-            <span class="title">Luminato — theme “PLAY”</span>
-            <span class="loc">Last chance: 50+ free &amp; ticketed events across 25+ locations</span>
-            <div class="row"><span class="price free">Many free</span><a class="btn" href="https://www.luminatofestival.com/" target="_blank" rel="noopener">What’s on</a></div>
-          </div>
-
-          <div class="card p">
-            <span class="when">Booking now open</span>
-            <span class="title">Summerlicious reservations</span>
-            <span class="loc">240+ restaurants · book before weekend dinner slots vanish (festival Jul 3–19)</span>
-            <div class="row"><span class="price bud">$ prix-fixe</span><a class="btn" href="https://www.toronto.ca/explore-enjoy/festivals-events/summerlicious/" target="_blank" rel="noopener">Info</a></div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- FOOD -->
-      <section class="blk food">
-        <h2><span class="ic">🍽️</span> Food &amp; Tasting</h2>
-        <p class="sub">Tacos and tequila by the lake, street eats along Church St, and tasting menus whenever you want to splurge.</p>
-        <div class="cards">
-
-          <div class="card f">
-            <span class="when">Sat–Sun Jun 27–28</span>
-            <span class="title">Taco Fest Mississauga</span>
-            <span class="loc">200+ tacos, 32 tequilas, salsa galore · <b>Port Credit Memorial Park</b></span>
-            <div class="row"><span class="price bud">$ pay per stall</span><a class="btn" href="https://www.todocanada.ca/festivals-toronto-june/" target="_blank" rel="noopener">Details</a></div>
-          </div>
-
-          <div class="card f">
-            <span class="when">Fri–Sun Jun 26–28</span>
-            <span class="title">Pride Street Fair eats</span>
-            <span class="loc">Food trucks &amp; pop-ups all weekend · <b>Church St</b> (Wellesley→Maitland)</span>
-            <div class="row"><span class="price bud">$ pay per bite</span><a class="btn" href="https://www.pridetoronto.com/" target="_blank" rel="noopener">Info</a></div>
-          </div>
-
-          <div class="card f">
-            <span class="when">Book now · runs Jul 3–19</span>
-            <span class="title">Summerlicious — lock your table</span>
-            <span class="loc">3-course prix-fixe at 240+ spots · ~$34–55 lunch / ~$45–75 dinner</span>
-            <div class="row"><span class="price mid">$$ prix-fixe</span><a class="btn" href="https://www.toronto.ca/explore-enjoy/festivals-events/summerlicious/" target="_blank" rel="noopener">Book</a></div>
-          </div>
-
-          <div class="card f">
-            <span class="when">Book anytime · date splurge</span>
-            <span class="title">Tasting menus — the top end</span>
-            <span class="loc">Sushi Masaki Saito (2★), Alo (1★), 20 Victoria (1★), Don Alfonso 1890 (1★)</span>
-            <div class="row"><span class="price spl">$$$ ~$150–500 pp</span><a class="btn" href="https://tastingmenu.ca/guides/best-tasting-menu-toronto" target="_blank" rel="noopener">Guide</a></div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ON SCREEN -->
-      <section class="blk screen">
-        <h2><span class="ic">🍿</span> On Screen — Cinema &amp; Streaming</h2>
-        <p class="sub">New &amp; well-known Hindi <span class="lang hin">HIN</span> and English <span class="lang eng">ENG</span> titles — in Cineplex theatres and just dropped on streaming. A huge Fri Jun 26 at the movies. Tap for showtimes / where to watch.</p>
-        <div class="cards">
-
-          <div class="subhead">🎬 In theatres — Cineplex</div>
-
-          <div class="card sc">
-            <span class="when">From Fri Jun 26</span>
-            <span class="title">Supergirl <span class="lang eng">ENG</span> <span class="tag hot">Big</span></span>
-            <span class="loc">DC tentpole · Milly Alcock as Kara, Jason Momoa as Lobo</span>
-            <div class="row"><span class="price mid">$$ ticket</span><a class="btn" href="https://www.cineplex.com/movies/now-playing" target="_blank" rel="noopener">Showtimes</a></div>
-          </div>
-
-          <div class="card sc">
-            <span class="when">From Fri Jun 26</span>
-            <span class="title">Welcome to the Jungle (Welcome 3) <span class="lang hin">HIN</span> <span class="tag hot">Big</span></span>
-            <span class="loc">Akshay Kumar, Suniel Shetty, Sanjay Dutt, Arshad Warsi + ensemble · select Cineplex</span>
-            <div class="row"><span class="price mid">$$ ticket</span><a class="btn" href="https://www.cineplex.com/movies/now-playing" target="_blank" rel="noopener">Showtimes</a></div>
-          </div>
-
-          <div class="card sc">
-            <span class="when">From Fri Jun 26</span>
-            <span class="title">The Invite <span class="lang eng">ENG</span></span>
-            <span class="loc">Olivia Wilde’s third feature · with Seth Rogen, Edward Norton, Penélope Cruz</span>
-            <div class="row"><span class="price mid">$$ ticket</span><a class="btn" href="https://www.cineplex.com/movies/now-playing" target="_blank" rel="noopener">Showtimes</a></div>
-          </div>
-
-          <div class="card sc">
-            <span class="when">From Fri Jun 26</span>
-            <span class="title">Jackass: Best and Last <span class="lang eng">ENG</span></span>
-            <span class="loc">25th-anniversary sendoff — classic stunts + unseen footage</span>
-            <div class="row"><span class="price mid">$$ ticket</span><a class="btn" href="https://www.cineplex.com/movies/now-playing" target="_blank" rel="noopener">Showtimes</a></div>
-          </div>
-
-          <div class="subhead">📺 New on streaming</div>
-
-          <div class="card sc">
-            <span class="when">Disney+ · from Thu Jun 25</span>
-            <span class="title">The Bear — S5 (final) <span class="lang eng">ENG</span> <span class="tag hot">Big</span></span>
-            <span class="loc">All 8 episodes drop at once — the last season of the kitchen drama</span>
-            <div class="row"><span class="price bud">Subscription</span><a class="btn" href="https://www.disneyplus.com/en-ca" target="_blank" rel="noopener">Watch</a></div>
-          </div>
-
-          <div class="card sc">
-            <span class="when">Netflix · from Thu Jun 25</span>
-            <span class="title">Avatar: The Last Airbender — S2 <span class="lang eng">ENG</span></span>
-            <span class="loc">Live-action fantasy, second season</span>
-            <div class="row"><span class="price bud">Subscription</span><a class="btn" href="https://www.netflix.com/" target="_blank" rel="noopener">Watch</a></div>
-          </div>
-
-          <div class="card sc">
-            <span class="when">Crave · Ep 2 Sun Jun 28</span>
-            <span class="title">House of the Dragon — S3 <span class="lang eng">ENG</span> <span class="tag hot">New</span></span>
-            <span class="loc">Season premiered Sun Jun 21 (the Battle of the Gullet) · HBO’s Targaryen saga, new episode every Sunday</span>
-            <div class="row"><span class="price bud">Subscription</span><a class="btn" href="https://www.crave.ca/" target="_blank" rel="noopener">Watch</a></div>
-          </div>
-
-          <div class="card sc">
-            <span class="when">JioHotstar · streaming</span>
-            <span class="title">Criminal Justice S5 <span class="lang hin">HIN</span></span>
-            <span class="loc">Pankaj Tripathi returns as Madhav Mishra · also Thukra Ke Mera Pyaar S2</span>
-            <div class="row"><span class="price bud">Subscription</span><a class="btn" href="https://www.hotstar.com/" target="_blank" rel="noopener">Watch</a></div>
-          </div>
-
-        </div>
-        <p class="sub" style="margin-top:10px">Light week for <b>big new Hindi streaming</b> titles — Criminal Justice S5 (JioHotstar) is the standout; nothing major confirmed new on <a href="https://www.zee5.com/" target="_blank" rel="noopener">Zee5</a> or <a href="https://www.sonyliv.com/" target="_blank" rel="noopener">SonyLIV</a> this week. Still in theatres: <b>Cocktail 2</b> <span class="lang hin">HIN</span> (Shahid Kapoor / Kriti Sanon / Rashmika, opened Jun 19). Hindi theatrical dates can shift — confirm on Cineplex before booking.</p>
-      </section>
-
-      <!-- SUMMER CALENDAR -->
-      <section class="blk cal">
-        <h2><span class="ic">📅</span> This Summer — Ongoing</h2>
-        <p class="sub">The long-runners at a glance (the red band is this week). Luminato and the Jazz Fest both wrap this Sunday.</p>
-        <div class="timeline">
-          <div class="axis">
-            <div class="nowband" style="left:42.9%;width:12.2%"></div>
-            <div class="nowlbl" style="left:49%">THIS WEEK</div>
-            <span class="mk" style="left:0%">Jun 1</span>
-            <span class="mk" style="left:14.3%">Jun 8</span>
-            <span class="mk" style="left:28.6%">Jun 15</span>
-            <span class="mk" style="left:42.9%">Jun 22</span>
-            <span class="mk" style="left:57.1%">Jun 29</span>
-            <span class="mk" style="left:71.4%">Jul 6</span>
-            <span class="mk" style="left:85.7%">Jul 13</span>
-            <span class="mk" style="left:100%">Jul 20</span>
-          </div>
-
-          <div class="tlrow"><div class="bar" style="left:4.1%;width:51%;background:#0c8599">Luminato (Jun 3–28)</div></div>
-          <div class="tlrow"><div class="bar" style="left:20.4%;width:77.6%;background:#c8102e">FIFA Fan Festival · Fort York (Jun 11–Jul 19)</div></div>
-          <div class="tlrow"><div class="bar" style="left:22.4%;width:40.8%;background:#1c1c1e">World Cup @ BMO Field (Jun 12–Jul 2)</div></div>
-          <div class="tlrow"><div class="bar" style="left:36.7%;width:18.4%;background:#6d4ca8">TD Jazz Fest (Jun 19–28)</div></div>
-          <div class="tlrow"><div class="bar" style="left:59.2%;width:24.5%;background:#2b8a3e">Toronto Fringe (Jun 30–Jul 12)</div></div>
-          <div class="tlrow"><div class="bar" style="left:65.3%;width:32.7%;background:#c92a2a">Summerlicious (Jul 3–19)</div></div>
-        </div>
-        <p class="sub" style="margin-top:12px">
-          Also all summer: <b>CityView Drive-In</b> (Port Lands), <b>Rogers Stadium</b> at Downsview (Noah Kahan Jun 28, plus more),
-          and the <b>RBC Amphitheatre</b> waterfront series (Paul Simon Jun 25). Fall flags for the book: <b>Word on the Street</b> (Sept) and <b>TIFA</b> (Oct/Nov).
-        </p>
-      </section>
-
-      <!-- PERSONAL -->
-      <section class="blk me">
-        <h2><span class="ic">✍️</span> For Ronnie — Book &amp; Channel</h2>
-        <p class="sub">Straight read: no GTA author/agent events land in Jun 22–28 — the literary calendar is quiet until fall. So this week is a content angle that’s squarely your lane, plus recurring creator networking.</p>
-        <div class="cards">
-
-          <div class="card i">
-            <span class="when">Content angle · this week</span>
-            <span class="title">Borders of the World Cup nations</span>
-            <span class="loc">Croatia (Yugoslavia’s breakup), Senegal &amp; Côte d’Ivoire (French colonial lines), Panama (a canal carved by outside powers) — exactly your “arbitrary lines” theme, with live World Cup buzz to hook it</span>
-            <div class="row"><span class="price free">Free</span><a class="btn" href="https://torontofwc26.ca/game" target="_blank" rel="noopener">Match buzz</a></div>
-          </div>
-
-          <div class="card i">
-            <span class="when">Content angle · B-roll</span>
-            <span class="title">Shoot the World Cup street energy</span>
-            <span class="loc">Fan Festival at Fort York (Jun 23 &amp; 26) = strong visuals for reels — crowds, flags, global Toronto</span>
-            <div class="row"><span class="price free">Free</span><a class="btn" href="https://torontofwc26.ca/FIFAFanFestival" target="_blank" rel="noopener">Where</a></div>
-          </div>
-
-          <div class="card i">
-            <span class="when">Recurring · check date</span>
-            <span class="title">Toronto YouTubers Meetup</span>
-            <span class="loc">Networking across YouTube/IG/TikTok — your exact lane</span>
-            <div class="row"><span class="price free">Usually free</span><a class="btn" href="https://www.meetup.com/torontoyoutubers/" target="_blank" rel="noopener">Join</a></div>
-          </div>
-
-          <div class="card i">
-            <span class="when">Plan ahead · fall</span>
-            <span class="title">TIFA — Festival of Authors</span>
-            <span class="loc">The big one for agents/publishers/visibility · Oct–Nov · block it now (agent-first path)</span>
-            <div class="row"><span class="price bud">$ many free</span><a class="btn" href="https://festivalofauthors.ca/" target="_blank" rel="noopener">Site</a></div>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
-
-    <aside>
-
-      <div class="box pick">
-        <h3>⭐ Top 3 This Week</h3>
-        <ol>
-          <li><b>Sun Jun 28</b> — Pride Parade down Yonge (2 PM) caps the city’s biggest weekend.</li>
-          <li><b>Thu Jun 25</b> — Paul Simon at RBC Amphitheatre — a living legend, waterfront.</li>
-          <li><b>Fri Jun 26</b> — Supergirl &amp; Welcome 3 hit cinemas; World Cup back at BMO Jun 23 (Panama–Croatia).</li>
-        </ol>
+    <!-- MON -->
+    <div class="day today">
+      <div class="dh"><div class="dw">Mon</div><div class="dd">Jun 22</div></div>
+      <div class="body">
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">Blue Jays vs Astros</span><span class="m">7:07 PM · Rogers Centre · from ~$20</span></summary>
+          <div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.mlb.com/bluejays/tickets/single-game-tickets" target="_blank" rel="noopener">ℹ️ Seats</a><a href="https://www.google.com/maps/search/Rogers+Centre+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <div class="open">Quiet otherwise — see All-Week below</div>
       </div>
+    </div>
 
-      <div class="box warn">
-        <h3>⚠️ Heads-Up &amp; Closures</h3>
-        <ul>
-          <li><span class="d">Fri Jun 26 · the perfect storm</span> World Cup match (closures 10am–8pm), Jays City Connect night, Pride Friday + Trans March — downtown will be jammed. Transit, not the car.</li>
-          <li><span class="d">Tue Jun 23 · 2pm–midnight</span> World Cup road closures: <b>Lake Shore Blvd W</b> (Bathurst→BC Rd), <b>Dufferin</b>, <b>Strachan</b>, <b>Fort York Blvd</b>; Exhibition Place internal roads shut. Start ~5h before kickoff.</li>
-          <li><span class="d">Sun Jun 28 · ~noon–evening</span> Pride Parade: <b>Yonge St</b> closed Bloor → Nathan Phillips Sq. Village road closures run Fri afternoon through Sun night.</li>
-          <li><span class="d">All summer</span> <b>Church St</b> (Wellesley→Maitland) closed to cars (pilot to Aug 21); Fort York/Liberty Village local-traffic-only during the tournament.</li>
-          <li><span class="d">Mon–Sun</span> <b>Blue Jays home all week</b> — extra congestion around Rogers Centre most nights.</li>
-          <li><span class="d">This week</span> No TTC subway closures announced through end of June; no Gardiner/DVP weekend closure confirmed for Jun 27–28 yet — <b>confirm live</b> before you go.</li>
-        </ul>
-        <div style="padding:0 14px 12px;font-size:11.5px">
-          Live check: <a href="https://www.ttc.ca/service-advisories/subway-service" target="_blank" rel="noopener">TTC</a> ·
-          <a href="https://www.gotransit.com/en/service-updates" target="_blank" rel="noopener">GO</a> ·
-          <a href="https://www.toronto.ca/news/upcoming-gardiner-and-dvp-weekend-maintenance-closures/" target="_blank" rel="noopener">Gardiner/DVP</a> ·
-          <a href="https://www.toronto.ca/explore-enjoy/festivals-events/fifa-world-cup-26/" target="_blank" rel="noopener">World Cup roads</a>
-        </div>
+    <!-- TUE -->
+    <div class="day">
+      <div class="dh"><div class="dw">Tue</div><div class="dd">Jun 23</div></div>
+      <div class="body">
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">World Cup: Panama vs Croatia <span class="hot">●</span></span><span class="m">7:00 PM · BMO Field · $$$ resale</span></summary>
+          <div class="lk"><a href="https://torontofwc26.ca/game" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://torontofwc26.ca/getting-around" target="_blank" rel="noopener">🚇 Getting there</a><a href="https://www.google.com/maps/search/BMO+Field+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">Blue Jays vs Astros</span><span class="m">7:07 PM · Rogers Centre</span></summary>
+          <div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.google.com/maps/search/Rogers+Centre+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
       </div>
+    </div>
 
-      <div class="box">
-        <h3 style="background:#f0eee8;color:#555">Price Legend</h3>
-        <div class="legend">
-          <span><span class="dot" style="background:var(--green)"></span> Free</span>
-          <span><span class="dot" style="background:#9a6b00"></span> $ Budget</span>
-          <span><span class="dot" style="background:#b5530a"></span> $$ Mid</span>
-          <span><span class="dot" style="background:#b01030"></span> $$$ Splurge</span>
-        </div>
+    <!-- WED -->
+    <div class="day">
+      <div class="dh"><div class="dw">Wed</div><div class="dd">Jun 24</div></div>
+      <div class="body">
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">Blue Jays vs Astros</span><span class="m">Day game · Rogers Centre</span></summary>
+          <div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.google.com/maps/search/Rogers+Centre+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <div class="open">Good night for a tasting menu →</div>
       </div>
+    </div>
 
-    </aside>
+    <!-- THU -->
+    <div class="day">
+      <div class="dh"><div class="dw">Thu</div><div class="dd">Jun 25</div></div>
+      <div class="body">
+        <details class="ev k-concert">
+          <summary><span class="cat">Concert</span><span class="t">Paul Simon — A Quiet Celebration <span class="hot">★</span></span><span class="m">8 PM · RBC Amphitheatre · from ~$52 · legend</span></summary>
+          <div class="lk"><a href="https://www.rbcamphitheatre.com/shows" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.paulsimon.com/tour" target="_blank" rel="noopener">ℹ️ Tour</a><a href="https://www.google.com/maps/search/RBC+Amphitheatre+Ontario+Place" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">Blue Jays vs Rangers</span><span class="m">7:07 PM · Rogers Centre</span></summary>
+          <div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.google.com/maps/search/Rogers+Centre+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+      </div>
+    </div>
+
+    <!-- FRI -->
+    <div class="day">
+      <div class="dh"><div class="dw">Fri</div><div class="dd">Jun 26</div></div>
+      <div class="body">
+        <details class="ev k-couple">
+          <summary><span class="cat">Couple</span><span class="t">Pride — Trans March</span><span class="m">Eve · Church-Wellesley · free</span></summary>
+          <div class="lk"><a href="https://www.pridetoronto.com/" target="_blank" rel="noopener">🗓 Schedule</a><a href="https://www.google.com/maps/search/Church+and+Wellesley+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-screen">
+          <summary><span class="cat">On-Screen</span><span class="t">Big movie day 🍿</span><span class="m">Supergirl <span class="lang eng">ENG</span> · Welcome to the Jungle <span class="lang hin">HIN</span> · +2 open today</span></summary>
+          <div class="lk"><a href="https://www.cineplex.com/movies/now-playing" target="_blank" rel="noopener">🎬 Showtimes</a><a href="https://www.cineplex.com/movie/supergirl" target="_blank" rel="noopener">🦸 Supergirl</a><a href="https://www.cineplex.com/movies/coming-soon" target="_blank" rel="noopener">🇮🇳 Bollywood</a></div>
+        </details>
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">World Cup: Senegal vs Iraq</span><span class="m">3:00 PM · BMO Field · $$$</span></summary>
+          <div class="lk"><a href="https://torontofwc26.ca/game" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://torontofwc26.ca/getting-around" target="_blank" rel="noopener">🚇 Getting there</a><a href="https://www.google.com/maps/search/BMO+Field+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">Jays — City Connect night</span><span class="m">7:07 PM · Kirk jersey to first 15k</span></summary>
+          <div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.mlb.com/bluejays/tickets/promotions" target="_blank" rel="noopener">🎁 Promos</a></div>
+        </details>
+      </div>
+    </div>
+
+    <!-- SAT -->
+    <div class="day">
+      <div class="dh"><div class="dw">Sat</div><div class="dd">Jun 27</div></div>
+      <div class="body">
+        <details class="ev k-couple">
+          <summary><span class="cat">Couple</span><span class="t">Pride — Dyke March</span><span class="m">Afternoon · Church St · free</span></summary>
+          <div class="lk"><a href="https://www.pridetoronto.com/" target="_blank" rel="noopener">🗓 Schedule</a><a href="https://www.google.com/maps/search/Church+and+Wellesley+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-food">
+          <summary><span class="cat">Food</span><span class="t">Taco Fest Mississauga 🌮</span><span class="m">Port Credit · 200+ tacos, 32 tequilas</span></summary>
+          <div class="lk"><a href="https://www.todocanada.ca/festivals-toronto-june/" target="_blank" rel="noopener">ℹ️ Details</a><a href="https://www.google.com/maps/search/Port+Credit+Memorial+Park" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-pop">
+          <summary><span class="cat">Pop-Up</span><span class="t">West-end street eats</span><span class="m">Taste of the Junction + Fun Philippines Fest · free</span></summary>
+          <div class="lk"><a href="https://www.todocanada.ca/festivals-toronto-june/" target="_blank" rel="noopener">ℹ️ Details</a><a href="https://www.google.com/maps/search/The+Junction+Dundas+West+Toronto" target="_blank" rel="noopener">📍 The Junction</a></div>
+        </details>
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">Toronto Tempo 🏀 <span class="hot">WNBA</span></span><span class="m">Scotiabank Arena · confirm tip-off</span></summary>
+          <div class="lk"><a href="https://tempo.wnba.com/schedule" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.google.com/maps/search/Scotiabank+Arena+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-comedy">
+          <summary><span class="cat">Comedy · Indian</span><span class="t">Desi Comedy Show</span><span class="m">Comedy Bar (Bloordale) · desi line-up · ~$20</span></summary>
+          <div class="lk"><a href="https://comedybar.ca/shows/Desi-Comedy-Show" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://events.sulekha.com/upcoming-hindi-events-tickets-toronto-metro-area" target="_blank" rel="noopener">🔎 More desi shows</a><a href="https://www.google.com/maps/search/Comedy+Bar+Bloordale+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+      </div>
+    </div>
+
+    <!-- SUN -->
+    <div class="day">
+      <div class="dh"><div class="dw">Sun</div><div class="dd">Jun 28</div></div>
+      <div class="body">
+        <details class="ev k-couple">
+          <summary><span class="cat">Couple</span><span class="t">Pride Parade 🌈 <span class="hot">●</span></span><span class="m">2 PM · Yonge (Bloor → NPS) · free</span></summary>
+          <div class="lk"><a href="https://www.pridetoronto.com/" target="_blank" rel="noopener">🗓 Schedule</a><a href="https://www.google.com/maps/search/Yonge+Street+Bloor+Toronto" target="_blank" rel="noopener">📍 Route</a></div>
+        </details>
+        <details class="ev k-food">
+          <summary><span class="cat">Food</span><span class="t">Taco Fest — day 2</span><span class="m">Port Credit Memorial Park · lakeside</span></summary>
+          <div class="lk"><a href="https://www.todocanada.ca/festivals-toronto-june/" target="_blank" rel="noopener">ℹ️ Details</a><a href="https://www.google.com/maps/search/Port+Credit+Memorial+Park" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-sport">
+          <summary><span class="cat">Sports</span><span class="t">Jays vs Rangers — Jr Jays</span><span class="m">1:37 PM · kids run the bases</span></summary>
+          <div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.google.com/maps/search/Rogers+Centre+Toronto" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+        <details class="ev k-concert">
+          <summary><span class="cat">Concert</span><span class="t">Noah Kahan <span class="hot">★</span></span><span class="m">6:30 PM · Rogers Stadium, Downsview · $$$</span></summary>
+          <div class="lk"><a href="https://www.rogers-stadium.com/shows" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.noahkahan.com/" target="_blank" rel="noopener">ℹ️ Tour</a><a href="https://www.google.com/maps/search/Rogers+Stadium+Downsview+Park" target="_blank" rel="noopener">📍 Map</a></div>
+        </details>
+      </div>
+    </div>
 
   </div>
 
+  <!-- ALL WEEK & ANYTIME -->
+  <div class="sech">
+    <h2>♾️ All Week &amp; Anytime</h2>
+    <span class="note">Runs all week, drop-in, or watch whenever.</span>
+  </div>
+  <div class="cards">
+
+    <div class="card k-couple">
+      <span class="cat">Couple</span><span class="t">Toronto Islands ferry + picnic ⛴️</span>
+      <span class="m">Skyline, bikes &amp; beaches · ferry from <b>Jack Layton Terminal</b></span>
+      <div class="r"><span class="price bud">$ ferry</span><a class="btn" href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/toronto-island-park/" target="_blank" rel="noopener">Info</a></div>
+    </div>
+
+    <div class="card k-couple">
+      <span class="cat">Couple</span><span class="t">Humber Bay sunset walk + drive-in</span>
+      <span class="m">Lakeside trail minutes from home · or <b>CityView Drive-In</b>, Port Lands</span>
+      <div class="r"><span class="price free">Free / $$</span><a class="btn" href="https://www.cityviewdrivein.com/" target="_blank" rel="noopener">Drive-in</a></div>
+    </div>
+
+    <div class="card k-screen">
+      <span class="cat">On-Screen · streaming</span><span class="t">New &amp; binge-worthy this week</span>
+      <span class="m"><b>The Bear</b> S5 finale (Disney+) <span class="lang eng">ENG</span> · <b>HOTD</b> S3 (Crave) <span class="lang eng">ENG</span> · <b>Criminal Justice</b> S5 (JioHotstar) <span class="lang hin">HIN</span></span>
+      <div class="r"><span class="price sub2">Subscription</span><a class="btn" href="https://www.disneyplus.com/en-ca" target="_blank" rel="noopener">Watch</a></div>
+    </div>
+
+    <div class="card k-food">
+      <span class="cat">Food</span><span class="t">Tasting menus — top end</span>
+      <span class="m">Sushi Masaki Saito (2★), Alo (1★), 20 Victoria (1★), Don Alfonso (1★)</span>
+      <div class="r"><span class="price spl">$$$ ~$150–500</span><a class="btn" href="https://tastingmenu.ca/guides/best-tasting-menu-toronto" target="_blank" rel="noopener">Guide</a></div>
+    </div>
+
+    <div class="card k-food">
+      <span class="cat">Food</span><span class="t">Summerlicious — book now</span>
+      <span class="m">240+ restaurants, 3-course prix-fixe · festival Jul 3–19</span>
+      <div class="r"><span class="price mid">$$ ~$34–75</span><a class="btn" href="https://www.toronto.ca/explore-enjoy/festivals-events/summerlicious/" target="_blank" rel="noopener">Book</a></div>
+    </div>
+
+    <div class="card k-pop">
+      <span class="cat">Pop-Up</span><span class="t">Pride Toronto — festival weekend</span>
+      <span class="m">Street fair, market &amp; stages on <b>Church St</b> · Thu–Sun Jun 25–28</span>
+      <div class="r"><span class="price free">Free</span><a class="btn" href="https://www.pridetoronto.com/" target="_blank" rel="noopener">Schedule</a></div>
+    </div>
+
+    <div class="card k-pop">
+      <span class="cat">Pop-Up</span><span class="t">Luminato — final days</span>
+      <span class="m">Theme “PLAY” · 50+ free &amp; ticketed events · wraps Sun Jun 28</span>
+      <div class="r"><span class="price free">Many free</span><a class="btn" href="https://www.luminatofestival.com/" target="_blank" rel="noopener">What’s on</a></div>
+    </div>
+
+    <div class="card k-sport">
+      <span class="cat">Sports</span><span class="t">Blue Jays — full homestand ⚾</span>
+      <span class="m">vs Astros (Jun 22–24), vs Rangers (Jun 25–28) · Rogers Centre</span>
+      <div class="r"><span class="price mid">$$ from ~$20</span><a class="btn" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">Tickets</a></div>
+    </div>
+
+    <div class="card k-sport">
+      <span class="cat">Sports</span><span class="t">FIFA Fan Festival</span>
+      <span class="m">Big-screen matches + 30 food stalls · <b>Fort York</b> · to Jul 19</span>
+      <div class="r"><span class="price free">Free GA</span><a class="btn" href="https://torontofwc26.ca/FIFAFanFestival" target="_blank" rel="noopener">Info</a></div>
+    </div>
+
+    <div class="card k-concert">
+      <span class="cat">Concert</span><span class="t">TD Jazz Fest — free Yorkville stages 🎷</span>
+      <span class="m">100+ free sets, 5:30–10 PM nightly · OLG Village · wraps Jun 28</span>
+      <div class="r"><span class="price free">Free</span><a class="btn" href="https://torontojazz.com/schedule-2026/" target="_blank" rel="noopener">Program</a></div>
+    </div>
+
+    <div class="card k-conf">
+      <span class="cat">Talks · AI/Notion</span><span class="t">AI Tinkerers Toronto</span>
+      <span class="m">Builder demos + networking · <b>next: Tue Jun 30</b> (book ahead)</span>
+      <div class="r"><span class="price free">Free / RSVP</span><a class="btn" href="https://toronto.aitinkerers.org/" target="_blank" rel="noopener">RSVP</a></div>
+    </div>
+
+    <div class="card k-conf">
+      <span class="cat">Talks · recurring</span><span class="t">Philosophy + Creator meetups</span>
+      <span class="m">Toronto Philosophy Meetup · Toronto YouTubers Meetup — check this week's dates</span>
+      <div class="r"><span class="price free">Usually free</span><a class="btn" href="https://www.meetup.com/the-toronto-philosophy-meetup/" target="_blank" rel="noopener">Find</a></div>
+    </div>
+
+  </div>
+
+  <!-- FOR RONNIE -->
+  <div class="sech">
+    <h2>✍️ For Ronnie — Book &amp; Channel</h2>
+    <span class="note">Tied to your worlds: history, writing, the channel, AI/Notion, telecom &amp; music.</span>
+  </div>
+  <div class="cards">
+
+    <div class="card k-ronnie">
+      <span class="cat">Channel · content</span><span class="t">Shoot at the World Cup buzz</span>
+      <span class="m">Fan Fest + Pride = strong visuals/history hooks for Stories by Ronnie</span>
+      <div class="r"><span class="price free">Free</span><a class="btn" href="https://torontofwc26.ca/FIFAFanFestival" target="_blank" rel="noopener">Where</a></div>
+    </div>
+
+    <div class="card k-ronnie">
+      <span class="cat">AI / Notion</span><span class="t">AI Tinkerers — Jun 30</span>
+      <span class="m">Meet builders using the same AI-video stack you work in · networking</span>
+      <div class="r"><span class="price free">Free / RSVP</span><a class="btn" href="https://toronto.aitinkerers.org/" target="_blank" rel="noopener">RSVP</a></div>
+    </div>
+
+    <div class="card k-ronnie">
+      <span class="cat">Writing · book</span><span class="t">TPL author talks + writing workshops</span>
+      <span class="m">Free craft sessions &amp; author Q&amp;As across the library system — useful for <i>Rodenia</i></span>
+      <div class="r"><span class="price free">Free</span><a class="btn" href="https://www.torontopubliclibrary.ca/programs-and-classes/categories/authors.jsp" target="_blank" rel="noopener">Browse</a></div>
+    </div>
+
+    <div class="card k-ronnie">
+      <span class="cat">History · content</span><span class="t">ROM / Myseum — B-roll &amp; ideas</span>
+      <span class="m">Pull obscure-history angles for reels; members get free re-entry</span>
+      <div class="r"><span class="price mid">$$ entry</span><a class="btn" href="https://www.rom.on.ca/en" target="_blank" rel="noopener">Plan</a></div>
+    </div>
+
+    <div class="card k-ronnie">
+      <span class="cat">Telecom / sales</span><span class="t">Industry networking (Rogers world)</span>
+      <span class="m">Canadian Telecom Summit is the big one (annual, ~May — watch for 2027)</span>
+      <div class="r"><span class="price sub2">Industry</span><a class="btn" href="https://www.telecomsummit.com/" target="_blank" rel="noopener">Site</a></div>
+    </div>
+
+    <div class="card k-ronnie">
+      <span class="cat">Music · you</span><span class="t">Open mic / jam night</span>
+      <span class="m">Dust off the guitar — GTA open mics + the free Jazz Fest stages this week</span>
+      <div class="r"><span class="price free">Free</span><a class="btn" href="https://torontojazz.com/schedule-2026/" target="_blank" rel="noopener">Jazz Fest</a></div>
+    </div>
+
+  </div>
+
+  <!-- HORIZON -->
+  <div class="sech">
+    <h2>🔭 On the Horizon — Coming in 2026</h2>
+    <span class="note">Big concerts, comedy, festivals &amp; conferences disclosed early — plan &amp; grab tickets. Verify exact dates on the link.</span>
+  </div>
+  <div class="hz">
+
+    <div class="hzrow">
+      <div class="hzm">JUL</div>
+      <div class="hzcards">
+        <a class="hzc k-sport" href="https://torontofwc26.ca/game" target="_blank" rel="noopener"><span class="cat">Sports</span><span class="t">World Cup — Round of 32 @ BMO</span><span class="m">Thu Jul 2 · BMO Field</span></a>
+        <a class="hzc k-food" href="https://www.toronto.ca/explore-enjoy/festivals-events/summerlicious/" target="_blank" rel="noopener"><span class="cat">Food</span><span class="t">Summerlicious</span><span class="m">Jul 3–19 · 240+ restaurants citywide</span></a>
+        <a class="hzc k-sport" href="https://www.hondaindytoronto.com/" target="_blank" rel="noopener"><span class="cat">Sports</span><span class="t">Honda Indy Toronto</span><span class="m">Mid-July · Exhibition Place · confirm date</span></a>
+      </div>
+    </div>
+
+    <div class="hzrow">
+      <div class="hzm">AUG</div>
+      <div class="hzcards">
+        <a class="hzc k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener"><span class="cat">Concert</span><span class="t">Guns N’ Roses</span><span class="m">~Aug 4 · Scotiabank Arena · confirm</span></a>
+        <a class="hzc k-concert" href="https://www.rogers-stadium.com/shows" target="_blank" rel="noopener"><span class="cat">Concert</span><span class="t">Rush</span><span class="m">~Aug 5 · Rogers Stadium · confirm</span></a>
+        <a class="hzc k-concert" href="https://www.rogers-stadium.com/shows" target="_blank" rel="noopener"><span class="cat">Concert</span><span class="t">Bruno Mars — 6 nights</span><span class="m">Summer · Rogers Stadium · confirm dates</span></a>
+        <a class="hzc k-conf" href="https://www.mtccc.com/single-event/fan-expo-canada-2026/" target="_blank" rel="noopener"><span class="cat">Conference · creator</span><span class="t">FAN EXPO Canada</span><span class="m">Aug 27–30 · MTCC · pop-culture &amp; creators</span></a>
+        <a class="hzc k-pop" href="https://theex.com/" target="_blank" rel="noopener"><span class="cat">Pop-Up</span><span class="t">The CNE opens</span><span class="m">~Aug 21 → Labour Day · Exhibition Place</span></a>
+      </div>
+    </div>
+
+    <div class="hzrow">
+      <div class="hzm">SEP</div>
+      <div class="hzcards">
+        <a class="hzc k-screen" href="https://tiff.net/" target="_blank" rel="noopener"><span class="cat">On-Screen</span><span class="t">TIFF — Toronto Film Festival</span><span class="m">Early–mid Sept · downtown · confirm dates</span></a>
+        <a class="hzc k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener"><span class="cat">Concert · Indian</span><span class="t">Shreya Ghoshal <span class="lang hin">HIN</span></span><span class="m">Sun Sep 13 · 8 PM · Scotiabank Arena</span></a>
+        <a class="hzc k-conf" href="https://allinevent.ai/" target="_blank" rel="noopener"><span class="cat">Conference · AI</span><span class="t">ALL IN — Canada’s biggest AI event</span><span class="m">Sep 16–17 · Montreal (road trip / fly)</span></a>
+        <a class="hzc k-conf" href="https://elevatefestival.ca/" target="_blank" rel="noopener"><span class="cat">Conference · AI/tech</span><span class="t">Elevate Festival</span><span class="m">Sep 22–24 · Toronto · AI, fintech, innovation</span></a>
+        <a class="hzc k-conf" href="https://toronto.thewordonthestreet.ca/" target="_blank" rel="noopener"><span class="cat">Lit · book</span><span class="t">Word on the Street</span><span class="m">Sep 26–27 · David Pecaut Sq · Canada’s largest lit fest</span></a>
+      </div>
+    </div>
+
+    <div class="hzrow">
+      <div class="hzm">OCT–NOV</div>
+      <div class="hzcards">
+        <a class="hzc k-conf" href="https://festivalofauthors.ca/" target="_blank" rel="noopener"><span class="cat">Lit · book</span><span class="t">TIFA — Festival of Authors</span><span class="m">Oct 28 – Nov 1 · Harbourfront · agents &amp; publishers</span></a>
+        <a class="hzc k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener"><span class="cat">Concert</span><span class="t">Doja Cat</span><span class="m">Late 2026 · Scotiabank Arena · confirm date</span></a>
+        <a class="hzc k-pop" href="https://www.toronto.ca/explore-enjoy/festivals-events/cavalcade-of-lights/" target="_blank" rel="noopener"><span class="cat">Pop-Up</span><span class="t">Cavalcade of Lights / Xmas Market</span><span class="m">Late Nov → Dec · Nathan Phillips Sq &amp; Distillery</span></a>
+      </div>
+    </div>
+
+    <div class="hzrow tbd">
+      <div class="hzm">TBD</div>
+      <div class="hzcards">
+        <a class="hzc k-concert" href="https://www.rogers-stadium.com/shows" target="_blank" rel="noopener"><span class="cat">Concert</span><span class="t">BTS @ Rogers Stadium</span><span class="m">2026 Toronto stop announced — exact date TBD</span></a>
+        <a class="hzc k-comedy" href="https://events.sulekha.com/upcoming-hindi-events-tickets-toronto-metro-area" target="_blank" rel="noopener"><span class="cat">Comedy · Indian</span><span class="t">Indian stand-up tours</span><span class="m">Nothing big confirmed for late ’26 yet — watch Sulekha / Meridian Hall</span></a>
+        <a class="hzc k-concert" href="https://www.ticketmaster.ca/damien-rice-tickets/artist/852799" target="_blank" rel="noopener"><span class="cat">Concert</span><span class="t">Damien Rice</span><span class="m">No 2026 Toronto date yet — “new things coming soon”</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HEADS UP -->
+  <div class="sech"><h2>⚠️ Heads-Up &amp; Closures</h2><span class="note">What to expect on the roads &amp; transit this week.</span></div>
+  <div class="heads">
+    <h3>🚧 Plan around these</h3>
+    <div class="hgrid">
+      <div class="hcard"><span class="d">Tue Jun 23 · 4–11 PM</span><span class="x">World Cup match — closures around <b>Exhibition / Fort York</b> (Lake Shore W: Bathurst→BC Rd). Transit-first.</span></div>
+      <div class="hcard"><span class="d">Fri Jun 26 · 11 AM–8 PM</span><span class="x">Second match day — same Exhibition-area closures, daytime. <b>No parking near BMO.</b></span></div>
+      <div class="hcard"><span class="d">Whole tournament</span><span class="x"><b>Fleet St</b> (Strachan→Fort York Blvd) is a temp transit hub — 509/511 streetcars detour there.</span></div>
+      <div class="hcard"><span class="d">Sun Jun 28 · midday</span><span class="x"><b>Pride Parade</b> closes <b>Yonge St</b> (Bloor→Nathan Phillips Sq) + Church-Wellesley all weekend. Big downtown impact.</span></div>
+      <div class="hcard"><span class="d">All week · eve</span><span class="x"><b>Jays homestand</b> = Front St &amp; downtown congestion on game nights. Leave early.</span></div>
+      <div class="hcard"><span class="d">Match days</span><span class="x"><b>TTC &amp; GO add service</b> (GO up to 6 trains/hr). The train beats the car all week.</span></div>
+    </div>
+    <div class="live">Live before you go: <a href="https://www.ttc.ca/service-advisories/subway-service" target="_blank" rel="noopener">TTC</a> · <a href="https://www.gotransit.com/en/service-updates" target="_blank" rel="noopener">GO Transit</a> · <a href="https://www.toronto.ca/explore-enjoy/festivals-events/fifa-world-cup-26/" target="_blank" rel="noopener">World Cup road closures</a></div>
+  </div>
+
   <footer>
-    Built from public listings as of <b>Sun, Jun 21, 2026</b>. Concert line-ups, Hindi-film dates, streaming windows &amp; prices can shift — tap a card’s link to confirm before you go.<br>
-    Sources: torontofwc26.ca · MLB.com · tempo.wnba.com · TD Toronto Jazz · RBC Amphitheatre · Rogers Stadium · Pride Toronto · City of Toronto · Cineplex · Movie Insider · Pinkvilla · Disney+ · Netflix · Crave · JioHotstar · TTC · GO Transit.<br>
-    🔄 Refreshed weekly (Sunday eve) for the upcoming Monday–Sunday.
+    Built from public listings as of <b>Mon, Jun 22, 2026</b>. Tap a card to open its links. Line-ups, Hindi-film dates, streaming windows &amp; horizon dates can shift — confirm before you commit.<br>
+    Sources: torontofwc26.ca · MLB.com · TD Toronto Jazz · Scotiabank Arena · RBC Amphitheatre · Rogers Stadium · Pride Toronto · Cineplex · Crave/Disney+/Netflix/JioHotstar · Sulekha · AI Tinkerers · Elevate · ALL IN · FAN EXPO · Word on the Street · TIFA · Billboard Canada · TTC · GO Transit · City of Toronto.<br>
+    🔄 Refreshed weekly (Sunday eve) for the upcoming Monday–Sunday · 🏠 the go-to for Ronnie &amp; Saumya.
   </footer>
 
 </div>
