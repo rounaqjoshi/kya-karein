@@ -35,6 +35,9 @@ h2{font-size:18px;font-weight:800;margin-bottom:14px}
 @media (max-width:900px){.cal7{grid-auto-columns:78%;grid-auto-flow:column;display:grid}}
 .day{background:#fbf9f4;border:1px solid #e7e1d6;border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:120px}
 .day.weekend{background:#fdf6e8;border-color:#efe3c9}
+.day.today{border:2px solid #1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,.12)}
+.day.today .dhead .dw{color:#1d4ed8}
+.day.today .dhead::after{content:'TODAY';font-size:9px;font-weight:800;letter-spacing:.5px;color:#fff;background:#1d4ed8;border-radius:5px;padding:2px 6px}
 .dhead{display:flex;justify-content:space-between;align-items:baseline;padding:2px 4px 6px;border-bottom:1px solid rgba(0,0,0,.06)}
 .dhead .dw{font-weight:800;font-size:13px;color:#5a4a14}
 .dhead .dnum{font-size:12px;color:#9a9082}
@@ -86,7 +89,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #e1dacd;font-size:1
 <body>
 <div class="wrap">
 
-<div class="note">📋 Correction from the last refresh: Toronto Tempo DO play at home this week — Wed Jul 8 vs Golden State Valkyries (Coca-Cola Coliseum). Otherwise still a quiet week for tickets — Jays stay on the road and no big-venue concerts land exactly in this window. The real action is multi-day: Toronto Outdoor Art Fair + Beaches Jazz's TD Salsa on the Beach, both Jul 10–12.</div>
+<div class="note">📋 Thu touch-up: three ticketed concerts confirmed for the back half of the week that weren't locked in Monday — Madison Beer (Fri, Coca-Cola Coliseum), Zeds Dead (Sat, RBC Amphitheatre) and Arcángel + Lunay (Sun, RBC Amphitheatre). Also added: Aziz Ansari's Hypothetical Tour lands in Toronto Jul 16 — first confirmed Indian-American comedy date in weeks. Jays still on the road all week; Tempo's Jul 10 &amp; 12 "home" games are confirmed played at Bell Centre, Montreal, not Toronto.</div>
 
 <header class="hero">
 <div class="blob1"></div><div class="blob2"></div>
@@ -97,18 +100,20 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #e1dacd;font-size:1
 <div class="tagline">so… what should we do this week?</div>
 <div class="meta-row">
 <span>📍 Toronto · Etobicoke · Mississauga · Oakville · Brampton</span>
-<span class="refreshed">Refreshed Sat, Jul 4</span>
+<span class="refreshed">Refreshed Thu, Jul 9 (mid-week update)</span>
 </div>
 </div>
 <div class="weekbox">
 <div class="lbl">THE WEEK</div>
 <div class="rng">Jul 6 – 12</div>
 <div class="yr">2026</div>
-<div class="pills"><span>4 picks</span><span>9 categories</span></div>
+<div class="pills"><span>7 picks</span><span>9 categories</span></div>
 </div>
 </div>
 <div class="banner-chips">
 <span>🏀 Tempo SLAM Night · Wed</span>
+<span>🎤 Madison Beer · Fri</span>
+<span>🎧 Zeds Dead · Sat</span>
 <span>🎨 Toronto Outdoor Art Fair weekend</span>
 <span>🎷 Beaches Jazz · TD Salsa on the Beach</span>
 </div>
@@ -130,7 +135,7 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #e1dacd;font-size:1
 <summary><span class="cat">Sports</span><span class="t">Tempo vs Golden State Valkyries</span><span class="m">SLAM Night · 7:00 PM EDT · Coca-Cola Coliseum</span></summary>
 <div class="lk"><a href="https://a.data.nba.com/tickets/single/2026/1022600159/LEAG_SCH" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://tempo.wnba.com/schedule" target="_blank" rel="noopener">📅 Schedule</a></div>
 </details>
-</div><div class="day">
+</div><div class="day today">
 <div class="dhead"><span class="dw">Thu</span><span class="dnum">9 Jul</span></div>
 <details class="ev k-screen">
 <summary><span class="cat">On-Screen</span><span class="t">Little House on the Prairie (reboot)</span><span class="m">Premieres today · Netflix (ENG)</span></summary>
@@ -141,16 +146,28 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #e1dacd;font-size:1
 <details class="ev k-screen">
 <summary><span class="cat">On-Screen</span><span class="t">Big movie day 🍿</span><span class="m">Moana (Live-Action, ENG) · Evil Dead Burn (ENG) · Dhamaal 4 (HIN) — all open today</span></summary>
 <div class="lk"><a href="https://www.cineplex.com/movies/now-playing" target="_blank" rel="noopener">🎬 Showtimes</a><a href="https://www.cineplex.com/news/july-movie-preview-2026" target="_blank" rel="noopener">🌊 Moana &amp; Evil Dead Burn</a><a href="https://in.bookmyshow.com/movies/bengaluru/dhamaal-4/ET00452553" target="_blank" rel="noopener">🇮🇳 Dhamaal 4 (confirm GTA screens)</a></div>
-</details><div class="daynote">Also kicking off today: TD Salsa on the Beach + Toronto Outdoor Art Fair — see All Week ↓</div>
+</details>
+<details class="ev k-concert">
+<summary><span class="cat">Concerts</span><span class="t">Madison Beer — the locket tour</span><span class="m">7:30 PM · Coca-Cola Coliseum · $81+</span></summary>
+<div class="lk"><a href="https://www.livenation.com/event/1AvZZ_eGkwqBfJz/madison-beer-the-locket-tour" target="_blank" rel="noopener">🎟 Tickets</a><a href="https://www.coca-colacoliseum.com/events/detail/madison-beer" target="_blank" rel="noopener">📍 Venue</a></div>
+</details>
+<div class="daynote">Also kicking off today: TD Salsa on the Beach + Toronto Outdoor Art Fair — see All Week ↓</div>
 </div><div class="day weekend">
 <div class="dhead"><span class="dw">Sat</span><span class="dnum">11 Jul</span></div>
 <details class="ev k-screen">
 <summary><span class="cat">On-Screen</span><span class="t">One Piece: Heroines</span><span class="m">Netflix streaming premiere today</span></summary>
 <div class="lk"><a href="https://www.netflix.com/tudum/articles/new-on-netflix" target="_blank" rel="noopener">▶️ Netflix</a></div>
 </details>
+<details class="ev k-concert">
+<summary><span class="cat">Concerts</span><span class="t">Zeds Dead — Journey of a Lifetime</span><span class="m">w/ Dr. Fresch · 6:00 PM · RBC Amphitheatre · $69+</span></summary>
+<div class="lk"><a href="https://www.livenation.com/event/1A8Zko9GkdUF4K4/zeds-dead-journey-of-a-lifetime-tour" target="_blank" rel="noopener">🎟 Tickets</a></div>
+</details>
 </div><div class="day weekend">
 <div class="dhead"><span class="dw">Sun</span><span class="dnum">12 Jul</span></div>
-<div class="empty">open day — nothing single-day confirmed, check All Week ↓</div>
+<details class="ev k-concert">
+<summary><span class="cat">Concerts</span><span class="t">Arcángel + Lunay — La 8va Maravilla</span><span class="m">World Tour 20 Aniversario · 7:00 PM · RBC Amphitheatre · $90+ USD</span></summary>
+<div class="lk"><a href="https://www.ticketmaster.ca/rbc-amphitheatre-tickets-toronto/venue/131073" target="_blank" rel="noopener">🎟 Tickets</a></div>
+</details>
 <div class="daynote">Last day of TOAF + TD Salsa on the Beach</div>
 </div></div>
 </section>
@@ -203,9 +220,9 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #e1dacd;font-size:1
 <div class="cm">Jays play all week @ San Francisco Giants, then @ San Diego · TFC's Jul 9 friendly is away in Halifax and their next BMO Field date isn't until Aug 15. Tempo's only true home game is Wed (see This Week) — their Jul 10 &amp; 12 games are "home" dates played in Montreal, not Toronto</div>
 <a class="cbtn" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">Jays schedule →</a>
 </div><div class="card k-comedy">
-<div class="cardtop"><span class="cat">Comedy · Indian</span><span class="price" style="background:#eceef1;color:#555">None found</span></div>
-<div class="ct">Quiet week for Indian comedy</div>
-<div class="cm">No Indian stand-up shows confirmed anywhere in the GTA this week — nothing to book, not padding this out. Kanan Gill &amp; Biswa Kalyan Rath have Canadian dates on the books for other weeks; worth checking back</div>
+<div class="cardtop"><span class="cat">Comedy · Indian</span><span class="price" style="background:#eceef1;color:#555">None this week</span></div>
+<div class="ct">Quiet week, but one's landing soon</div>
+<div class="cm">Still nothing dated inside Jul 6–12 — but Aziz Ansari's Hypothetical Tour just got confirmed for Thu Jul 16 at The Theatre at Great Canadian Toronto ($53+). See Horizon ↓ for the link</div>
 <a class="cbtn" href="https://events.sulekha.com/comedy-show-tickets" target="_blank" rel="noopener">Check listings →</a>
 </div><div class="card k-conf">
 <div class="cardtop"><span class="cat">Talks · AI/Notion</span><span class="price" style="background:#e6f4ea;color:#207a37">Free / RSVP</span></div>
@@ -259,7 +276,9 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #e1dacd;font-size:1
 <h2>🔭 On the Horizon — Coming in 2026</h2>
 <div class="hzrow">
 <div class="hzmonth">JUL</div>
-<div class="hzcards"><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener">
+<div class="hzcards"><a class="hzcard k-comedy" href="https://greatcanadian.com/event/aziz-ansari/" target="_blank" rel="noopener">
+<span class="cat">Comedy · Indian</span><span class="ht">Aziz Ansari — Hypothetical Tour</span><span class="hm">Thu Jul 16 · 8 PM · Theatre at Great Canadian Toronto · $53+</span>
+</a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener">
 <span class="cat">Concerts</span><span class="ht">Louis Tomlinson</span><span class="hm">Fri Jul 17 · 7 PM · Scotiabank Arena</span>
 </a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener">
 <span class="cat">Concerts</span><span class="ht">IVE — World Tour</span><span class="hm">Tue Jul 21 · 8 PM · Scotiabank Arena</span>
@@ -330,13 +349,13 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid #e1dacd;font-size:1
 <section>
 <h2>⚠️ Heads-Up & Closures</h2>
 <div class="heads">
-<div class="hgrid"><div class="hgrid-item"><b>This week</b><span>World Cup left BMO Field after its Jul 2 Round-of-32 match — no more match-day closures expected downtown, though the Fan Festival keeps running on select dates.</span></div><div class="hgrid-item"><b>Fri–Sun Jul 10–12</b><span>Nathan Phillips Sq gets busy for TOAF — no specific road closures posted yet, but expect pedestrian congestion around City Hall.</span></div><div class="hgrid-item"><b>Fri–Sun Jul 10–12</b><span>Woodbine Park / the Beaches will be busy for TD Salsa on the Beach — parking will be tight, TTC recommended.</span></div><div class="hgrid-item"><b>Wed Jul 8</b><span>Coca-Cola Coliseum (Exhibition Place) will see extra traffic for the Tempo game — allow more time if driving.</span></div><div class="hgrid-item"><b>Ongoing to Jul 19</b><span>FIFA Fan Festival keeps Fort York / The Bentway busier than usual on broadcast days.</span></div><div class="hgrid-item"><b>General</b><span>TTC's advisory page shows no planned subway/LRT closures posted for this window as of this refresh — these often get added with only days' notice, so check again before a weekend trip.</span></div></div>
+<div class="hgrid"><div class="hgrid-item"><b>This week</b><span>World Cup left BMO Field after its Jul 2 Round-of-32 match — no more match-day closures expected downtown, though the Fan Festival keeps running on select dates.</span></div><div class="hgrid-item"><b>Fri–Sun Jul 10–12</b><span>Nathan Phillips Sq gets busy for TOAF — no specific road closures posted yet, but expect pedestrian congestion around City Hall.</span></div><div class="hgrid-item"><b>Fri–Sun Jul 10–12</b><span>Woodbine Park / the Beaches will be busy for TD Salsa on the Beach — parking will be tight, TTC recommended.</span></div><div class="hgrid-item"><b>Fri Jul 10</b><span>Coca-Cola Coliseum will see extra traffic twice this week — Wed's Tempo game and now Madison Beer's Friday show (7:30 PM).</span></div><div class="hgrid-item"><b>Sat–Sun Jul 11–12</b><span>RBC Amphitheatre (Ontario Place) hosts back-to-back ticketed shows — Zeds Dead Sat, Arcángel Sun — expect Lake Shore Blvd W congestion both evenings.</span></div><div class="hgrid-item"><b>Ongoing to Jul 19</b><span>FIFA Fan Festival keeps Fort York / The Bentway busier than usual on broadcast days.</span></div><div class="hgrid-item"><b>General</b><span>Checked TTC's live advisory page again on Jul 9 — still no planned subway/LRT closures posted for this window. These often get added with only days' notice, so check again before a weekend trip.</span></div></div>
 <div class="livelinks">Live status: <a href="https://www.ttc.ca/service-advisories/subway-service" target="_blank" rel="noopener">TTC</a> · <a href="https://www.gotransit.com/en/service-updates" target="_blank" rel="noopener">GO Transit</a> · <a href="https://www.toronto.ca/explore-enjoy/festivals-events/festivals-events-calendar/" target="_blank" rel="noopener">City of Toronto festivals &amp; events</a></div>
 </div>
 </section>
 
 <footer>
-Built from public listings as of <b style="color:#5a4a14">Sat, Jul 4, 2026</b>, for the week of Jul 6–12. Line-ups, film dates, streaming windows &amp; horizon dates can shift — confirm before you commit.<br>
+Built from public listings as of <b style="color:#5a4a14">Thu, Jul 9, 2026</b>, for the week of Jul 6–12. Line-ups, film dates, streaming windows &amp; horizon dates can shift — confirm before you commit.<br>
 🔄 Refreshed Monday &amp; Thursday evenings · 🏠 the go-to for Ronnie &amp; Saumya.
 </footer>
 
