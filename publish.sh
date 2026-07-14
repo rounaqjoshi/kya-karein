@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-REPO_DIR="/Users/rounaqjoshi/Documents/Claude/Artifacts/kya-karein-site"
-SOURCE="/Users/rounaqjoshi/Documents/Claude/Artifacts/gta-weekly-dashboard.html"
+REPO_DIR="/Users/rounaqjoshi/Claude/Artifacts/kya-karein-site"
+SOURCE="/Users/rounaqjoshi/Claude/Artifacts/gta-weekly-dashboard.html"
 LOG="/Users/rounaqjoshi/Library/Logs/kya-karein-publish.log"
 
 exec >> "$LOG" 2>&1
