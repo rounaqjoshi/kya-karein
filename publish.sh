@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-REPO_DIR="/Users/rounaqjoshi/Library/Mobile Documents/com~apple~CloudDocs/Claude/Artifacts/kya-karein-site"
-SOURCE="/Users/rounaqjoshi/Library/Mobile Documents/com~apple~CloudDocs/Claude/Artifacts/gta-weekly-dashboard.html"
+REPO_DIR="/Users/rounaqjoshi/Library/Mobile Documents/com~apple~CloudDocs/Artifacts - ChatGPT/Artifacts/kya-karein-site"
+SOURCE="/Users/rounaqjoshi/Library/Mobile Documents/com~apple~CloudDocs/Artifacts - ChatGPT/Artifacts/gta-weekly-dashboard.html"
 LOG="/Users/rounaqjoshi/Library/Logs/kya-karein-publish.log"
 
 exec >> "$LOG" 2>&1
