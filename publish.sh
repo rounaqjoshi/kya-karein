@@ -8,17 +8,19 @@ LOG="/Users/rounaqjoshi/Library/Logs/kya-karein-publish.log"
 exec >> "$LOG" 2>&1
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') — publish start ==="
 
-for file in index.html meals.html styles.css app.js; do
+for file in index.html meals.html styles.css app.js config.js shared.js manifest.webmanifest sw.js icons/qeera-192.png icons/qeera-512.png; do
   if [ ! -f "$SOURCE_DIR/$file" ]; then
     echo "ERROR: source file not found: $SOURCE_DIR/$file"
     exit 1
   fi
 done
 
-cp "$SOURCE_DIR/index.html" "$REPO_DIR/index.html"
-cp "$SOURCE_DIR/meals.html" "$REPO_DIR/meals.html"
-cp "$SOURCE_DIR/styles.css" "$REPO_DIR/styles.css"
-cp "$SOURCE_DIR/app.js" "$REPO_DIR/app.js"
+mkdir -p "$REPO_DIR/icons"
+for file in index.html meals.html styles.css app.js config.js shared.js manifest.webmanifest sw.js; do
+  cp "$SOURCE_DIR/$file" "$REPO_DIR/$file"
+done
+cp "$SOURCE_DIR/icons/qeera-192.png" "$REPO_DIR/icons/qeera-192.png"
+cp "$SOURCE_DIR/icons/qeera-512.png" "$REPO_DIR/icons/qeera-512.png"
 cd "$REPO_DIR"
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"

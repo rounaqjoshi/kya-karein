@@ -127,48 +127,13 @@ modal?.querySelector('.modal-close')?.addEventListener('click', closeModal);
 modal?.addEventListener('click', event => { if (event.target === modal) closeModal(); });
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
 
-const mealChecks = [...document.querySelectorAll('[data-meal]')];
-const checkedMeals = store.get('kya-meals-2026-07-20', {});
-
-function updateProgress() {
-  if (!mealChecks.length) return;
-  const complete = mealChecks.filter(input => input.checked).length;
-  const percent = Math.round(complete / mealChecks.length * 100);
-  document.querySelector('#progress-fill').style.width = `${percent}%`;
-  document.querySelector('#progress-count').textContent = `${complete} of ${mealChecks.length} checked`;
-  document.querySelector('#progress-percent').textContent = `${percent}%`;
-}
-
-mealChecks.forEach(input => {
-  input.checked = Boolean(checkedMeals[input.dataset.meal]);
-  input.closest('.meal').classList.toggle('done', input.checked);
-  input.addEventListener('change', () => {
-    checkedMeals[input.dataset.meal] = input.checked;
-    input.closest('.meal').classList.toggle('done', input.checked);
-    store.set('kya-meals-2026-07-20', checkedMeals);
-    updateProgress();
-  });
-});
-updateProgress();
-
-document.querySelector('#reset-checks')?.addEventListener('click', () => {
-  if (!window.confirm('Clear all meal check-offs for this week?')) return;
-  mealChecks.forEach(input => { input.checked = false; input.closest('.meal').classList.remove('done'); delete checkedMeals[input.dataset.meal]; });
-  store.set('kya-meals-2026-07-20', checkedMeals);
-  updateProgress();
-});
-
-const note = document.querySelector('#preference-note');
-if (note) note.value = store.get('kya-meal-note', '');
-document.querySelector('#save-note')?.addEventListener('click', () => {
-  const saved = store.set('kya-meal-note', note.value.trim());
-  const state = document.querySelector('#save-state');
-  state.textContent = saved ? 'Saved on this device' : 'Could not save in this browser';
-});
-
 document.querySelectorAll('[data-scroll-restaurants]').forEach(button => {
   button.addEventListener('click', event => {
     event.preventDefault();
     document.querySelector('#restaurants')?.scrollIntoView({behavior:'smooth', block:'start'});
   });
 });
+
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+}

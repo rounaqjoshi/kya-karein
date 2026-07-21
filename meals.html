@@ -6,14 +6,17 @@
   <meta name="robots" content="noindex,nofollow">
   <title>Kya karein? — Meal plan</title>
   <meta name="description" content="Ronnie and Saumya's private weekly meal planner.">
+  <meta name="theme-color" content="#174f3b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/qeera-192.png">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="meals" data-preference-week-start="2026-07-27">
 <main class="shell">
   <nav class="topbar" aria-label="Primary navigation">
     <a class="brand" href="index.html"><span class="brandmark">Q</span><span><b>Kya karein?</b><small>Ronnie + Saumya</small></span></a>
     <div class="nav"><a href="index.html">This week</a><a class="active" href="meals.html">Meal plan</a></div>
-    <span class="privacy">Our weekly HQ</span>
+    <button class="account-button" id="account-button" type="button" hidden>Account</button>
   </nav>
 
   <header class="hero meal-hero">
@@ -31,7 +34,7 @@
     <span class="draft-state">Awaiting your edits</span>
   </div>
 
-  <section class="meal-week" aria-label="Weekly meal plan">
+  <section class="meal-week" data-week-start="2026-07-20" aria-label="Weekly meal plan">
     <article class="meal-day" data-date="2026-07-20"><header><b>Monday</b><span>Standard C</span></header>
       <label class="meal"><input type="checkbox" data-meal="mon-breakfast"><small>Breakfast</small><b>Avocado + pumpkin seeds</b></label>
       <label class="meal"><input type="checkbox" data-meal="mon-lunch"><small>Lunch</small><b>Mushroom ghee roast + jowar roti</b><button type="button" data-recipe="mushroom">Recipe</button></label>
@@ -83,7 +86,7 @@
   </section>
 
   <section class="meal-bottom">
-    <article class="panel" id="notes"><h3>What are we feeling next week?</h3><p>Add what is in the fridge, cravings, schedule changes or dishes you want. This note stays only on this device in the prototype.</p><textarea class="note-input" id="preference-note" placeholder="Example: We have spinach and chicken; want pav bhaji once; Tuesday is a late office day..."></textarea><div class="save-line"><button class="button" id="save-note">Save note</button><span class="save-state" id="save-state">Not saved yet</span></div></article>
+    <article class="panel" id="notes"><h3>What are we feeling next week?</h3><p>Add what is in the fridge, cravings, schedule changes or dishes you want. This becomes the shared brief for Saturday’s first draft.</p><textarea class="note-input" id="preference-note" placeholder="Example: We have spinach and chicken; want pav bhaji once; Tuesday is a late office day..."></textarea><div class="save-line"><button class="button" id="save-note">Save for both of us</button><span class="save-state" id="save-state">Not saved yet</span></div></article>
 
     <article class="panel" id="restaurants"><h3>Friday + Saturday restaurant shortlist</h3><p>Eight picks rotated from the 119 places in your Google Maps Food list. Friday is easier and closer; Saturday leans date-night. Tap any card to check live hours, directions and booking.</p><div class="restaurant-row">
       <a class="restaurant-slot" href="https://www.google.com/maps/place/Thammada+Thai+Cuisine/data=!4m2!3m1!1s0x882b494acbe1924b:0x27ad7e4a995cca31" target="_blank" rel="noopener"><small>Friday · close to home</small><b>Thammada Thai Cuisine</b><span>Etobicoke · Thai · intimate room; booking is sensible</span><em>Open saved place →</em></a>
@@ -97,13 +100,36 @@
     </div></article>
   </section>
 
-  <div class="private-note"><b>Personal-use boundary:</b> this planner uses meal names and recipe notes, not medical history. It organizes choices previously supplied by a dietitian and is not medical advice. Check-offs and preference notes stay only in this browser.</div>
+  <div class="private-note" id="sync-state"><b>Shared household plan:</b> check-offs and the next-week note sync between Ronnie and Saumya after PIN login. Cached copies remain on each trusted phone for quick loading.</div>
   <footer class="footer"><span>Ronnie + Saumya · weekly meal planner</span><span>Recipe source: “Recipes and Meal Plan”</span></footer>
 </main>
+
+<section class="auth-gate" id="auth-gate" aria-labelledby="auth-title" hidden>
+  <div class="auth-card">
+    <span class="auth-mark">Q</span>
+    <p class="eyebrow">Our shared table</p>
+    <h2 id="auth-title">Who’s checking in?</h2>
+    <p>Choose your profile, then enter your six-digit PIN.</p>
+    <div class="profile-choices" role="group" aria-label="Choose a profile">
+      <button type="button" data-profile="ronnie"><b>R</b><span>Ronnie</span></button>
+      <button type="button" data-profile="saumya"><b>S</b><span>Saumya</span></button>
+    </div>
+    <form id="pin-login-form">
+      <div id="pin-panel" hidden>
+        <label for="pin-input">Enter <span id="pin-person">your</span>’s PIN</label>
+        <input id="pin-input" name="pin" type="password" inputmode="numeric" autocomplete="current-password" pattern="[0-9]{6}" maxlength="6" aria-describedby="auth-message">
+        <button class="button auth-submit" type="submit">Open our plan</button>
+      </div>
+      <p class="auth-message" id="auth-message" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
 
 <div class="modal" id="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="recipe-title">
   <article class="modal-card"><div class="modal-head"><h3 id="recipe-title">Recipe</h3><button class="modal-close" aria-label="Close recipe">×</button></div><div class="recipe-copy" id="recipe-copy"></div><a class="recipe-source" id="recipe-source" href="#" target="_blank" rel="noopener">Open original in Notion →</a></article>
 </div>
+<script src="config.js"></script>
 <script src="app.js"></script>
+<script src="shared.js"></script>
 </body>
 </html>
