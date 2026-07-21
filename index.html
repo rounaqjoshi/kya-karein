@@ -1,329 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kya karein?</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#f4f1ea;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1613;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1320px;margin:0 auto;padding:30px 16px 90px}
-.note{background:#eef2f7;border:1px solid #d9e2ec;color:#3a4a5c;border-radius:12px;padding:10px 16px;font-size:13px;font-weight:600;margin-bottom:16px}
-header.hero{position:relative;overflow:hidden;color:#fff;border-radius:26px;padding:36px 30px;box-shadow:0 24px 60px rgba(40,28,18,.26);background:linear-gradient(135deg,#221d19,#3b2c22)}
-.hero .blob1{position:absolute;right:-60px;top:-90px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(225,29,116,.32),transparent 70%)}
-.hero .blob2{position:absolute;right:170px;bottom:-130px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(29,78,216,.26),transparent 70%)}
-.hero-inner{position:relative;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end}
-.kicker{font-size:12px;font-weight:800;letter-spacing:2.5px;color:#e9b9c8}
-h1{font-size:48px;font-weight:800;letter-spacing:-1.5px;line-height:.98;margin:10px 0 0}
-.tagline{font-style:italic;font-size:20px;color:#ffd9e2;margin-top:8px}
-.meta-row{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:#d8cfc6}
-.meta-row .refreshed{color:#fff;font-weight:600}
-.weekbox{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:16px 22px;text-align:right}
-.weekbox .lbl{font-size:11px;font-weight:800;letter-spacing:2px;color:#cdbfb4}
-.weekbox .rng{font-size:30px;font-weight:800;letter-spacing:-.5px;line-height:1.05;margin-top:2px}
-.weekbox .yr{font-size:13px;color:#cdbfb4}
-.pills{display:flex;gap:7px;justify-content:flex-end;margin-top:10px;flex-wrap:wrap}
-.pills span{font-size:12px;font-weight:700;background:rgba(255,255,255,.12);border-radius:999px;padding:5px 11px}
-.banner-chips{position:relative;display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.banner-chips span{font-size:12.5px;font-weight:600;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 14px;color:#f3ece5}
-.legend{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-.legend .chip{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;background:#fffdf9;border:1px solid #e7e1d6;border-radius:999px;padding:7px 13px;color:#4a443b}
-.legend .chip i{width:10px;height:10px;border-radius:50%;display:inline-block}
-section{margin-top:34px}
-h2{font-size:18px;font-weight:800;margin-bottom:14px}
-.cal7{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;overflow-x:auto}
-@media (max-width:900px){.cal7{grid-auto-columns:78%;grid-auto-flow:column;display:grid}}
-.day{background:#fbf9f4;border:1px solid #e7e1d6;border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:8px;min-height:120px}
-.day.weekend{background:#fdf6e8;border-color:#efe3c9}
-.day.today{border:2px solid #1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,.12)}
-.day.today .dhead .dw{color:#1d4ed8}
-.day.today .dhead::after{content:'TODAY';font-size:9px;font-weight:800;letter-spacing:.5px;color:#fff;background:#1d4ed8;border-radius:5px;padding:2px 6px}
-.dhead{display:flex;justify-content:space-between;align-items:baseline;padding:2px 4px 6px;border-bottom:1px solid rgba(0,0,0,.06)}
-.dhead .dw{font-weight:800;font-size:13px;color:#5a4a14}
-.dhead .dnum{font-size:12px;color:#9a9082}
-details.ev{border-left:3px solid var(--cc,#999);background:#fff;border-radius:0 10px 10px 0;padding:7px 9px;font-size:12.5px}
-details.ev summary{cursor:pointer;list-style:none;display:flex;flex-direction:column;gap:2px}
-details.ev summary::-webkit-details-marker{display:none}
-details.ev .cat{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--cc,#666)}
-details.ev .hot{font-size:10px;font-weight:700;color:#b01030}
-details.ev .t{font-weight:700;color:#1a1613}
-details.ev .m{color:#6f675b;font-size:11.5px}
-details.ev .lk{display:flex;flex-direction:column;gap:4px;margin-top:6px;padding-top:6px;border-top:1px dashed #e1dacd}
-details.ev .lk a{font-size:11.5px;color:#6f675b;text-decoration:none}
-details.ev .lk a:hover{color:var(--cc,#666)}
-.ev.k-couple{--cc:#e11d74} .ev.k-screen{--cc:#7c3aed} .ev.k-food{--cc:#ea580c} .ev.k-pop{--cc:#0d9488}
-.ev.k-sport{--cc:#16a34a} .ev.k-concert{--cc:#1d4ed8} .ev.k-conf{--cc:#d97706} .ev.k-comedy{--cc:#be1ad9} .ev.k-ronnie{--cc:#475569}
-.daynote{font-size:11px;color:#8a8175;font-style:italic;padding:2px 4px}
-.empty{font-size:11px;color:#cdbfb4;font-style:italic;padding:8px 4px}
-.lang{font-size:9.5px;font-weight:800;border-radius:5px;padding:1px 5px;margin-left:5px}
-.lang.eng{background:#e6f0ff;color:#1d4ed8} .lang.hin{background:#fff0e6;color:#b5530a}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.card{border-left:4px solid var(--cc,#999);background:#fff;border:1px solid #e7e1d6;border-left-width:4px;border-radius:0 14px 14px 0;padding:14px}
-.card.k-couple{--cc:#e11d74} .card.k-screen{--cc:#7c3aed} .card.k-food{--cc:#ea580c} .card.k-pop{--cc:#0d9488}
-.card.k-sport{--cc:#16a34a} .card.k-concert{--cc:#1d4ed8} .card.k-conf{--cc:#d97706} .card.k-comedy{--cc:#be1ad9} .card.k-ronnie{--cc:#475569}
-.cardtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.card .cat{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;color:var(--cc,#666)}
-.card .price{font-size:11px;font-weight:700;border-radius:999px;padding:3px 9px}
-.card .ct{font-weight:700;font-size:14.5px;margin-bottom:4px}
-.card .cm{font-size:12.5px;color:#6f675b;margin-bottom:10px}
-.card .cbtn{font-size:12.5px;font-weight:700;color:var(--cc,#666);text-decoration:none}
-.hzrow{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid #e7e1d6}
-.hzmonth{flex:0 0 70px;font-weight:800;font-size:13px;color:#2a231d;padding-top:8px}
-.hzrow.tbd .hzmonth{color:#946400}
-.hzcards{flex:1;display:flex;flex-wrap:wrap;gap:10px}
-.hzcard{display:flex;flex-direction:column;gap:2px;border-left:3px solid var(--cc,#999);background:#fbf9f4;border-radius:0 10px 10px 0;padding:8px 12px;text-decoration:none;color:#1a1613;min-width:200px;flex:1}
-.hzcard.k-couple{--cc:#e11d74} .hzcard.k-screen{--cc:#7c3aed} .hzcard.k-food{--cc:#ea580c} .hzcard.k-pop{--cc:#0d9488}
-.hzcard.k-sport{--cc:#16a34a} .hzcard.k-concert{--cc:#1d4ed8} .hzcard.k-conf{--cc:#d97706} .hzcard.k-comedy{--cc:#be1ad9} .hzcard.k-ronnie{--cc:#475569}
-.hzcard .cat{font-size:10px;font-weight:800;text-transform:uppercase;color:var(--cc,#666)}
-.hzcard .ht{font-weight:700;font-size:13px}
-.hzcard .hm{font-size:11.5px;color:#6f675b}
-.heads{background:#fff7e0;border:1px solid #f0d896;border-radius:16px;padding:18px 20px}
-.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:12px}
-.hgrid-item{display:flex;flex-direction:column;gap:2px;font-size:12.5px}
-.hgrid-item b{color:#7a5c00;font-size:12px}
-.hgrid-item span{color:#5a4a14}
-.livelinks{font-size:12px;color:#7a5c00;border-top:1px dashed #f0d896;padding-top:10px}
-footer{margin-top:40px;padding-top:20px;border-top:1px solid #e1dacd;font-size:12.5px;color:#8a8175;text-align:center;line-height:1.7}
-section:nth-of-type(2) .card:nth-child(n+13),section:nth-of-type(3) .card:nth-child(n+4){display:none}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Kya karein? — Week</title>
+  <meta name="description" content="Ronnie and Saumya's private GTA week planner.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="wrap">
+<main class="shell">
+  <nav class="topbar" aria-label="Primary navigation">
+    <a class="brand" href="index.html"><span class="brandmark">Q</span><span><b>Kya karein?</b><small>Ronnie + Saumya</small></span></a>
+    <div class="nav"><a class="active" href="index.html">This week</a><a href="meals.html">Meal plan</a></div>
+    <span class="privacy">Our weekly HQ</span>
+  </nav>
 
-<header class="hero">
-<div class="blob1"></div><div class="blob2"></div>
-<div class="hero-inner">
-<div>
-<div class="kicker">GTA WEEKLY · WHAT'S ON</div>
-<h1>Kya karein?</h1>
-<div class="tagline">so… what should we do this week?</div>
-<div class="meta-row">
-<span>📍 Toronto · Etobicoke · Mississauga · Oakville · Brampton</span>
-<span class="refreshed">Refreshed Mon, Jul 20 (new week)</span>
-</div>
-</div>
-<div class="weekbox">
-<div class="lbl">THE WEEK</div>
-<div class="rng">Jul 20 – 26</div>
-<div class="yr">2026</div>
-<div class="pills"><span>14 picks</span><span>9 categories</span></div>
-</div>
-</div>
-<div class="banner-chips">
-<span>⚾ Blue Jays vs. Rays · Mon–Thu</span>
-<span>🎤 IVE · Tue at Scotiabank Arena</span>
-<span>🎷 Beaches Jazz StreetFest · Thu–Sat · free</span>
-<span>🏮 Chinatown Festival · Sat–Sun · free</span>
-<span>🎸 Tame Impala · Sat–Sun</span>
-</div>
-</header>
+  <header class="hero">
+    <div>
+      <div class="eyebrow">GTA weekly · curated for us</div>
+      <h1>What feels<br>good this week?</h1>
+      <p>A quieter, sharper list: Indian culture, intimate Sofar gigs, workshops, film and streaming, United, date ideas and useful deadlines—without the generic concert clutter.</p>
+      <div class="hero-actions"><a class="button" href="#calendar">Explore the week ↓</a><a class="button secondary" href="meals.html">Open meal plan</a></div>
+    </div>
+    <div class="weekstamp"><strong>Jul 20–26</strong><span>Toronto · Etobicoke · Mississauga · Oakville · Brampton</span><span>Draft refreshed Tue, Jul 21, 2026</span></div>
+  </header>
 
-<div class="legend"><span class="chip"><i style="background:#e11d74"></i>Couple</span><span class="chip"><i style="background:#7c3aed"></i>On-Screen</span><span class="chip"><i style="background:#ea580c"></i>Food &amp; Tasting</span><span class="chip"><i style="background:#0d9488"></i>New &amp; Pop-Up</span><span class="chip"><i style="background:#16a34a"></i>Sports</span><span class="chip"><i style="background:#1d4ed8"></i>Concerts</span><span class="chip"><i style="background:#d97706"></i>Talks &amp; Conferences</span><span class="chip"><i style="background:#be1ad9"></i>Comedy</span><span class="chip"><i style="background:#475569"></i>For Ronnie</span></div>
+  <section class="pulse" aria-label="This week's pulse">
+    <article class="pulse-card"><small>Best Indian night</small><strong>Punjabi Virsa 2026</strong><span>Sat · Manmohan Waris, Kamal Heer &amp; Sangtar · Great Canadian Toronto</span></article>
+    <article class="pulse-card"><small>Creative date</small><strong>Alcohol ink workshop</strong><span>Sat morning · Studio Mooi in the east end</span></article>
+    <article class="pulse-card"><small>United watch</small><strong>Pre-season is quiet</strong><span>Sun vs Vitoria is behind closed doors; no public broadcast announced</span></article>
+  </section>
 
-<section>
-<h2>📆 This Week</h2>
-<div class="cal7"><div class="day today">
-<div class="dhead"><span class="dw">Mon</span><span class="dnum">20 Jul</span></div>
-<details class="ev k-sport"><summary><span class="cat">Sports</span><span class="t">Blue Jays vs. Tampa Bay Rays</span><span class="m">7:07 PM · Rogers Centre · $$</span></summary><div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Official schedule</a></div></details>
-</div><div class="day">
-<div class="dhead"><span class="dw">Tue</span><span class="dnum">21 Jul</span></div>
-<details class="ev k-concert"><summary><span class="cat">Concerts</span><span class="t">IVE — SHOW WHAT I AM World Tour</span><span class="m">8:00 PM · Scotiabank Arena · $$$</span></summary><div class="lk"><a href="https://www.ticketmaster.ca/ive-world-tour-show-what-i-toronto-ontario-07-21-2026/event/100064648200531A" target="_blank" rel="noopener">🎟 Tickets</a></div></details>
-<details class="ev k-sport"><summary><span class="cat">Sports</span><span class="t">Blue Jays vs. Tampa Bay Rays</span><span class="m">7:07 PM · Rogers Centre · $$</span></summary><div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Official schedule</a></div></details>
-</div><div class="day">
-<div class="dhead"><span class="dw">Wed</span><span class="dnum">22 Jul</span></div>
-<details class="ev k-sport"><summary><span class="cat">Sports</span><span class="t">Blue Jays vs. Tampa Bay Rays</span><span class="m">7:07 PM · Rogers Centre · $$</span></summary><div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Official schedule</a></div></details>
-<div class="daynote">A thin confirmed night for the requested talks, Indian comedy and major/Indian-artist concerts.</div>
-</div><div class="day">
-<div class="dhead"><span class="dw">Thu</span><span class="dnum">23 Jul</span></div>
-<details class="ev k-sport"><summary><span class="cat">Sports</span><span class="t">Blue Jays vs. Tampa Bay Rays</span><span class="m">3:07 PM · Rogers Centre · $$</span></summary><div class="lk"><a href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener">🎟 Official schedule</a></div></details>
-<details class="ev k-pop"><summary><span class="cat">New &amp; Pop-Up</span><span class="t">Beaches Jazz StreetFest</span><span class="m">6:00 PM–midnight · Queen St E, Woodbine–Beech · Free</span></summary><div class="lk"><a href="https://www.beachesjazz.com/streetfest" target="_blank" rel="noopener">ℹ️ Festival details</a></div></details>
-</div><div class="day weekend">
-<div class="dhead"><span class="dw">Fri</span><span class="dnum">24 Jul</span></div>
-<details class="ev k-pop"><summary><span class="cat">New &amp; Pop-Up</span><span class="t">Beaches Jazz StreetFest</span><span class="m">6:00 PM–midnight · Queen St E, Woodbine–Beech · Free</span></summary><div class="lk"><a href="https://www.beachesjazz.com/streetfest" target="_blank" rel="noopener">ℹ️ Festival details</a></div></details>
-<div class="daynote">Jays head to Boston; no Toronto FC or Tempo home date verified this week.</div>
-</div><div class="day weekend">
-<div class="dhead"><span class="dw">Sat</span><span class="dnum">25 Jul</span></div>
-<details class="ev k-food"><summary><span class="cat">Food &amp; Tasting</span><span class="t">Toronto Chinatown Festival</span><span class="m">12:00 PM–11:00 PM · Spadina Ave · Free</span></summary><div class="lk"><a href="https://www.torontotoday.ca/classifieds/featured-events/festivals-major-celebrations" target="_blank" rel="noopener">ℹ️ Event listing</a></div></details>
-<details class="ev k-concert"><summary><span class="cat">Concerts</span><span class="t">Tame Impala — The Deadbeat Tour</span><span class="m">7:00 PM · Scotiabank Arena · $$$</span></summary><div class="lk"><a href="https://www.scotiabankarena.com/events/detail/tame-impala-1" target="_blank" rel="noopener">🎟 Tickets</a></div></details>
-</div><div class="day weekend">
-<div class="dhead"><span class="dw">Sun</span><span class="dnum">26 Jul</span></div>
-<details class="ev k-food"><summary><span class="cat">Food &amp; Tasting</span><span class="t">Toronto Chinatown Festival</span><span class="m">11:00 AM–8:00 PM · Spadina Ave · Free</span></summary><div class="lk"><a href="https://www.torontotoday.ca/classifieds/featured-events/festivals-major-celebrations" target="_blank" rel="noopener">ℹ️ Event listing</a></div></details>
-<details class="ev k-concert"><summary><span class="cat">Concerts</span><span class="t">Tame Impala — The Deadbeat Tour</span><span class="m">7:00 PM · Scotiabank Arena · $$$</span></summary><div class="lk"><a href="https://www.scotiabankarena.com/events/" target="_blank" rel="noopener">🎟 Arena calendar</a></div></details>
-</div></div>
-</section>
+  <section class="section" id="calendar">
+    <div class="section-head"><div><h2>Seven days, properly filtered</h2><p>Tap a filter; every real listing opens its source.</p></div><a class="section-link" href="#heads-up">Jump to closures ↓</a></div>
+    <div class="filters" role="group" aria-label="Event filters">
+      <button class="filter active" data-filter="all">Everything</button><button class="filter" data-filter="indian">Indian</button><button class="filter" data-filter="date">Date ideas</button><button class="filter" data-filter="screen">On screen</button><button class="filter" data-filter="workshop">Workshops</button><button class="filter" data-filter="sport">Sport</button><button class="filter" data-filter="free">Free</button>
+    </div>
+    <div class="days">
+      <article class="day-card" data-date="2026-07-20"><div class="day-head"><b>Mon</b><span>20 Jul</span></div>
+        <a class="event sport" data-tags="sport" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener"><small>Blue Jays · $$</small><b>vs Tampa Bay Rays</b><span>7:07 PM · Rogers Centre</span></a>
+        <a class="event workshop" data-tags="workshop date" href="https://www.pinotspalette.com/toronto" target="_blank" rel="noopener"><small>Paint &amp; sip · $$</small><b>Moondancing Moonlit Monday</b><span>7:30–9:30 PM · Pinot's Palette, Junction</span></a>
+      </article>
+      <article class="day-card" data-date="2026-07-21"><div class="day-head"><b>Tue</b><span>21 Jul</span></div>
+        <a class="event sport" data-tags="sport" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener"><small>Blue Jays · $$</small><b>vs Tampa Bay Rays</b><span>7:07 PM · Rogers Centre</span></a>
+        <a class="event screen" data-tags="screen date" href="https://www.aboutamazon.ca/news/entertainment/whats-new-on-prime-video-in-july-including-elle-young-farts-trailer-parts-ride-or-die-batman-caped-crusader-project-hail-mary-and-more" target="_blank" rel="noopener"><small>Prime Video · included</small><b>A Different Man</b><span>New on Prime Video Canada today</span></a>
+      </article>
+      <article class="day-card" data-date="2026-07-22"><div class="day-head"><b>Wed</b><span>22 Jul</span></div>
+        <a class="event sport" data-tags="sport" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener"><small>Blue Jays · $$</small><b>vs Tampa Bay Rays</b><span>7:07 PM · Rogers Centre</span></a>
+        <a class="event workshop" data-tags="workshop free date" href="https://tpl.ca/locations/RN/" target="_blank" rel="noopener"><small>Painting · Free</small><b>Summer meadow painting</b><span>2:00 PM · Runnymede Library</span></a>
+      </article>
+      <article class="day-card" data-date="2026-07-23"><div class="day-head"><b>Thu</b><span>23 Jul</span></div>
+        <a class="event sport" data-tags="sport" href="https://www.mlb.com/bluejays/schedule" target="_blank" rel="noopener"><small>Blue Jays · $$</small><b>vs Tampa Bay Rays</b><span>3:07 PM · Rogers Centre</span></a>
+        <a class="event screen" data-tags="screen date" href="https://www.tomsguide.com/entertainment/netflix/5-best-new-netflix-movies-and-shows-to-stream-this-week-july-20-26-2026" target="_blank" rel="noopener"><small>Netflix · included</small><b>Ransom Canyon — Season 2</b><span>New season streaming today</span></a>
+      </article>
+      <article class="day-card" data-date="2026-07-24"><div class="day-head"><b>Fri</b><span>24 Jul</span></div>
+        <a class="event indian" data-tags="indian date free" href="https://www.visitmississauga.ca/events/month/" target="_blank" rel="noopener"><small>South Asian · Free</small><b>Bollywood Monster Mashup</b><span>From 6 PM · Celebration Square · through Sun</span></a>
+        <a class="event screen" data-tags="screen date" href="https://www.aboutamazon.ca/news/entertainment/whats-new-on-prime-video-in-july-including-elle-young-farts-trailer-parts-ride-or-die-batman-caped-crusader-project-hail-mary-and-more" target="_blank" rel="noopener"><small>Prime Video · included</small><b>Cold Storage</b><span>New on Prime Video Canada</span></a>
+      </article>
+      <article class="day-card" data-date="2026-07-25"><div class="day-head"><b>Sat</b><span>25 Jul</span></div>
+        <a class="event indian" data-tags="indian date" href="https://www.ticketmaster.com/the-theatre-at-great-canadian-casino-tickets-toronto/venue/132544" target="_blank" rel="noopener"><small>Indian concert · $$$</small><b>Punjabi Virsa 2026</b><span>8:00 PM · Manmohan Waris, Kamal Heer &amp; Sangtar</span></a>
+        <a class="event workshop" data-tags="workshop date" href="https://www.studiomooi.ca/" target="_blank" rel="noopener"><small>Art workshop · $$</small><b>Alcohol ink painting</b><span>10 AM–12 PM · Studio Mooi, Kingston Rd</span></a>
+        <a class="event workshop" data-tags="workshop free date" href="https://www.eventbrite.ca/e/free-moca-guided-tour-studio-workshop-tickets-1991076714050" target="_blank" rel="noopener"><small>Art workshop · Free</small><b>MOCA tour + studio session</b><span>2–4 PM · Museum of Contemporary Art</span></a>
+        <a class="event indian" data-tags="indian date free" href="https://www.eventbrite.ca/e/taste-of-mississauga-summer-festival-2026-tickets-1993716732416" target="_blank" rel="noopener"><small>Food festival · Free</small><b>Taste of Mississauga</b><span>Noon–11 PM · Odyssey Dr · through Sun</span></a>
+      </article>
+      <article class="day-card" data-date="2026-07-26"><div class="day-head"><b>Sun</b><span>26 Jul</span></div>
+        <a class="event sport" data-tags="sport" href="https://www.premierleague.com/en/news/4606700/premier-league-clubs-summer-2026-friendlies-and-tours" target="_blank" rel="noopener"><small>Manchester United</small><b>vs Vitoria — closed match</b><span>Behind closed doors · no public broadcast confirmed</span></a>
+        <a class="event workshop" data-tags="workshop date" href="https://www.studiomooi.ca/" target="_blank" rel="noopener"><small>Paint &amp; sip · $$</small><b>Watercolour at Red Tape Brewery</b><span>5–6:30 PM · 159 Main St · 19+</span></a>
+        <a class="event indian" data-tags="indian date free" href="https://www.eventbrite.ca/e/taste-of-mississauga-summer-festival-2026-tickets-1993716732416" target="_blank" rel="noopener"><small>Food festival · Free</small><b>Taste of Mississauga</b><span>Noon–11 PM · Odyssey Dr</span></a>
+      </article>
+    </div>
+  </section>
 
-<section>
-<h2>♾️ All Week & Anytime</h2>
-<div class="cards"><div class="card k-couple">
-<div class="cardtop"><span class="cat">Couple</span><span class="price" style="background:#fff7e0;color:#946400">$ ferry</span></div>
-<div class="ct">Toronto Islands ferry + picnic ⛴️</div>
-<div class="cm">Any day · Jack Layton Ferry Terminal / Toronto Islands · Free to explore; ferry is $</div>
-<a class="cbtn" href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/toronto-island-park/" target="_blank" rel="noopener">Info →</a>
-</div><div class="card k-couple">
-<div class="cardtop"><span class="cat">Couple</span><span class="price" style="background:#e6f4ea;color:#207a37">Free / $$</span></div>
-<div class="ct">Beaches Jazz StreetFest</div>
-<div class="cm">Thu–Sat Jul 23–25 · 6 PM–midnight · Queen St E, Woodbine–Beech · Free</div>
-<a class="cbtn" href="https://www.beachesjazz.com/streetfest" target="_blank" rel="noopener">Festival details →</a>
-</div><div class="card k-food">
-<div class="cardtop"><span class="cat">Couple · paint &amp; sip</span><span class="price" style="background:#fff0e6;color:#b5530a">$$</span></div>
-<div class="ct">Moondancing Moonlit Monday — Pinot's Palette</div>
-<div class="cm">Mon Jul 20 · 7:30–9:30 PM · 2866 Dundas St W, Toronto · guided paint night</div>
-<a class="cbtn" href="https://www.pinotspalette.com/toronto" target="_blank" rel="noopener">Book →</a>
-</div><div class="card k-couple">
-<div class="cardtop"><span class="cat">Couple · pottery paint</span><span class="price" style="background:#fff0e6;color:#b5530a">$$</span></div>
-<div class="ct">Paint Your Own Pottery — Clay With Me</div>
-<div class="cm">Daily July availability · 1.5 hours · Dundas West / Toronto · choose and paint a handmade ceramic piece</div>
-<a class="cbtn" href="https://claywithme.ca/products/paint-your-own-pottery-workshop-dundas-numos" target="_blank" rel="noopener">Choose a slot →</a>
-</div><div class="card k-couple">
-<div class="cardtop"><span class="cat">Couple · art workshop</span><span class="price" style="background:#fff0e6;color:#b5530a">$$</span></div>
-<div class="ct">Alcohol Ink Painting — Studio Mooi</div>
-<div class="cm">Sat Jul 25 · 10 AM–12 PM · 926 Kingston Rd, Toronto · beginner-friendly creative date</div>
-<a class="cbtn" href="https://www.studiomooi.ca/" target="_blank" rel="noopener">Book →</a>
-</div><div class="card k-couple">
-<div class="cardtop"><span class="cat">Couple · paint &amp; sip</span><span class="price" style="background:#fff0e6;color:#b5530a">$$</span></div>
-<div class="ct">Watercolour Paint &amp; Sip — Studio Mooi</div>
-<div class="cm">Sun Jul 26 · 5:00–6:30 PM · Red Tape Brewery, 159 Main St, Toronto · 19+</div>
-<a class="cbtn" href="https://www.studiomooi.ca/" target="_blank" rel="noopener">Book →</a>
-</div><div class="card k-pop">
-<div class="cardtop"><span class="cat">Art · workshop</span><span class="price" style="background:#e6f4ea;color:#207a37">Free</span></div>
-<div class="ct">MOCA guided tour + studio workshop</div>
-<div class="cm">Sat Jul 25 · 2:00–4:00 PM · Museum of Contemporary Art, 158 Sterling Rd, Toronto</div>
-<a class="cbtn" href="https://www.eventbrite.ca/e/free-moca-guided-tour-studio-workshop-tickets-1991076714050" target="_blank" rel="noopener">RSVP →</a>
-</div><div class="card k-pop">
-<div class="cardtop"><span class="cat">Market · food</span><span class="price" style="background:#e6f4ea;color:#207a37">Free</span></div>
-<div class="ct">Let's Event Summer Festival</div>
-<div class="cm">Sat Jul 25 · 1:00–10:00 PM · Small Arms Inspection Building, Mississauga · 50+ vendors and entertainment</div>
-<a class="cbtn" href="https://www.mississauga.ca/events-and-attractions/events-calendar/lets-event-summer-festival-2026/" target="_blank" rel="noopener">Details →</a>
-</div><div class="card k-food">
-<div class="cardtop"><span class="cat">Food &amp; tasting</span><span class="price" style="background:#e6f4ea;color:#207a37">Free</span></div>
-<div class="ct">Taste of Mississauga — Summer Festival</div>
-<div class="cm">Sat–Sun Jul 25–26 · noon–11 PM · 3520 Odyssey Dr, Mississauga · halal-food stalls and vendors</div>
-<a class="cbtn" href="https://www.eventbrite.ca/e/taste-of-mississauga-summer-festival-2026-tickets-1993716732416" target="_blank" rel="noopener">Details →</a>
-</div><div class="card k-pop">
-<div class="cardtop"><span class="cat">South Asian · festival</span><span class="price" style="background:#e6f4ea;color:#207a37">Free</span></div>
-<div class="ct">Bollywood Monster Mashup</div>
-<div class="cm">Fri Jul 24, 6–11 PM; Sat Jul 25, noon–11 PM; Sun Jul 26, noon–7 PM · Mississauga Celebration Square · South Asian food, music and culture</div>
-<a class="cbtn" href="https://www.mississauga.ca/events-and-attractions/events-calendar/bollywoodmonster-mashup-2026/?eventdate=2026-07-24T18%3A00%3A00&amp;schedule=24569" target="_blank" rel="noopener">Official schedule →</a>
-</div><div class="card k-couple">
-<div class="cardtop"><span class="cat">Couple · culture</span><span class="price" style="background:#fff0e6;color:#b5530a">$$</span></div>
-<div class="ct">ROM galleries — history date / channel research</div>
-<div class="cm">Daily museum hours · 100 Queen's Park, Toronto · strong source material for history-channel notes and B-roll ideas</div>
-<a class="cbtn" href="https://www.rom.on.ca/en" target="_blank" rel="noopener">Plan →</a>
-</div><div class="card k-food">
-<div class="cardtop"><span class="cat">Food &amp; Tasting</span><span class="price" style="background:#fde7ea;color:#b01030">Last days</span></div>
-<div class="ct">Toronto Chinatown Festival</div>
-<div class="cm">Sat Jul 25, 12 PM–11 PM; Sun Jul 26, 11 AM–8 PM · Spadina Ave · Free</div>
-<a class="cbtn" href="https://www.torontotoday.ca/classifieds/featured-events/festivals-major-celebrations" target="_blank" rel="noopener">Event listing →</a>
-</div></div>
-</section>
+  <section class="section">
+    <div class="section-head"><div><h2>All week &amp; anytime</h2><p>Dates, workshops and useful “we could just go” options.</p></div></div>
+    <div class="grid">
+      <a class="feature-card tint-pink" href="https://claywithme.ca/products/paint-your-own-pottery-workshop-dundas-numos" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Creative date</span><span class="price">$$</span></div><h3>Paint your own pottery</h3><p>Choose a handmade piece and paint it together. Daily July slots in Dundas West.</p><span class="source">Clay With Me →</span></a>
+      <a class="feature-card tint-green" href="https://www.rom.on.ca/en" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">History + date</span><span class="price">$$</span></div><h3>ROM research afternoon</h3><p>A date that also pays rent for Stories by Ronnie: galleries, notes and history angles.</p><span class="source">Plan the visit →</span></a>
+      <a class="feature-card tint-yellow" href="https://www.mississauga.ca/events-and-attractions/events-calendar/lets-event-summer-festival-2026/" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Market + food</span><span class="price">Free</span></div><h3>Let's Event Summer Festival</h3><p>Sat, 1–10 PM at Small Arms Inspection Building. 50+ local vendors and food.</p><span class="source">City listing →</span></a>
+      <a class="feature-card tint-blue" href="https://www.sofarsounds.com/cities/toronto" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Live music rule</span><span class="price">Watchlist</span></div><h3>Sofar Sounds Toronto</h3><p>No confirmed Jul 20–26 Toronto room found. Keep this as the only non-Indian live-music watchlist.</p><span class="source">Check new drops →</span></a>
+      <a class="feature-card" href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/toronto-island-park/" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Outdoor date</span><span class="price">$</span></div><h3>Island ferry + picnic</h3><p>Pick a low-wind evening, pack dinner, and use the skyline as the plan.</p><span class="source">Ferry information →</span></a>
+      <a class="feature-card" href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/humber-bay-park/" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Close to home</span><span class="price">Free</span></div><h3>Humber Bay sunset walk</h3><p>The low-effort reset: waterfront loop, coffee, sunset and home.</p><span class="source">Park details →</span></a>
+      <a class="feature-card" href="https://www.cineplex.com/theatre/cineplex-cinemas-winston-churchill-and-vip" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Cinema date</span><span class="price">$$</span></div><h3>The Odyssey in IMAX</h3><p>Nolan's new release remains the major theatrical pick this week. Choose an IMAX showtime.</p><span class="source">Cineplex showtimes →</span></a>
+      <a class="feature-card" href="https://www.eataly.ca/news/toronto-cooking-classes-events/" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Cooking workshop</span><span class="price">$$$</span></div><h3>Hands-on cooking calendar</h3><p>No suitable adult GTA class was firmly dated in this week’s check; keep Eataly's live calendar in rotation.</p><span class="source">Check classes →</span></a>
+    </div>
+  </section>
 
-<section>
-<h2>✍️ For Ronnie — Book & Channel</h2>
-<div class="cards"><div class="card k-ronnie">
-<div class="cardtop"><span class="cat">Channel · content</span><span class="price" style="background:#e6f4ea;color:#207a37">Free</span></div>
-<div class="ct">StreetFest field notes + B-roll</div>
-<div class="cm">Thu–Sat Jul 23–25 · Queen St E · Free. Street musicians and crowd texture make an easy local-music reel.</div>
-<a class="cbtn" href="https://www.beachesjazz.com/streetfest" target="_blank" rel="noopener">Where →</a>
-</div><div class="card k-ronnie">
-<div class="cardtop"><span class="cat">Writing · book</span><span class="price" style="background:#e6f4ea;color:#207a37">Free</span></div>
-<div class="ct">Toronto Reference Library — writing research day</div>
-<div class="cm">Any day during branch hours · 789 Yonge St · Free. A dependable quiet work block; no dated writing talk was confirmed this week.</div>
-<a class="cbtn" href="https://www.torontopubliclibrary.ca/torontoreferencelibrary/" target="_blank" rel="noopener">Hours →</a>
-</div><div class="card k-ronnie">
-<div class="cardtop"><span class="cat">AI / Notion</span><span class="price" style="background:#e6f4ea;color:#207a37">Free / RSVP</span></div>
-<div class="ct">AI Tinkerers Toronto — watch for next date</div>
-<div class="cm">No confirmed Jul 20–26 meetup found · stay with the official chapter calendar rather than padding the week.</div>
-<a class="cbtn" href="https://toronto.aitinkerers.org/" target="_blank" rel="noopener">Check →</a>
-</div></div>
-</section>
+  <section class="section">
+    <div class="section-head"><div><h2>New on screen</h2><p>One shelf across theatres and the services you actually use.</p></div></div>
+    <div class="platforms" aria-label="Streaming services checked"><span class="platform live">Theatres</span><span class="platform live">Netflix</span><span class="platform live">Prime Video</span><span class="platform live">Disney+</span><span class="platform quiet">Apple TV — no verified priority drop</span><span class="platform quiet">Crave — no verified priority drop</span><span class="platform quiet">Paramount+ — no verified priority drop</span><span class="platform quiet">JioHotstar — monitoring</span><span class="platform quiet">ZEE5 — monitoring</span></div>
+    <div class="grid" style="margin-top:14px">
+      <a class="feature-card tint-blue" href="https://www.cineplex.com/movies/now-playing" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">In theatres</span><span class="price">$$</span></div><h3>The Odyssey</h3><p>Christopher Nolan’s mythology epic opened Jul 17 and remains the week’s big-screen anchor.</p><span class="source">Showtimes →</span></a>
+      <a class="feature-card tint-pink" href="https://www.tomsguide.com/entertainment/netflix/5-best-new-netflix-movies-and-shows-to-stream-this-week-july-20-26-2026" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Netflix · Jul 23</span><span class="price">Included</span></div><h3>Ransom Canyon — S2</h3><p>The main new-series arrival in Netflix’s Jul 20–26 slate.</p><span class="source">Verified weekly list →</span></a>
+      <a class="feature-card tint-yellow" href="https://www.tomsguide.com/entertainment/netflix/5-best-new-netflix-movies-and-shows-to-stream-this-week-july-20-26-2026" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Netflix · Jul 24</span><span class="price">Included</span></div><h3>72 Hours</h3><p>Kevin Hart comedy movie; a lighter Friday-night streaming option.</p><span class="source">Verified weekly list →</span></a>
+      <a class="feature-card tint-green" href="https://www.aboutamazon.ca/news/entertainment/whats-new-on-prime-video-in-july-including-elle-young-farts-trailer-parts-ride-or-die-batman-caped-crusader-project-hail-mary-and-more" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Prime · Jul 24</span><span class="price">Included</span></div><h3>Cold Storage</h3><p>Prime Video Canada's featured Friday film addition.</p><span class="source">Prime's July list →</span></a>
+    </div>
+  </section>
 
-<section>
-<h2>🔭 On the Horizon — Coming in 2026</h2>
-<div class="hzrow">
-<div class="hzmonth">JUL</div>
-<div class="hzcards"><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">IVE — World Tour</span><span class="hm">Tue Jul 21 · 8 PM · Scotiabank Arena</span>
-</a><a class="hzcard k-pop" href="https://www.beachesjazz.com/" target="_blank" rel="noopener">
-<span class="cat">New &amp; Pop-Up</span><span class="ht">Beaches Jazz — StreetFest</span><span class="hm">Jul 23–25 · Queen St E · 30+ free bands</span>
-</a><a class="hzcard k-pop" href="https://www.beachesjazz.com/" target="_blank" rel="noopener">
-<span class="cat">New &amp; Pop-Up</span><span class="ht">Beaches Jazz — OLG Weekend</span><span class="hm">Jul 24–26 · Woodbine Park</span>
-</a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">Tame Impala w/ DJO — The Deadbeat Tour</span><span class="hm">Jul 25–26 · Scotiabank Arena</span>
-</a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">J. Cole — The Fall-Off Tour</span><span class="hm">Jul 27–28 · Scotiabank Arena</span>
-</a><a class="hzcard k-concert" href="https://www.rogers-stadium.com/shows" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">KAROL G — Viajando Por El Mundo Tropitour</span><span class="hm">Wed Jul 29 · 7 PM · Rogers Stadium</span>
-</a><a class="hzcard k-sport" href="https://tempo.wnba.com/schedule" target="_blank" rel="noopener">
-<span class="cat">Sports</span><span class="ht">Toronto Tempo vs Minnesota Lynx</span><span class="hm">Thu Jul 30 · Scotiabank Arena</span>
-</a><a class="hzcard k-concert" href="https://veldmusicfestival.com/" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">VELD Music Festival</span><span class="hm">Jul 31 – Aug 2 · Downsview Park · FISHER, Illenium, Armin van Buuren +more</span>
-</a><a class="hzcard k-concert" href="https://www.ticketmaster.ca/sagar-wali-qawwali-toronto-ontario-07-31-2026/event/100064CA89686A50" target="_blank" rel="noopener">
-<span class="cat">Concert · Indian / Qawwali</span><span class="ht">Sagar Wali Qawwali — Sagar Bhatia</span><span class="hm">Fri Jul 31 · 8:30 PM · The Theatre at Great Canadian Toronto · $$$</span>
-</a></div>
-</div><div class="hzrow">
-<div class="hzmonth">AUG</div>
-<div class="hzcards"><a class="hzcard k-concert" href="https://www.rogers-stadium.com/shows" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">Guns N' Roses</span><span class="hm">Wed Aug 5 · Rogers Stadium · w/ Public Enemy</span>
-</a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events/detail/rush" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">Rush — Fifty Something</span><span class="hm">Aug 7–13 (multiple dates) · Scotiabank Arena</span>
-</a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events/detail/ammy-vrik-sargun-mehta" target="_blank" rel="noopener">
-<span class="cat">Concert · Indian</span><span class="ht">Ammy Virk + Sargun Mehta</span><span class="hm">Fri Aug 14 · 8 PM · Scotiabank Arena</span>
-</a><a class="hzcard k-sport" href="https://hondaindy.com/" target="_blank" rel="noopener">
-<span class="cat">Sports</span><span class="ht">Honda Indy — now at Markham</span><span class="hm">Aug 14–16 · moved from Toronto to Markham Centre this year</span>
-</a><a class="hzcard k-conf" href="https://www.mtccc.com/single-event/fan-expo-canada-2026/" target="_blank" rel="noopener">
-<span class="cat">Conference · creator</span><span class="ht">FAN EXPO Canada</span><span class="hm">Aug 27–30 · MTCC · pop-culture &amp; creators</span>
-</a><a class="hzcard k-pop" href="https://theex.com/" target="_blank" rel="noopener">
-<span class="cat">New &amp; Pop-Up</span><span class="ht">The CNE opens</span><span class="hm">~Aug 21 → Labour Day · Exhibition Place</span>
-</a></div>
-</div><div class="hzrow">
-<div class="hzmonth">SEP</div>
-<div class="hzcards"><a class="hzcard k-screen" href="https://tiff.net/" target="_blank" rel="noopener">
-<span class="cat">On-Screen</span><span class="ht">TIFF — Toronto Film Festival</span><span class="hm">Early–mid Sept · downtown · confirm dates</span>
-</a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events/detail/anirudh-xv-tour" target="_blank" rel="noopener">
-<span class="cat">Concert · Indian</span><span class="ht">Anirudh Ravichander — XV Tour</span><span class="hm">Sat Sep 5 · 6:30 PM · Scotiabank Arena</span>
-</a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events/detail/shreya-ghoshal" target="_blank" rel="noopener">
-<span class="cat">Concert · Indian</span><span class="ht">Shreya Ghoshal — The Unstoppable Tour</span><span class="hm">Sun Sep 13 · 7 PM · Scotiabank Arena</span>
-</a><a class="hzcard k-concert" href="https://www.ticketmaster.ca/acdc-power-up-tour-2026-toronto-ontario-09-16-2026/event/10006359C47EAEB4" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">AC/DC — Power Up Tour</span><span class="hm">Wed Sep 16 · 7 PM · Rogers Centre · w/ The Pretty Reckless (newly confirmed)</span>
-</a><a class="hzcard k-conf" href="https://allinevent.ai/" target="_blank" rel="noopener">
-<span class="cat">Conference · AI</span><span class="ht">ALL IN — Canada's biggest AI event</span><span class="hm">Sep 16–17 · Montreal (road trip / fly)</span>
-</a><a class="hzcard k-conf" href="https://elevatefestival.ca/" target="_blank" rel="noopener">
-<span class="cat">Conference · AI/tech</span><span class="ht">Elevate Festival</span><span class="hm">Sep 22–24 · Toronto · AI, fintech, innovation</span>
-</a><a class="hzcard k-conf" href="https://toronto.thewordonthestreet.ca/" target="_blank" rel="noopener">
-<span class="cat">Lit · book</span><span class="ht">Word on the Street</span><span class="hm">Sep 26–27 · David Pecaut Sq · Canada's largest lit fest</span>
-</a></div>
-</div><div class="hzrow">
-<div class="hzmonth">OCT–NOV</div>
-<div class="hzcards"><a class="hzcard k-conf" href="https://festivalofauthors.ca/" target="_blank" rel="noopener">
-<span class="cat">Lit · book</span><span class="ht">TIFA — Festival of Authors</span><span class="hm">Oct 28 – Nov 1 · Harbourfront · agents &amp; publishers</span>
-</a><a class="hzcard k-concert" href="https://www.scotiabankarena.com/events" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">Doja Cat — Tour Ma Vie</span><span class="hm">Wed Nov 25 · 7:30 PM · Scotiabank Arena</span>
-</a><a class="hzcard k-pop" href="https://www.toronto.ca/explore-enjoy/festivals-events/cavalcade-of-lights/" target="_blank" rel="noopener">
-<span class="cat">New &amp; Pop-Up</span><span class="ht">Cavalcade of Lights / Xmas Market</span><span class="hm">Late Nov → Dec · Nathan Phillips Sq &amp; Distillery</span>
-</a></div>
-</div><div class="hzrow tbd">
-<div class="hzmonth">TBD</div>
-<div class="hzcards"><a class="hzcard k-comedy" href="https://events.sulekha.com/comedy-show-tickets" target="_blank" rel="noopener">
-<span class="cat">Comedy · Indian</span><span class="ht">More Indian stand-up tours</span><span class="hm">Nothing else confirmed for the rest of 2026 yet — watch Sulekha / Comedy Bar</span>
-</a><a class="hzcard k-concert" href="https://www.ticketmaster.ca/damien-rice-tickets/artist/852799" target="_blank" rel="noopener">
-<span class="cat">Concerts</span><span class="ht">Damien Rice</span><span class="hm">No 2026 Toronto date announced yet</span>
-</a></div>
-</div>
-</section>
+  <section class="section">
+    <div class="section-head"><div><h2>Indian stage watch</h2><p>Current week plus the dates worth protecting now.</p></div></div>
+    <div class="grid">
+      <a class="feature-card tint-yellow" href="https://www.ticketmaster.com/the-theatre-at-great-canadian-casino-tickets-toronto/venue/132544" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Sat Jul 25</span><span class="price">$$$</span></div><h3>Punjabi Virsa 2026</h3><p>Manmohan Waris, Kamal Heer and Sangtar · Great Canadian Toronto.</p><span class="source">Ticketmaster →</span></a>
+      <a class="feature-card tint-pink" href="https://www.ticketmaster.ca/sagar-wali-qawwali-toronto-ontario-07-31-2026/event/100064CA89686A50" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Fri Jul 31</span><span class="price">$$$</span></div><h3>Sagar Wali Qawwali</h3><p>Sagar Bhatia · 8:30 PM · The Theatre at Great Canadian Toronto.</p><span class="source">Ticketmaster →</span></a>
+      <a class="feature-card" href="https://www.scotiabankarena.com/events/detail/ammy-vrik-sargun-mehta" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Fri Aug 14</span><span class="price">$$$</span></div><h3>Ammy Virk + Sargun Mehta</h3><p>8:00 PM · Scotiabank Arena.</p><span class="source">Tickets →</span></a>
+      <a class="feature-card" href="https://greatcanadian.com/event/masoom-sharma/" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Sun Aug 23</span><span class="price">$$$</span></div><h3>Masoom Sharma</h3><p>8:00 PM · Great Canadian Toronto.</p><span class="source">Tickets →</span></a>
+      <a class="feature-card" href="https://www.scotiabankarena.com/events/detail/anirudh-xv-tour" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Sat Sep 5</span><span class="price">$$$</span></div><h3>Anirudh Ravichander</h3><p>XV Tour · 6:30 PM · Scotiabank Arena.</p><span class="source">Tickets →</span></a>
+      <a class="feature-card" href="https://www.scotiabankarena.com/events/detail/shreya-ghoshal" target="_blank" rel="noopener"><div class="feature-top"><span class="tag">Sun Sep 13</span><span class="price">$$$</span></div><h3>Shreya Ghoshal</h3><p>The Unstoppable Tour · 7:00 PM · Scotiabank Arena.</p><span class="source">Tickets →</span></a>
+    </div>
+  </section>
 
-<section>
-<h2>⚠️ Heads-Up & Closures</h2>
-<div class="heads">
-<div class="hgrid"><div class="hgrid-item"><b>Thu–Sat Jul 23–25</b><span>Queen Street East closes nightly between Woodbine and Beech for Beaches Jazz StreetFest (6 PM–midnight). Expect diversions, crowds and limited parking.</span></div><div class="hgrid-item"><b>Sat–Sun Jul 25–26</b><span>Spadina Avenue is busy for the Chinatown Festival; plan for pedestrian congestion and allow extra time through Chinatown.</span></div><div class="hgrid-item"><b>Mon–Thu Jul 20–23</b><span>Rogers Centre hosts four Blue Jays–Rays games. Downtown, Union and the Gardiner/Lake Shore approaches will be busiest before and after first pitch.</span></div><div class="hgrid-item"><b>Sat–Sun Jul 25–26</b><span>Tame Impala at Scotiabank Arena adds a second major downtown draw; use transit and leave extra time around Union.</span></div><div class="hgrid-item"><b>General</b><span>No specific TTC or GO weekend closure was confirmed in the sources checked at refresh time. Verify live service status before heading out.</span></div></div>
-<div class="livelinks">Live status: <a href="https://www.ttc.ca/service-advisories/subway-service" target="_blank" rel="noopener">TTC</a> · <a href="https://www.gotransit.com/en/service-updates" target="_blank" rel="noopener">GO Transit</a> · <a href="https://www.toronto.ca/explore-enjoy/festivals-events/festivals-events-calendar/" target="_blank" rel="noopener">City of Toronto festivals &amp; events</a></div>
-</div>
-</section>
+  <section class="section">
+    <div class="section-head"><div><h2>Stories by Ronnie — submission radar</h2><p>Open calls only, ordered by deadline.</p></div></div>
+    <div class="deadline-list">
+      <article class="deadline"><time>15<br>AUG</time><div><b>Astana AI Film Festival</b><span>Open call for AI films · rights confirmation required</span></div><a href="https://www.aaiff.ai/" target="_blank" rel="noopener">Submit →</a></article>
+      <article class="deadline"><time>15<br>AUG</time><div><b>Konstloop Film Festival</b><span>Online festival · AI Short category</span></div><a href="https://konstloop.com/" target="_blank" rel="noopener">Submit →</a></article>
+      <article class="deadline"><time>16<br>SEP</time><div><b>New World AI Film Festival</b><span>Human-written / AI-visual work can be declared</span></div><a href="https://nwaiff.lovable.app/" target="_blank" rel="noopener">Submit →</a></article>
+      <article class="deadline"><time>30<br>SEP</time><div><b>We Are Human — Film &amp; AI</b><span>Free entry · ethics notebook required · human direction essential</span></div><a href="https://wearehuman.foundation/en/call-for-films/" target="_blank" rel="noopener">Submit →</a></article>
+      <article class="deadline"><time>30<br>SEP</time><div><b>African AI Film Festival</b><span>Short / animation categories · consent rules for real people</span></div><a href="https://africanaifilmfestival.org/" target="_blank" rel="noopener">Submit →</a></article>
+      <article class="deadline"><time>07<br>OCT</time><div><b>AI London Film Festival</b><span>AI-assisted writing, visuals, animation or production accepted</span></div><a href="https://film-festival.ai/" target="_blank" rel="noopener">Submit →</a></article>
+    </div>
+  </section>
 
-<footer>
-Built from public listings as of <b style="color:#5a4a14">Mon, Jul 20, 2026</b> (new week), for the week of Jul 20–26. Line-ups, film dates, streaming windows &amp; horizon dates can shift — confirm before you commit.<br>
-🔄 Refreshed Monday &amp; Thursday evenings · 🏠 the go-to for Ronnie &amp; Saumya.
-</footer>
+  <section class="section" id="heads-up">
+    <div class="section-head"><div><h2>Heads-up &amp; closures</h2><p>Material movement issues, not generic traffic warnings.</p></div></div>
+    <div class="heads-up"><div class="heads-grid">
+      <div class="heads-item"><b>Mon–Thu · Rogers Centre</b><p>Four Jays–Rays games mean heavier Union, Gardiner and Lake Shore traffic before and after first pitch.</p></div>
+      <div class="heads-item"><b>Fri–Sun · Celebration Square</b><p>Bollywood Monster Mashup will tighten parking and increase foot traffic around downtown Mississauga.</p></div>
+      <div class="heads-item"><b>Sat · Great Canadian Toronto</b><p>Punjabi Virsa starts at 8 PM. Leave extra time around Rexdale Boulevard and the casino complex.</p></div>
+      <div class="heads-item"><b>Sat–Sun · Chinatown</b><p>Toronto Chinatown Festival makes Spadina busy; favour TTC and expect diversions.</p></div>
+      <div class="heads-item"><b>Before leaving</b><p>Check live TTC and GO notices; no specific major weekend rail closure was confirmed in this draft.</p></div>
+      <div class="heads-item"><b>Live links</b><p><a href="https://www.ttc.ca/service-advisories/subway-service" target="_blank" rel="noopener">TTC status</a> · <a href="https://www.gotransit.com/en/service-updates" target="_blank" rel="noopener">GO updates</a></p></div>
+    </div></div>
+  </section>
 
-</div>
+  <footer class="footer"><span>Ronnie + Saumya · weekly planner</span><span>Public sources checked Jul 21, 2026 · always confirm before booking</span></footer>
+</main>
+<script src="app.js"></script>
 </body>
 </html>
