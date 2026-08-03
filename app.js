@@ -95,6 +95,22 @@ Blend with salt, lemon and red chilli powder.`
     title: 'Thepla',
     url: 'https://app.notion.com/p/369e4e7470e580b09a9be712652f977c',
     copy: `Use wheat flour with turmeric, red chilli, dhana jeeru, salt, garlic, curd, methi, sugar, white sesame and oil. Season the dough more strongly than a sabzi because the spices become milder once mixed into the flour.`
+  },
+  'egg-fried-rice': {
+    title: 'Spring Onion and Egg Fried Rice',
+    url: 'https://app.notion.com/p/14ce4e7470e580f98769fcde0ae33776',
+    copy: `Key ingredients
+Cooked rice, eggs, spring onions, soy sauce and sesame oil.
+
+Method
+Scramble the eggs, then add cooked rice, soy sauce and chopped spring onions. Toss everything together and serve.`
+  },
+  'paneer-peppers': {
+    title: 'Paneer Bell Peppers',
+    url: 'https://app.notion.com/p/133e4e7470e5801daca1ee574db7b5fc',
+    copy: `Cut onions and bell peppers into large slices.
+
+Heat oil with cardamom, cloves and cinnamon. Add the onion and bell peppers. Add chopped tomatoes and cover. Add coriander powder, red chilli powder and turmeric, then add paneer and cook through.`
   }
 };
 

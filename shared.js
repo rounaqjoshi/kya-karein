@@ -9,6 +9,9 @@
   let activeProfile = null;
   let selectedProfileKey = null;
   let syncTimer = null;
+  let preferenceDirty = false;
+  let preferenceInitialized = false;
+  let preferenceEditVersion = 0;
 
   const loginForm = authGate.querySelector('#pin-login-form');
   const pinInput = authGate.querySelector('#pin-input');
@@ -155,6 +158,27 @@
     return `qeera-meals-${planWeekStart}`;
   }
 
+  function preferenceCacheKey() {
+    return `qeera-preference-${preferenceWeekStart}`;
+  }
+
+  function preferenceDraftKey() {
+    return `qeera-preference-draft-${preferenceWeekStart}`;
+  }
+
+  function initializePreferenceDraft() {
+    if (!note || !preferenceWeekStart || preferenceInitialized) return;
+    const draft = readJson(preferenceDraftKey());
+    if (draft && typeof draft.value === 'string') {
+      note.value = draft.value;
+      preferenceDirty = true;
+      if (saveState) saveState.textContent = 'Unsaved draft kept on this device';
+    } else {
+      note.value = readJson(preferenceCacheKey(), '');
+    }
+    preferenceInitialized = true;
+  }
+
   async function loadMealChecks() {
     if (!mealChecks.length || !planWeekStart) return;
     const cached = readJson(cachedChecksKey(), {});
@@ -203,22 +227,24 @@
 
   async function loadPreference() {
     if (!note || !preferenceWeekStart) return;
-    const cacheKey = `qeera-preference-${preferenceWeekStart}`;
-    note.value = readJson(cacheKey, '');
+    initializePreferenceDraft();
     const rows = await rest(
       `weekly_preferences?select=note,updated_at&household_id=eq.${activeProfile.household_id}&week_start=eq.${preferenceWeekStart}`
     );
-    if (rows?.length) {
-      note.value = rows[0].note || '';
-      writeJson(cacheKey, note.value);
-      if (saveState) saveState.textContent = 'Shared note loaded';
+    const sharedValue = rows?.length ? rows[0].note || '' : '';
+    writeJson(preferenceCacheKey(), sharedValue);
+    if (!preferenceDirty) {
+      note.value = sharedValue;
+      if (saveState) saveState.textContent = rows?.length ? 'Shared note loaded' : 'No shared note yet';
+    } else if (saveState) {
+      saveState.textContent = 'Unsaved draft kept on this device';
     }
   }
 
   async function savePreference() {
     if (!note || !preferenceWeekStart) return;
     const value = note.value.trim();
-    writeJson(`qeera-preference-${preferenceWeekStart}`, value);
+    const editVersionAtSave = preferenceEditVersion;
     if (saveState) saveState.textContent = 'Saving for both of you…';
     await rest('weekly_preferences?on_conflict=household_id,week_start', {
       method: 'POST',
@@ -233,7 +259,15 @@
         submitted_by: activeSession.user.id
       })
     });
-    if (saveState) saveState.textContent = `Saved for Ronnie + Saumya · ${new Intl.DateTimeFormat('en-CA', { hour: 'numeric', minute: '2-digit' }).format(new Date())}`;
+    writeJson(preferenceCacheKey(), value);
+    if (preferenceEditVersion === editVersionAtSave) {
+      note.value = value;
+      preferenceDirty = false;
+      localStorage.removeItem(preferenceDraftKey());
+      if (saveState) saveState.textContent = `Saved for Ronnie + Saumya · ${new Intl.DateTimeFormat('en-CA', { hour: 'numeric', minute: '2-digit' }).format(new Date())}`;
+    } else if (saveState) {
+      saveState.textContent = 'Saved. Newer unsaved draft kept on this device';
+    }
   }
 
   async function syncSharedState() {
@@ -299,9 +333,17 @@
     });
   });
 
+  note?.addEventListener('input', () => {
+    preferenceDirty = true;
+    preferenceInitialized = true;
+    preferenceEditVersion += 1;
+    writeJson(preferenceDraftKey(), { value: note.value, updatedAt: new Date().toISOString() });
+    if (saveState) saveState.textContent = 'Draft kept on this device. Save when ready';
+  });
+
   document.querySelector('#save-note')?.addEventListener('click', async () => {
     try { await savePreference(); }
-    catch { if (saveState) saveState.textContent = 'Saved on this phone; shared sync will retry'; }
+    catch { if (saveState) saveState.textContent = 'Could not share yet. Draft kept here. Save again when online'; }
   });
 
   document.querySelector('#reset-checks')?.addEventListener('click', async () => {
