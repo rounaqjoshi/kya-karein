@@ -164,6 +164,47 @@ Stir in a smooth flour-and-water mixture plus rice or vermicelli. Cook until thi
     copy: `Boil the potatoes. Blanch chopped spinach in hot water, move it to ice water and drain well.
 
 Cook garlic, hing, crushed coriander and cumin seeds in oil. Add potatoes and spices with a little water, then add the spinach and cook until creamy. Finish with a tempering of dry fenugreek, whole red chilli, garlic and cumin.`
+  },
+  'thecha-paneer': {
+    title: 'Thecha Paneer',
+    url: 'https://app.notion.com/p/16be4e7470e58056b60ad7a2e6a74025',
+    copy: `Fry the paneer in oil on both sides and set aside.
+
+In the same pan, cook cumin seeds, plenty of garlic, green chillies, sesame seeds, dry coconut and fresh coriander for 2 to 3 minutes. Grind this into a paste.
+
+Cook sliced onion until golden, then add the paste and a little water. Add turmeric, coriander powder and salt. Return the paneer, add fresh green chillies and garam masala, then garnish with coriander.`
+  },
+  'chia-pudding': {
+    title: 'Chia Seed Pudding',
+    url: 'https://app.notion.com/p/140e4e7470e580f9b5a7f62baaf5782a',
+    copy: `Add chia seeds and coconut milk to a bowl with grated cinnamon and nutmeg. Add maple syrup and a pinch of salt, mix well and let it sit overnight.`
+  },
+  'beer-chicken': {
+    title: 'Spicy Beer-Braised Chicken with Mushrooms',
+    url: 'https://app.notion.com/p/1b1e4e7470e580d287ead5e241d16412',
+    copy: `Season chicken with salt, pepper and smoked paprika. Sear in oil for 3 to 4 minutes per side, then set aside.
+
+Brown sliced mushrooms, then add onion, garlic and ginger. Stir in gochujang, cumin, garam masala and turmeric. Add beer, broth, soy sauce, honey and mustard.
+
+Return the chicken. Cover and simmer on low for 20 to 25 minutes, then uncover and reduce for about 5 minutes. Finish with coriander and serve with brown rice.`
+  },
+  'pineapple-curry': {
+    title: 'Pineapple Coconut Curry',
+    url: 'https://app.notion.com/p/1d5e4e7470e5802883becb86b8fadcd3',
+    copy: `Marinate 200 g pineapple for 5 to 10 minutes with chopped curry leaves, red chilli powder, turmeric and salt.
+
+In coconut oil, cook chopped garlic, ginger, green chillies and curry leaves. Lower the heat and add 2 cups coconut milk, 1 tsp turmeric and 1 tsp rice flour while stirring. Add salt and 1 to 2 tsp lemon juice and cook until thick.
+
+Cook the pineapple separately in coconut oil with coriander. Add it to the curry for the final minute and serve with hot rice.`
+  },
+  'cabbage-kootu': {
+    title: 'Cabbage Kootu',
+    url: 'https://app.notion.com/p/1e4e4e7470e58016a1a8ce94baec18f9',
+    copy: `Pressure-cook finely chopped cabbage and toor dal with turmeric until very soft.
+
+Fry coriander seeds, cumin seeds, urad dal, chana dal, dry red chilli and black pepper in a little coconut oil. Grind with shredded coconut or coconut milk into a smooth paste.
+
+Temper mustard seeds and curry leaves in coconut oil. Add the cooked dal and cabbage plus the masala paste. Thin if needed, simmer for 5 minutes, salt to taste and serve with rice and papad.`
   }
 };
 
