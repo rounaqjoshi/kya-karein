@@ -111,6 +111,59 @@ Scramble the eggs, then add cooked rice, soy sauce and chopped spring onions. To
     copy: `Cut onions and bell peppers into large slices.
 
 Heat oil with cardamom, cloves and cinnamon. Add the onion and bell peppers. Add chopped tomatoes and cover. Add coriander powder, red chilli powder and turmeric, then add paneer and cook through.`
+  },
+  'nawabi-chicken': {
+    title: 'Quick Nawabi Malai Chicken',
+    url: 'https://app.notion.com/p/1e4e4e7470e58027a920f4a16f0bd64a',
+    copy: `Blend green chillies, cashews, yogurt, Kashmiri chilli, coriander, onion powder, cardamom, garam masala, ginger-garlic paste, cream, coconut, salt and cumin into a smooth marinade. Coat the chicken and rest it for 10 to 15 minutes.
+
+Cook chopped onion in oil until lightly golden. Add the chicken and marinade, cover and cook for about 15 minutes. Finish with tomato ketchup, a pinch of sugar and crushed kasoori methi.`
+  },
+  'vietnamese-pizza': {
+    title: 'Vietnamese Pizza',
+    url: 'https://app.notion.com/p/142e4e7470e580dbbb25ee1172c0e1ff',
+    copy: `Place one sheet of rice paper in a non-stick pan. Add chilli oil, scallions and an egg in the centre, then whisk and spread it evenly. Season with salt and hot sauce and cook until crisp.`
+  },
+  'chicken-kebab': {
+    title: 'Chicken Kebab',
+    url: 'https://app.notion.com/p/14ce4e7470e58034be45eb927df6733f',
+    copy: `Mix chicken mince with onion, tomato, green chilli, spring onion, coriander, ginger-garlic paste, salt, chilli, crushed cumin and coriander seeds, anardana, garam masala, chilli flakes and one egg. Rest for 30 minutes.
+
+Shape into patties and shallow-fry over medium-low heat for 5 to 6 minutes per side. Serve with mint chutney, onion and lemon.`
+  },
+  'japanese-eggs': {
+    title: 'Japanese Fried Eggs',
+    url: 'https://app.notion.com/p/140e4e7470e58056bb2fe3ba2ce8355d',
+    copy: `Make sunny-side-up eggs. Warm ginger, vinegar, garlic and soy sauce in a pan, then dip the cooked eggs into the sauce.`
+  },
+  'med-yogurt': {
+    title: 'Mediterranean Yogurt Dip',
+    url: 'https://app.notion.com/p/143e4e7470e580cea8eff33534780bc0',
+    copy: `Combine chopped garlic, bell peppers, cilantro, chilli flakes, olives, paprika and salt, then pour hot olive oil over the mixture. Spread plain yogurt on a plate and spoon the dressing on top.`
+  },
+  'oats-chilla': {
+    title: 'Oats/Besan Chilla',
+    url: 'https://app.notion.com/p/140e4e7470e580e1aa69ecbb0d9d9723',
+    copy: `Mix oats and besan with water. Add onion, bell peppers and salt. Cook the batter on an oiled tawa until set and browned on both sides.`
+  },
+  'baigan-bhaat': {
+    title: 'Baigan Bhaat',
+    url: 'https://app.notion.com/p/133e4e7470e580a29a56f1626f6c96ab',
+    copy: `Pressure-cook rice and brinjal until soft. Mash the brinjal and combine it with the rice, curd, turmeric, garlic, ginger-chilli paste and salt. Heat through, adding water if needed. Finish with a mustard-seed and red-chilli tempering.`
+  },
+  harira: {
+    title: 'Harira, Moroccan Soup',
+    url: 'https://app.notion.com/p/144e4e7470e580e1b894e4f188adcb08',
+    copy: `For the vegetarian version, cook onion, garlic, tomato paste and spices in olive oil. Add celery, crushed tomatoes, chickpeas, green lentils and broth. Simmer until tender.
+
+Stir in a smooth flour-and-water mixture plus rice or vermicelli. Cook until thick but pourable, then finish with parsley or cilantro and lemon.`
+  },
+  'aloo-palak': {
+    title: 'Aloo Palak Subzi',
+    url: 'https://app.notion.com/p/133e4e7470e58011aa46c5e5786f8cdf',
+    copy: `Boil the potatoes. Blanch chopped spinach in hot water, move it to ice water and drain well.
+
+Cook garlic, hing, crushed coriander and cumin seeds in oil. Add potatoes and spices with a little water, then add the spinach and cook until creamy. Finish with a tempering of dry fenugreek, whole red chilli, garlic and cumin.`
   }
 };
 
