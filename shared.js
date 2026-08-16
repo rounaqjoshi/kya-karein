@@ -22,7 +22,17 @@
   const saveState = document.querySelector('#save-state');
   const mealWeek = document.querySelector('.meal-week');
   const planWeekStart = mealWeek?.dataset.weekStart;
-  const preferenceWeekStart = document.body.dataset.preferenceWeekStart;
+
+  function addDaysToIsoDate(isoDate, days) {
+    if (!isoDate) return '';
+    const date = new Date(`${isoDate}T12:00:00Z`);
+    if (Number.isNaN(date.getTime())) return '';
+    date.setUTCDate(date.getUTCDate() + days);
+    return date.toISOString().slice(0, 10);
+  }
+
+  const preferenceWeekStart = addDaysToIsoDate(planWeekStart, 7) || document.body.dataset.preferenceWeekStart;
+  if (preferenceWeekStart) document.body.dataset.preferenceWeekStart = preferenceWeekStart;
 
   function readJson(key, fallback = null) {
     try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
