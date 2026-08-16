@@ -27,11 +27,14 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
 git add -A
 if git diff --cached --quiet; then
-  echo "No changes — skipping commit."
+  echo "No file changes — checking for an unpublished commit."
 else
   git commit -m "Weekly dashboard refresh"
-  git push
-  echo "Pushed to GitHub."
 fi
+
+# Always push after the commit check. This also publishes a commit created by a
+# previous run whose first network attempt failed.
+git push
+echo "GitHub is up to date."
 
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') — publish done ==="
