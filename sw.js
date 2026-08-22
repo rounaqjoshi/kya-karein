@@ -1,4 +1,4 @@
-const CACHE_NAME = "qeera-shell-v6";
+const CACHE_NAME = "qeera-shell-v7";
 const APP_SHELL = [
   "./",
   "./index.html",

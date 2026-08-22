@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="icons/qeera-192.png">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="meals" data-preference-week-start="2026-08-24">
+<body data-page="meals" data-preference-week-start="2026-08-31">
 <main class="shell">
   <nav class="topbar" aria-label="Primary navigation">
     <a class="brand" href="index.html"><span class="brandmark">Q</span><span><b>Kya karein?</b><small>Ronnie + Saumya</small></span></a>
@@ -23,70 +23,70 @@
     <div>
       <div class="eyebrow">Weekly table · first draft</div>
       <h1>Eat well.<br>Think less.</h1>
-      <p>A balanced seven-day plan built from your regular diets, detox rules and recipes you already know. Tuesday and Thursday use fresh, genuinely quick cooking rather than automatic leftovers.</p>
+      <p>A balanced seven-day plan built from your regular diets, current ingredients and recipes you already know. Older vegetables are used first, while Tuesday and Thursday stay genuinely quick.</p>
       <div class="hero-actions"><button class="button" id="reset-checks">Reset check-offs</button><a class="button secondary" href="#notes">Add preferences</a></div>
     </div>
-    <div class="weekstamp"><strong>Aug 17-23</strong><span>2 mono · 1 detox · no forced leftovers</span><div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div><div class="progress-copy"><span id="progress-count">0 of 28 checked</span><span id="progress-percent">0%</span></div></div>
+    <div class="weekstamp"><strong>Aug 24-30</strong><span>pantry-first · 1 detox · no forced leftovers</span><div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div><div class="progress-copy"><span id="progress-count">0 of 28 checked</span><span id="progress-percent">0%</span></div></div>
   </header>
 
   <div class="meal-toolbar">
-    <div class="rule-pills"><span>Light breakfasts only</span><span>Tue + Thu fresh quick cook</span><span>2 mono + 1 detox</span><span>Never back-to-back</span><span>Fri + Sat dinner out</span></div>
-    <span class="draft-state">Preferences applied</span>
+    <div class="rule-pills"><span>Light breakfasts only</span><span>Tue + Thu fresh quick cook</span><span>1 detox</span><span>Older vegetables first</span><span>Fri + Sat dinner out</span></div>
+    <span class="draft-state">Ingredients applied</span>
   </div>
 
-  <section class="meal-week" data-week-start="2026-08-17" aria-label="Weekly meal plan">
-    <article class="meal-day" data-date="2026-08-17"><header><b>Monday</b><span>Finish dosa batter</span></header>
-      <label class="meal"><input type="checkbox" data-meal="mon-breakfast"><small>Breakfast · light</small><b>Apple-date oat milk shake + walnuts</b></label>
-      <label class="meal"><input type="checkbox" data-meal="mon-lunch"><small>Lunch · use first</small><b>Mini dosas + mushroom-peas filling + tomato chutney</b><button type="button" data-recipe="tomato-chutney">Recipe</button></label>
-      <label class="meal"><input type="checkbox" data-meal="mon-snack"><small>Snack</small><b>Dahi + pumpkin seeds</b></label>
-      <label class="meal"><input type="checkbox" data-meal="mon-dinner"><small>Dinner · ~20 min</small><b>Paneer bell peppers + sautéed broccoli</b><button type="button" data-recipe="paneer-peppers">Recipe</button></label>
+  <section class="meal-week" data-week-start="2026-08-24" aria-label="Weekly meal plan">
+    <article class="meal-day" data-date="2026-08-24"><header><b>Monday</b><span>Use oldest veg first</span></header>
+      <label class="meal"><input type="checkbox" data-meal="mon-breakfast"><small>Breakfast · light</small><b>Soft scrambled eggs + tomato</b></label>
+      <label class="meal"><input type="checkbox" data-meal="mon-lunch"><small>Lunch · ~20 min</small><b>Cabbage-peas poha + lemon</b></label>
+      <label class="meal"><input type="checkbox" data-meal="mon-snack"><small>Snack</small><b>Apple + dahi</b></label>
+      <label class="meal"><input type="checkbox" data-meal="mon-dinner"><small>Dinner · tray roast</small><b>Aloo gobi tray roast + garlicky yogurt</b></label>
     </article>
 
-    <article class="meal-day light mono" data-date="2026-08-18"><header><b>Tuesday</b><span>Mono · fresh quick cook</span></header>
-      <label class="meal"><input type="checkbox" data-meal="tue-breakfast"><small>Breakfast · light</small><b>Avocado + 1 fully cooked egg</b></label>
-      <label class="meal"><input type="checkbox" data-meal="tue-lunch"><small>Lunch · mono meal · ~20 min</small><b>Oats-besan chilla + mushroom-peas filling + dahi</b><button type="button" data-recipe="oats-chilla">Recipe</button></label>
-      <label class="meal"><input type="checkbox" data-meal="tue-snack"><small>Snack</small><b>Banana + almonds</b></label>
-      <label class="meal"><input type="checkbox" data-meal="tue-dinner"><small>Dinner · same by mono design</small><b>Oats-besan chilla + mushroom-peas filling + dahi</b><button type="button" data-recipe="oats-chilla">Recipe</button></label>
+    <article class="meal-day light" data-date="2026-08-25"><header><b>Tuesday</b><span>Fresh quick cook</span></header>
+      <label class="meal"><input type="checkbox" data-meal="tue-breakfast"><small>Breakfast · light</small><b>Avocado + banana + pumpkin seeds</b></label>
+      <label class="meal"><input type="checkbox" data-meal="tue-lunch"><small>Lunch · ~20 min</small><b>Broccoli cheddar miso soup + tomato toast</b><button type="button" data-recipe="broccoli">Recipe</button></label>
+      <label class="meal"><input type="checkbox" data-meal="tue-snack"><small>Snack</small><b>Dates + almonds</b></label>
+      <label class="meal"><input type="checkbox" data-meal="tue-dinner"><small>Dinner · ~20 min</small><b>Cabbage-mushroom cheese skillet + cucumber</b></label>
     </article>
 
-    <article class="meal-day" data-date="2026-08-19"><header><b>Wednesday</b><span>Fish starts</span></header>
-      <label class="meal"><input type="checkbox" data-meal="wed-breakfast"><small>Breakfast · light</small><b>Banana-oat milk shake + dates</b></label>
-      <label class="meal"><input type="checkbox" data-meal="wed-lunch"><small>Lunch · ~20 min</small><b>Spring-onion egg fried rice + zucchini + peas</b><button type="button" data-recipe="egg-fried-rice">Recipe</button></label>
-      <label class="meal"><input type="checkbox" data-meal="wed-snack"><small>Snack</small><b>Apple + pistachios</b></label>
-      <label class="meal"><input type="checkbox" data-meal="wed-dinner"><small>Dinner · ~25 min</small><b>Lemon-pepper salmon + roasted broccoli + bell peppers</b></label>
+    <article class="meal-day" data-date="2026-08-26"><header><b>Wednesday</b><span>Chicken night</span></header>
+      <label class="meal"><input type="checkbox" data-meal="wed-breakfast"><small>Breakfast · light</small><b>Apple-cinnamon oat milk shake + walnuts</b></label>
+      <label class="meal"><input type="checkbox" data-meal="wed-lunch"><small>Lunch</small><b>Mixed dal + cumin cauliflower + rice</b></label>
+      <label class="meal"><input type="checkbox" data-meal="wed-snack"><small>Snack</small><b>Buttermilk + pistachios</b></label>
+      <label class="meal"><input type="checkbox" data-meal="wed-dinner"><small>Dinner · ~30 min</small><b>Harissa-garlic chicken + smashed potatoes + pepper salad</b></label>
     </article>
 
-    <article class="meal-day light mono" data-date="2026-08-20"><header><b>Thursday</b><span>Mono · fresh quick cook</span></header>
-      <label class="meal"><input type="checkbox" data-meal="thu-breakfast"><small>Breakfast · light</small><b>Apple-cinnamon oat milk shake</b></label>
-      <label class="meal"><input type="checkbox" data-meal="thu-lunch"><small>Lunch · mono meal · ~20 min</small><b>Chicken kebabs + charred zucchini and peppers + dahi</b><button type="button" data-recipe="chicken-kebab">Recipe</button></label>
+    <article class="meal-day light" data-date="2026-08-27"><header><b>Thursday</b><span>Fresh quick cook</span></header>
+      <label class="meal"><input type="checkbox" data-meal="thu-breakfast"><small>Breakfast · light</small><b>Tomato-mushroom egg scramble</b></label>
+      <label class="meal"><input type="checkbox" data-meal="thu-lunch"><small>Lunch · ~25 min</small><b>Potato-pea Spanish tortilla + tomato salad</b></label>
       <label class="meal"><input type="checkbox" data-meal="thu-snack"><small>Snack</small><b>Banana + walnuts</b></label>
-      <label class="meal"><input type="checkbox" data-meal="thu-dinner"><small>Dinner · same by mono design</small><b>Chicken kebabs + charred zucchini and peppers + dahi</b><button type="button" data-recipe="chicken-kebab">Recipe</button></label>
+      <label class="meal"><input type="checkbox" data-meal="thu-dinner"><small>Dinner · ~20 min</small><b>Lemon masoor dal soup + cheese toast</b></label>
     </article>
 
-    <article class="meal-day out" data-date="2026-08-21"><header><b>Friday</b><span>Dinner out</span></header>
-      <label class="meal"><input type="checkbox" data-meal="fri-breakfast"><small>Breakfast · light</small><b>Mushroom-tomato egg scramble</b></label>
-      <label class="meal"><input type="checkbox" data-meal="fri-lunch"><small>Lunch · one pot</small><b>Harira with chickpeas, lentils and vegetables</b><button type="button" data-recipe="harira">Recipe</button></label>
+    <article class="meal-day out" data-date="2026-08-28"><header><b>Friday</b><span>Dinner out</span></header>
+      <label class="meal"><input type="checkbox" data-meal="fri-breakfast"><small>Breakfast · light</small><b>Avocado + apple + sunflower seeds</b></label>
+      <label class="meal"><input type="checkbox" data-meal="fri-lunch"><small>Lunch</small><b>Tadka dal + jeera rice + cucumber dahi</b></label>
       <label class="meal"><input type="checkbox" data-meal="fri-snack"><small>Snack</small><b>Dahi + dates</b></label>
       <label class="meal"><input type="checkbox" data-meal="fri-dinner"><small>Dinner</small><b>Eat out / order in</b><button type="button" data-scroll-restaurants>See shortlist</button></label>
     </article>
 
-    <article class="meal-day out" data-date="2026-08-22"><header><b>Saturday</b><span>Long cook + dinner out</span></header>
-      <label class="meal"><input type="checkbox" data-meal="sat-breakfast"><small>Breakfast · light</small><b>Avocado + apple + pumpkin seeds</b></label>
-      <label class="meal"><input type="checkbox" data-meal="sat-lunch"><small>Lunch · longer cook</small><b>Quick Nawabi malai chicken + broccoli-peas rice</b><button type="button" data-recipe="nawabi-chicken">Recipe</button></label>
-      <label class="meal"><input type="checkbox" data-meal="sat-snack"><small>Snack</small><b>Banana + dahi</b></label>
+    <article class="meal-day out" data-date="2026-08-29"><header><b>Saturday</b><span>Long cook + dinner out</span></header>
+      <label class="meal"><input type="checkbox" data-meal="sat-breakfast"><small>Breakfast · light</small><b>Banana-date oat milk shake + almonds</b></label>
+      <label class="meal"><input type="checkbox" data-meal="sat-lunch"><small>Lunch · longer cook</small><b>Chicken yakhni pulao + cucumber-onion raita</b></label>
+      <label class="meal"><input type="checkbox" data-meal="sat-snack"><small>Snack</small><b>Apple + dark chocolate</b></label>
       <label class="meal"><input type="checkbox" data-meal="sat-dinner"><small>Dinner</small><b>Eat out / order in</b><button type="button" data-scroll-restaurants>See shortlist</button></label>
     </article>
 
-    <article class="meal-day detox" data-date="2026-08-23"><header><b>Sunday</b><span>Whole grain detox</span></header>
-      <label class="meal"><input type="checkbox" data-meal="sun-breakfast"><small>Breakfast · light</small><b>Well-cooked egg whites + mushroom and broccoli</b></label>
-      <label class="meal"><input type="checkbox" data-meal="sun-lunch"><small>Lunch</small><b>Chole + small brown-rice bowl + tomato</b></label>
+    <article class="meal-day detox" data-date="2026-08-30"><header><b>Sunday</b><span>Low-carb detox</span></header>
+      <label class="meal"><input type="checkbox" data-meal="sun-breakfast"><small>Breakfast · light</small><b>Fully cooked egg whites + sautéed mushrooms</b></label>
+      <label class="meal"><input type="checkbox" data-meal="sun-lunch"><small>Lunch</small><b>Vegetable quinoa bowl + garlic dahi</b></label>
       <label class="meal"><input type="checkbox" data-meal="sun-snack"><small>Snack</small><b>Apple + walnuts</b></label>
-      <label class="meal"><input type="checkbox" data-meal="sun-dinner"><small>Dinner · ~20 min</small><b>Paneer bell peppers + zucchini</b><button type="button" data-recipe="paneer-peppers">Recipe</button></label>
+      <label class="meal"><input type="checkbox" data-meal="sun-dinner"><small>Dinner · light</small><b>Tomato-basil soup + small whole-wheat pasta</b></label>
     </article>
   </section>
 
   <section class="meal-bottom">
-    <article class="panel" id="notes"><h3>What are we feeling next week?</h3><p>Add what is in the fridge, cravings, schedule changes or dishes you want. This becomes the shared brief for Saturday’s first draft.</p><textarea class="note-input" id="preference-note" placeholder="Example: We have spinach and chicken; want pav bhaji once; Tuesday is a late office day..."></textarea><div class="save-line"><button class="button" id="save-note">Save for both of us</button><span class="save-state" id="save-state">Not saved yet</span></div></article>
+    <article class="panel" id="notes"><h3>What are we feeling next week?</h3><p>Add what is in the fridge, cravings, schedule changes or dishes you want. This becomes the shared brief for Saturday’s 6 PM weekly rebuild.</p><textarea class="note-input" id="preference-note" placeholder="Example: We have spinach and chicken; want pav bhaji once; Tuesday is a late office day..."></textarea><div class="save-line"><button class="button" id="save-note">Save for both of us</button><span class="save-state" id="save-state">Not saved yet</span></div></article>
 
     <article class="panel" id="restaurants"><h3>Friday + Saturday restaurant shortlist</h3><p>Rotated from the saved Google Maps Food shortlist. Friday is easier and closer; Saturday leans date-night. Tap any card to check live hours, directions and booking.</p><div class="restaurant-row">
       <a class="restaurant-slot" href="https://www.google.com/maps/place/PAI/data=!4m2!3m1!1s0x882b34d9289991d5:0x5f596deace8d8b6a" target="_blank" rel="noopener"><small>Friday · lively</small><b>PAI</b><span>Downtown · Northern Thai · walk-in energy and bold spice</span><em>Open saved place →</em></a>
