@@ -1,0 +1,14 @@
+{
+  "site": "kya-karein",
+  "schema_version": 1,
+  "week_start": "2026-09-07",
+  "week_end": "2026-09-13",
+  "built_at": "2026-09-06T19:00:00-04:00",
+  "timezone": "America/Toronto",
+  "pages": {
+    "index.html": "2026-09-07/2026-09-13",
+    "meals.html": "2026-09-07/2026-09-13"
+  },
+  "meal_source_policy": "notion-and-trisha-only",
+  "preference_mode": "source-locked-baseline-no-row"
+}

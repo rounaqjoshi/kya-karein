@@ -8,7 +8,11 @@ LOG="/private/tmp/kya-karein-publish.log"
 exec >> "$LOG" 2>&1
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') — publish start ==="
 
-for file in index.html meals.html styles.css app.js config.js shared.js manifest.webmanifest sw.js icons/qeera-192.png icons/qeera-512.png; do
+python3 "$REPO_DIR/validate_source.py" "$SOURCE_DIR"
+node --check "$SOURCE_DIR/app.js"
+node --check "$SOURCE_DIR/shared.js"
+
+for file in index.html meals.html styles.css app.js config.js shared.js manifest.webmanifest sw.js status.json icons/qeera-192.png icons/qeera-512.png; do
   if [ ! -f "$SOURCE_DIR/$file" ]; then
     echo "ERROR: source file not found: $SOURCE_DIR/$file"
     exit 1
@@ -16,7 +20,7 @@ for file in index.html meals.html styles.css app.js config.js shared.js manifest
 done
 
 mkdir -p "$REPO_DIR/icons"
-for file in index.html meals.html styles.css app.js config.js shared.js manifest.webmanifest sw.js; do
+for file in index.html meals.html styles.css app.js config.js shared.js manifest.webmanifest sw.js status.json; do
   cp "$SOURCE_DIR/$file" "$REPO_DIR/$file"
 done
 cp "$SOURCE_DIR/icons/qeera-192.png" "$REPO_DIR/icons/qeera-192.png"
@@ -34,7 +38,11 @@ fi
 
 # Always push after the commit check. This also publishes a commit created by a
 # previous run whose first network attempt failed.
-git push
+if ! git push; then
+  echo "First push failed. Retrying once in 5 seconds."
+  sleep 5
+  git push
+fi
 echo "GitHub is up to date."
 
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') — publish done ==="
