@@ -209,6 +209,214 @@ Top with fresh coriander and serve with roti or paratha.`
 In a pan - add butter + garlic + spices like red chili flakes, oregano. Add olives. Cook.
 Add Pasta. And pour olive oil on top. (can also add wine.)
 In red or white sauce, make sauce first, and then put pasta. (add veggies or meat, if you want.)`
+  },
+  'japanese-eggs': {
+    title: 'Japanese Fried Eggs',
+    url: 'https://app.notion.com/p/140e4e7470e58056bb2fe3ba2ce8355d',
+    copy: `Make sunny side ups.
+In pan, add ginger, vinegar, garlic, soy sauce. Dip eggs in these.`
+  },
+  'caabage-kootu': {
+    title: 'Caabage Kootu',
+    url: 'https://app.notion.com/p/1e4e7470e58016a1a8ce94baec18f9',
+    copy: `### Ingredients 1x2x3x
+- ½ small head cabbage (about four cups chopped), finely chopped
+- ½ cup toor dal (split pigeon peas, also called toor dal or arhar dal)
+- ¼ teaspoon turmeric
+- About 10-15 curry leaves (one sprig approximately)
+- 3 tablespoon shredded coconut (or ½ cup coconut milk. Fresh or canned are both good)
+- 1 teaspoon coconut oil (divided)
+- 1 teaspoon mustard seeds
+### For the masala:
+- 1 tablespoon coriander seeds
+- 1 teaspoon cumin seeds
+- 1 tablespoon urad dal (black gram dal)
+- 1 tablespoon chana dal (Bengal gram dal)
+- 1 dry red chili pepper (like arbol pepper or Kashmiri chili pepper. Use more or less based on your tolerance for heat)
+- 1 teaspoon black peppercorns
+### Instructions
+- Pressure-cook the split yellow peas and cabbage with enough water to cover and turmeric. If you use an Indian pressure cooker that "whistles" allow the lentils to cook for three whistles. If cooking in a saucepan, cover by an inch of water and cook 30 minutes or until the dal is really soft. If cooking in an Instant Pot, set the pressure to high for 15 minutes.
+- Heat ½ teaspoon of the oil and add the masala ingredients. Fry them until the dals turn golden, remove to a blender, and grind into a smooth paste along with coconut or coconut milk.
+- Heat the remaining oil in a saucepan. Add the mustard seeds and curry leaves and when the mustard sputters, add the dal and masala and mix. Add water if too thick.
+- Bring the dal to a boil, lower the heat to a simmer, and cook for another five minutes. Add salt to taste.
+- Serve hot with rice and papad.`
+  },
+  'hyderabadi-red-chicken': {
+    title: 'Hyderabadi Red Chicken',
+    url: 'https://app.notion.com/p/1d5e7470e580a3b74edf9426146953',
+    copy: `Recipe:
+Step 1: Marination
+1. Take 1kg chicken and thoroughly wash and cut into medium pieces.
+2. Grind 15 almonds + 15 cashews + half cup coconut powder. Grind it with a bit of water or yoghurt into a smooth paste and add it to the chicken.
+3. Add salt, 250 gm yoghurt, ginger garlic paste 3 tbsp, black pepper powder 2 tsp, red chilli powder 2 tsp, garam masala 2tsp,
+turmeric powder 1/2 tsp, juice of a lemon, red chilli sauce 2 tbsp, green chilli sauce 2tbsp, soy sauce 1 tbsp,
+4-5 whole/slit green chillies, ghee 2tbsp, 2 large onions fried, mint and cilantro chopped.
+4. Set aside to marinate for 2 hours or overnight.
+Step 2: Cooking
+1. To a pan add some oil and transfer the chicken and cook on medium-high flame for 5-7 minutes while stirring frequently.
+2. Cover the lid and cook on a low flame for around 30 more minutes or until the chicken is tender and the oil seperates.
+3. Add 1-2 tbsp heavy cream and garnish with chopped cilantro.
+4. Serve with naan!`
+  },
+  'paneer-bell-peppers': {
+    title: 'Paneer Bell Peppers',
+    url: 'https://app.notion.com/p/133e4e7470e5801daca1ee574db7b5fc',
+    copy: `Cut onions, bell peppers in big slices.
+Pan - oil + cardammom + cloves + cinnamon + onion and bell peppers.
+Add cut tomatoes and cover it.
+Add dhania, red chilli and turmeric. And then paneer.`
+  },
+  'potato-eggs': {
+    title: 'Potato Eggs',
+    url: 'https://app.notion.com/p/142e4e7470e580419c93d156659d8309',
+    copy: `Cut potatoes, green chili. In pan, put that with curry leaves, hing and jeera.
+Add water and cover it.
+Add salt and turmeric when soft.
+Add eggs.`
+  },
+  'moms-mix-dal': {
+    title: "Mom's Mix dal",
+    url: 'https://app.notion.com/p/180e4e7470e580eeab35c165578549c7',
+    copy: `1. Mix masur, tur, and yellow mung dal and boil it. 
+2. Separately, in waghar - with ghee, add cinnamon, clove, pepper powder. Let it fry a bit, then jeera, curry leaves, hing, haldi, a bit red chilli powder and immediately add to the dal
+3. add salt and let it simmer. `
+  },
+  'thai-red-curry': {
+    title: 'Thai Red Curry',
+    url: 'https://app.notion.com/p/133e4e7470e58098818cefae99f2fab8',
+    copy: `### Thai Red Curry Paste Recipe
+### Step-by-Step Process:
+1. **Toast spices:** In a dry skillet, toast cumin and coriander seeds until fragrant. Remove from heat and let cool.
+2. **Grind spices:** Using a spice grinder or mortar and pestle, grind the toasted spices into a fine powder.
+3. **Prepare aromatics:** Roughly chop shallots, garlic, and lemongrass. Deseed and chop red chilies.
+4. **Blend ingredients:** In a food processor, combine ground spices, chopped aromatics, ginger, lime zest, miso paste, and a pinch of salt.
+5. **Process:** Pulse the mixture, gradually adding a small amount of neutral oil to help it blend smoothly.
+6. **Adjust consistency:** Continue blending until you achieve a smooth, thick paste-like consistency.
+7. **Taste and adjust:** Taste the paste and adjust seasoning if needed. Add more chilies for heat or lime zest for brightness.
+
+### Step-by-Step Process:
+1. **Prepare ingredients:** Chop all vegetables and protein. Have all ingredients measured and ready.
+2. **Heat the pan:** In a large skillet or wok, heat coconut oil over medium heat.
+3. **Sauté aromatics:** Add onion, garlic, and ginger. Cook until fragrant and onion is translucent, about 3-4 minutes.
+4. **Add curry paste:** Stir in the Thai red curry paste and cook for 1-2 minutes until fragrant.
+5. **Pour in liquids:** Add coconut milk and broth. Stir to combine and bring to a simmer.
+6. **Cook protein:** Add your chosen protein (chicken, tofu, or shrimp) and simmer until cooked through.
+7. **Add vegetables:** Stir in bell pepper, zucchini, and bamboo shoots. Simmer for 5-7 minutes until vegetables are tender-crisp.
+8. **Finish:** Remove from heat and stir in fresh basil leaves.
+9. **Serve:** Ladle the curry over steamed rice and serve with lime wedges on the side.`
+  },
+  'dosa-batter': {
+    title: 'Dosa Batter',
+    url: 'https://app.notion.com/p/140e4e7470e5800d959df89ef31a321c',
+    copy: `With a 3:1 ratio - rice grains and Urad dal.
+Mix it in the grinder with water to it.
+Add a little bit of methi to it.`
+  },
+  'thai-veggie-soup': {
+    title: "Saumya's Thai Veggie Soup",
+    url: 'https://app.notion.com/p/22be4e7470e580039f01ff9aa52fd168',
+    copy: `Saute in butter:
+Green chillies, Onion, Bell peppers, Broccoli
+Add salt and then vegetable broth
+Let it come to a boil
+Add peanut butter, a splash of milk and gochujang
+Reduce, reduce, reduce
+Servvvvve!`
+  },
+  'dal-fry': {
+    title: 'Dal Fry - Tur/Masoor or mix',
+    url: 'https://app.notion.com/p/134e4e7470e58034879bedf4ec211f7b',
+    copy: `1- Rinse the dal (I used mix of toor and masoor) and transfer to an instant pot or pressure cooker. Add 1/2 teaspoon turmeric, 1/2 teaspoon salt and 3 cups water. Stir.
+2- Boil the dal using either-
+Instant Pot: cook on high pressure for 8 minutes with natural pressure release.
+Stove-top pressure cooker: cook for 4 to 5 whistles on high then lower the heat and let it cook for 3 to 4 minutes. Set aside.
+3- Heat oil in a pan on medium heat. Once hot, add the cumin seeds and let them sizzle. Then add dried red chili and hing and saute for few seconds.
+4- Add onions (also add 1/4 teaspoon salt for the onions to cook faster) and cook for around 4 minutes until soft and light golden brown in color.
+5- Add crushed garlic-ginger and sliced green chili. Cook for 1-2 minutes until the raw smell goes away.
+6- Add chopped tomatoes and stir.
+7- Then add the garam masala, red chili powder and mix. Cook for 6 to 7 minutes until tomatoes are very soft and cooked and oil oozes from the side of the masala.
+8- This step is important, don’t rush it. Stir in between and I also added around 2 tablespoon water so that the masala doesn’t burn.
+9- Now add the boiled dal to the pan and mix. Add water to thin out the dal at this pont, I added 1 cup water here, you can add as per your taste.
+10- Add kasuri methi,
+11- Also add the chopped cilantro. Add the remaining 1/4 teaspoon salt and mix.
+12- Let the dal simmer for 3 to 4 minutes on low-medium heat.
+You can serve the dal at this step or do the extra step of giving it a smokey flavor (dhungar method).
+*Dhungar Method (Optional)*
+13- For the dhungar method, place a steel bowl on top of the dal. Meanwhile heat a piece of charcoal over direct heat until it’s red hot.
+14- Place hot charcoal in that steel bowl on top of trivet. Pour oil on top of charcoal. You will immediately see fumes coming out of charcoal.
+15- Immediately close the pot with a lid. Let it remain like this for 5 to 10 minutes.
+16- Then open the lid and remove the bowl from dal.
+The longer you keep the lid closed, the smokier dal will get, so don’t do more than 10 minutes. I did for 7 minutes.`
+  },
+  'dal-dhokdi': {
+    title: 'Dal Dhokdi',
+    url: 'https://app.notion.com/p/369e4e7470e58028a248d18ac8e2dc34',
+    copy: `THE DAL - 
+Tur dal - soak for 4-5 hours first. 
+Pressure cook the dal. Then blend it a little with a hand blender, make sure its a bit thin. 
+Then put dhana jeeru, red mirchi, haldi, salt, imli paste, jaggery, crush ginger.
+Separately, in ghee waghar - use rai, green chili cut, curry leaves and hing. and then add it to the dal. 
+THE DHOKDI - 
+Wheat atta - add ajwain, hing, haldi, red mirchi, salt, oil. 
+Make very thin rotis - DON’T COOK! KEEP THEM RAW! 
+Once dal is ready, cut the roti into pieces and put them in the BOILING DAL and KEEP STIRRING TO ENSURE THEY DO NOT STICK TOGETHER.`
+  },
+  chole: {
+    title: 'Chole',
+    url: 'https://app.notion.com/p/29ee4e7470e5804ca6a2fc128a5955ce',
+    copy: `1. Overnight chana dal soak
+2. In a handkerchief put - tea dried, cinnamon, big and small elaichi (only one big), cloves, whole pepper. Tie it in and put it in the cooker with chana dal. Put amla dried separately with the chana dal. 
+3. In pan, oil - let it heat. then add tomato.
+4. Add red chili powder, chole powder. let it cook. (chole powder, 2 spoons). then add ginger
+5. add the chole, then add salt and let it simmer. 
+simple and done.`
+  },
+  'nawabi-malai-chicken': {
+    title: 'Quick Nawabi Malai Chicken',
+    url: 'https://app.notion.com/p/1e4e4e7470e58027a920f4a16f0bd64a',
+    copy: `30-Minute and effortless Nawabi Malai Chicken
+Ingredients:
+For the Marinade/Gravy Base:
+3-4 green chilies (adjust to taste)
+10-12 cashews
+1/2 cup plain yogurt
+1 tbsp Kashmiri red chili powder
+1 tsp coriander powder
+1 tsp onion powder
+1 tsp red chili powder
+1/2 tsp cardamom powder
+1 tsp garam masala powder
+1 tbsp ginger garlic paste
+2 tbsp fresh cream
+1 tbsp coconut powder (or grated coconut)
+Salt to taste
+1 tsp cumin powder
+For Cooking:
+1 lb (450g) boneless chicken, cut into large pieces
+2 tbsp oil
+1 medium onion, finely chopped
+2 tbsp tomato ketchup
+Pinch of sugar
+1 tbsp kasoori methi (dried fenugreek leaves)
+Instructions:
+Prepare the Marinade:
+In a blender, combine the green chilies, cashews, yogurt, Kashmiri red chili powder, coriander powder, onion powder, red chili powder, cardamom powder, garam masala powder, ginger garlic paste, fresh cream, coconut powder, salt, and cumin powder.
+Blend into a smooth paste.
+Marinate the Chicken:
+Coat the boneless chicken pieces with the prepared marinade. Ensure each piece is evenly covered.
+Let it marinate for 10-15 minutes while you prepare the curry.
+Cook the Chicken:
+Heat oil in a large pan over medium heat. Add the finely chopped onions and sauté until they turn light golden brown.
+Add the marinated chicken along with all of the marinade paste into the pan. Mix well.
+Cover and cook for about 15 minutes on medium heat, stirring occasionally. The chicken will cook in its own juices, and the oil will start separating from the gravy.
+Finish the Curry:
+Once the oil starts to ooze out and the curry darkens, add 2 tablespoons of tomato ketchup and a pinch of sugar. Stir well.
+Sprinkle kasoori methi (crush it between your palms before adding) and mix it into the gravy.
+Let it cook on medium-low heat for another 5 minutes until the flavors meld together.
+Serve:
+Once done, the Nawabi Malai Chicken is ready to serve. Enjoy it with naan or rice for a delicious meal!
+Tips:
+You can also add a bit of red/orange food color for extra dark color of the gravy`
   }
 };
 
