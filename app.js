@@ -277,7 +277,7 @@ Add eggs.`
   'moms-mix-dal': {
     title: "Mom's Mix dal",
     url: 'https://app.notion.com/p/180e4e7470e580eeab35c165578549c7',
-    copy: `1. Mix masur, tur, and yellow mung dal and boil it. 
+    copy: `1. Mix masur, tur, and yellow mung dal and boil it.
 2. Separately, in waghar - with ghee, add cinnamon, clove, pepper powder. Let it fry a bit, then jeera, curry leaves, hing, haldi, a bit red chilli powder and immediately add to the dal
 3. add salt and let it simmer. `
   },
@@ -351,24 +351,24 @@ The longer you keep the lid closed, the smokier dal will get, so don’t do more
   'dal-dhokdi': {
     title: 'Dal Dhokdi',
     url: 'https://app.notion.com/p/369e4e7470e58028a248d18ac8e2dc34',
-    copy: `THE DAL - 
-Tur dal - soak for 4-5 hours first. 
-Pressure cook the dal. Then blend it a little with a hand blender, make sure its a bit thin. 
+    copy: `THE DAL -
+Tur dal - soak for 4-5 hours first.
+Pressure cook the dal. Then blend it a little with a hand blender, make sure its a bit thin.
 Then put dhana jeeru, red mirchi, haldi, salt, imli paste, jaggery, crush ginger.
-Separately, in ghee waghar - use rai, green chili cut, curry leaves and hing. and then add it to the dal. 
-THE DHOKDI - 
-Wheat atta - add ajwain, hing, haldi, red mirchi, salt, oil. 
-Make very thin rotis - DON’T COOK! KEEP THEM RAW! 
+Separately, in ghee waghar - use rai, green chili cut, curry leaves and hing. and then add it to the dal.
+THE DHOKDI -
+Wheat atta - add ajwain, hing, haldi, red mirchi, salt, oil.
+Make very thin rotis - DON’T COOK! KEEP THEM RAW!
 Once dal is ready, cut the roti into pieces and put them in the BOILING DAL and KEEP STIRRING TO ENSURE THEY DO NOT STICK TOGETHER.`
   },
   chole: {
     title: 'Chole',
     url: 'https://app.notion.com/p/29ee4e7470e5804ca6a2fc128a5955ce',
     copy: `1. Overnight chana dal soak
-2. In a handkerchief put - tea dried, cinnamon, big and small elaichi (only one big), cloves, whole pepper. Tie it in and put it in the cooker with chana dal. Put amla dried separately with the chana dal. 
+2. In a handkerchief put - tea dried, cinnamon, big and small elaichi (only one big), cloves, whole pepper. Tie it in and put it in the cooker with chana dal. Put amla dried separately with the chana dal.
 3. In pan, oil - let it heat. then add tomato.
 4. Add red chili powder, chole powder. let it cook. (chole powder, 2 spoons). then add ginger
-5. add the chole, then add salt and let it simmer. 
+5. add the chole, then add salt and let it simmer.
 simple and done.`
   },
   'nawabi-malai-chicken': {
