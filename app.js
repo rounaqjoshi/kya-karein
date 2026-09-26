@@ -417,6 +417,198 @@ Serve:
 Once done, the Nawabi Malai Chicken is ready to serve. Enjoy it with naan or rice for a delicious meal!
 Tips:
 You can also add a bit of red/orange food color for extra dark color of the gravy`
+  },
+  'banana-protein-bread': {
+    title: 'Healthy Banana Protein Bread (2 Options)',
+    url: 'https://app.notion.com/p/1d5e4e7470e5808d9220cf8c8c88da58',
+    copy: `OPTION 1 -
+When banana bread and coffee get married...
+✅Flourless
+✅5 ingredients
+✅SO EASY
+Enjoy 😉
+DB x
+INGREDIENTS
+▪️3 ripe bananas, mashed
+▪️1 cup of peanut butter, pourable
+▪️1 tsp baking powder
+▪️2 eggs
+▪️4 tsp instant coffee, mixed with 3 tbsp hot water
+Chocolate chips, optional
+METHOD
+▪️Preheat oven to 180c
+▪️In a bowl mix together all the ingredients
+▪️Pour into a prepared loaf tin
+▪️Top with more chocolate chips (optional)
+▪️Bake for 30-35 minutes
+OPTION 2 -
+Ingredients:
+- 2 eggs
+- 3 bananas
+- 1/4 cup any milk (we used 1% skim)
+- 1 tsp vanilla extract
+- 2 tsp coconut oil (or olive oil)
+- 1 heaping cup flour (we use blended rolled oats for lower calorie)
+- 2 scoops vanilla protein powder
+- 1 tsp cinnamon
+- 1 tsp baking powder
+- 1/4 cup any sweetener (we use stevia brown sugar)
+- 1/2 tsp salt
+- 1/3 cup dark chocolate (cut from a bar or chips)
+- optional: add 1/4 cup low calorie maple syrup for a sweeter banana bread
+-
+Baking Time: 350°F for 35-40 minutes. The centre should still be soft but firm.
+-
+Approx. 10 servings. 143 calories, 9g protein, 16g carbs, 6g fat per serving`
+  },
+  'lahori-dal': {
+    title: 'Lahori Dal',
+    url: 'https://app.notion.com/p/1d5e4e7470e580f59e60f974b72a7166',
+    copy: `Lahsuni dal recipe:-
+- In a pressure cooker take soaked masoor dal add ginger garlic green chillies salt , turmeric big elaichi dalchini and water & take 4 whistle.
+- ⁠In a pan dry roast kasuri methi and take out let it cool down .
+- ⁠In a same pan take desi ghee jeera ginger garlic paste tomatoes purée & roasted kasuri methi Garam masala now add cooked dal adjust the consistency and add the cream in last and cook for few minutes and enjoy !`
+  },
+  'hainanese-chicken-rice': {
+    title: 'One Pot Rice Cooker Hainanese Chicken and Rice',
+    url: 'https://app.notion.com/p/3e7e4e7470e5813c8cfce9aa766f63b9',
+    copy: `## Ingredients
+Chicken & Rice
+- 14 oz chicken thighs, skinless, boneless, raw
+- 1.5 tsp sesame oil
+- 1/4 tsp salt
+- 1.5 tbsp minced garlic
+- 1 tbsp minced ginger
+- 1 cup chicken bone broth
+- 2/3 cups jasmine rice, uncooked/raw
+- 1 tsp chicken bouillon powder
+- 1 persian cucumber
+- green onions, thinly sliced
+Chili Sauce
+- 1.5 tbsp minced garlic
+- 2 tbsp sambal chili paste
+- 2 tbsp sriracha
+- 2 tbsp chicken broth
+- 1 tbsp lime juice
+- 1/2 tsp brown sugar
+## Steps
+1. Dice your cucumbers into thin circles and thinly slice your green onions.
+2. Wash your uncooked rice clean.
+3. In your rice cooker pot, add your minced garlic, minced ginger, chicken bone broth, chicken bouillon powder, and uncooked rice and mix.
+4. Marinate your raw chicken with salt and sesame oil then add into your rice cooker pot.
+5. Cook in your rice cooker for 30-35 minutes on your rice cooker's quick cook setting.
+6. In a small bowl, mix together minced garlic, sambal chili paste, sriracha, chicken broth, lime juice, and brown sugar to make your sauce.
+7. Once cooked, plate half your chicken, half your rice, half the chili sauce, and half your cucumbers and enjoy!
+## Notes
+Macros per 1 serving (recipe makes 2 servings): Protein 49g, Carbs 63g, Fat 12g, Calories 583.`
+  },
+  'mix-veg-bhindi': {
+    title: 'Mix Veg / Bhindi',
+    url: 'https://app.notion.com/p/133e4e7470e58071959ac1b1b4d8165b',
+    copy: `Cut the veggies. Or Bhindi.
+Pan - Oil + hing + green chili + Dhania + turmeric + red chili. Let cook.
+Add the cut veggies or bhindi. Add salt and let it cook till soft.
+(Bhindi needs more oil)
+(Dum aloo is the same, except it needs to be boiled first and peeled.)`
+  },
+  'sprouts-subzi': {
+    title: 'Sprouts subzi',
+    url: 'https://app.notion.com/p/142e4e7470e5802b85d6f47f5791a47d',
+    copy: `Water, sprouts in cooker. 3 whistles.
+Cut onion and tomatoes meanwhile.
+Pan - Oil + rai + jeera + hing + cut onions
+After golden, put tomatoes and ginger garlic paste.
+Add dhania, turmeric, red chilli.
+Add sprouts and let cook.`
+  },
+  'baigan-bhaat': {
+    title: 'Baigan Bhaat',
+    url: 'https://app.notion.com/p/133e4e7470e580a29a56f1626f6c96ab',
+    copy: `Take rice and brinjal and soften it in cooker.
+Then crush the soft brinjal and add it in a big bowl with cooked rice and add half cup curd, haldi, garlic, ginger chilli paste, salt - heat all it.
+In the end, rai and red chilli - heat separately and add on the top. Add water if needed.`
+  },
+  'masala-tikkis': {
+    title: 'Masala Tikkis',
+    url: 'https://app.notion.com/p/142e4e7470e5800ea03beb4982796cc9',
+    copy: `1. Boil the potatoes and mash them. Add some butter, salt, pepper, egg, some flour, with spices as per you desire.
+2. Refrigerate it.
+3. Take it out and mash it like a dough, add some cheese to the center of it and shallow fry till golden brown.
+This can also be fried by coating it in some flour, panko bread crumbs and egg wash.`
+  },
+  'thai-green-curry': {
+    title: 'Thai Green Curry',
+    url: 'https://app.notion.com/p/133e4e7470e58088a278d94d988b04fc',
+    copy: `Basil, coriander, spring onion, lemon grass, peppercorns, coriander seeds, cumin seeds - in mixture with water to make paste.
+Add veggies as per you want in another pan. Cook and simmer. Then transfer to the paste + coconut milk and add some salt. Ready`
+  },
+  poha: {
+    title: 'Poha',
+    url: 'https://app.notion.com/p/140e4e7470e580f89b20cabb354ac107',
+    copy: `Take poha. Wash it.
+Oil + Rai + cut green chili + curry leaves + hing + cut onions
+Add tomatoes and peas.
+After 3-5 mins add turmeric. And then poha, salt, sugar and lime. Finally, coriander.`
+  },
+  upma: {
+    title: 'Upma',
+    url: 'https://app.notion.com/p/133e4e7470e5805daf3fd9727e204a7a',
+    copy: `Slice onions, green chilli, lemon.
+Pan - oil + rai + chana dal + curry leaves + green chilli + hing. Then sliced onions
+Cook well and then add rawa.
+Separate utensil, boil water with salt and lemon juice in it. Once boiling, add to the main pan.
+Cook till dal softens.`
+  },
+  'yellow-dal': {
+    title: 'Yellow Dal',
+    url: 'https://app.notion.com/p/142e4e7470e580b5ae8de322db579c34',
+    copy: `Soak tur and chana dal overnight.
+In cooker - put both and boil it for about 3-4 whistles.
+Pan - Oil + Rai + curry leaves + hing + onion.
+When golden, add dal and a little water. Keep stirring. Add red chili + turmeric + dhania and salt. Adjust consistency.`
+  },
+  'nani-laal-bateta': {
+    title: "Nani's laal bateta nu shaak",
+    url: 'https://app.notion.com/p/187e4e7470e580b78a2fea39fbf6484d',
+    copy: `1. Cut potatoes like fries, long.
+2. In Oil, add hing and then put the potato in it and after half-cooking it, add red mirchi and dhana jeeru and salt. That’s it and mix it well.`
+  },
+  'thecha-paneer': {
+    title: 'Thecha Paneer',
+    url: 'https://app.notion.com/p/16be4e7470e58056b60ad7a2e6a74025',
+    copy: `Recipe -
+1. Add oil and fry paneer on both sides
+2. Same pan - add oil and add 2 tbsp cumin seeds, lot of garlic, green chillies, seasame seeds, dry coconut and fresh coriander, cook for 2-3 minutes
+3. Transfer this in grinder and make paste
+4. In pan - add sliced onion, cook until golden brown, add paste, cook and add some water then to mix it well
+5. add haldi, coriander powder and salt
+6. Add friend paneer and fresh green chillis
+7. add garam masala and garnish with fresh coriander`
+  },
+  'butternut-squash-rice': {
+    title: 'Butternut Squash with rice',
+    url: 'https://app.notion.com/p/16be4e7470e580aa9d7ac14c2079a754',
+    copy: `### INGREDIENTS (2-3 servings)
+- 1 butternut squash, cut into ½ in (1cm) cubes
+- ¼ cup (56.7g) butter
+- 2 sage leaves, minced (plus 3 or 4 more for garnish)
+- 3 cups (709ml) vegetable broth
+- ½ yellow onion, finely diced
+- 5oz (140g) arborio rice
+- ½ cup (118ml) dry white wine
+- ½ cup (45g) parmesan cheese, freshly grated
+- Zest of 1 lemon
+- Extra virgin olive oil
+- Salt and pepper
+Roast the butternut squash. Preheat oven to 425F (210C). Spread the cubes of butternut squash over the pan (make sure to oil the pan well to avoid squash from sticking). Drizzle olive oil, salt and pepper. Toss to coat evenly, then spread the cubes back over the pan so they all sit in a single layer. Roast for 15-20 minutes, or until squash cubes feel soft when poked
+1. Brown the butter. Heat up butter over medium heat in a small pot (stainless steel works best so you can check the color). Continue to stir until butter turns brown. If bubbles appear, briefly take the pan off the heat. Bubbles are normal and it means water is evaporating! Butter is ready when brown bits appear and it begins to smell nutty
+2. Cook the risotto. Add brown butter to a large saute over medium/low heat (reserve a spoonful to coat the risotto at the end). Add a drizzle of olive oil and mix. Add onion and cook until soft, about 7 minutes
+3. Add risotto rice and minced sage leaves. Mix well to combine for 2 minutes
+4. Add wine and stir
+5. When wine is fully absorbed, add 1 ladleful of warm vegetable broth. Continue to stir until the broth is almost absorbed. Continue adding broth, one laderful at a time, allowing each ladle to be absorbed before adding more
+6. Take a quarter of the roasted squash cubes (about 70g/2.5oz) and mash them using a fork. When there’s about a cup left of broth, add the butternut squash paste. Mix well to combine. Then add the butternut squash cubes (reserve 5-6 for garnish). Keep adding the broth until absorbed
+7. Stir in the grated parmesan and lemon zest. Stir until the cheese is fully melted. Then, add a spoonful of the remaining brown butter. Stir well to combine, and season with salt and pepper if needed
+8. The risotto is best when served immediately. Garnish with roasted butternut squash cubes. I like to add dried sage for garnish as well`
   }
 };
 

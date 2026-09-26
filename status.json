@@ -1,16 +1,16 @@
 {
   "site": "kya-karein",
   "schema_version": 1,
-  "week_start": "2026-09-21",
-  "week_end": "2026-09-27",
-  "built_at": "2026-09-20T15:27:36-04:00",
+  "week_start": "2026-09-28",
+  "week_end": "2026-10-04",
+  "built_at": "2026-09-26T18:16:25-04:00",
   "timezone": "America/Toronto",
   "pages": {
-    "index.html": "2026-09-21/2026-09-27",
-    "meals.html": "2026-09-21/2026-09-27"
+    "index.html": "2026-09-28/2026-10-04",
+    "meals.html": "2026-09-28/2026-10-04"
   },
   "meal_source_policy": "notion-and-trisha-only",
   "preference_mode": "source-locked-baseline-no-row",
-  "preference_week_start": "2026-09-21",
+  "preference_week_start": "2026-09-28",
   "preference_row_used": null
 }
